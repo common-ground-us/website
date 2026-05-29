@@ -21,8 +21,10 @@ export function InstallPrompt() {
       (navigator as unknown as { standalone?: boolean }).standalone === true;
     setIsStandalone(standalone);
 
-    // Detect iOS
-    const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    // Detect iOS (iPadOS 13+ reports as Mac in UA, so check touch support)
+    const ios =
+      /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     setIsIOS(ios);
 
     // Check if user previously dismissed

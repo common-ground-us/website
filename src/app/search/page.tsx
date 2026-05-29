@@ -229,9 +229,9 @@ function SearchPageInner() {
       <Header />
       <main id="main-content" className="flex-1">
         {/* Search header */}
-        <section className="bg-[#1a2a4a] text-white py-10">
+        <section className="bg-[#1a2a4a] text-white py-5 sm:py-6">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <h1 className="text-2xl sm:text-3xl font-display font-bold mb-4">
+            <h1 className="text-2xl sm:text-3xl font-display font-bold mb-3">
               Policy Library
             </h1>
             <div className="relative max-w-2xl">

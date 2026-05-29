@@ -65,33 +65,45 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch: cache-first for same-origin, network-first for external
+// Fetch: cache-first for same-origin
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
+  const request = event.request;
 
   // Only handle same-origin GET requests
-  if (event.request.method !== "GET" || url.origin !== self.location.origin) {
+  if (request.method !== "GET" || url.origin !== self.location.origin) {
     return;
   }
 
+  // Navigation requests: serve from cache with fallback to /
+  if (request.mode === "navigate") {
+    event.respondWith(
+      caches.match(url.pathname, { ignoreSearch: true })
+        .then((cached) => cached || caches.match("/"))
+        .then((fallback) => fallback || fetch(request))
+    );
+    return;
+  }
+
+  // Next.js client-side navigation (RSC requests):
+  // These fetch page URLs with RSC headers — match by pathname
+  if (request.headers.get("RSC") === "1" || request.headers.get("Next-Router-State-Tree")) {
+    event.respondWith(
+      caches.match(url.pathname, { ignoreSearch: true })
+        .then((cached) => cached || fetch(request))
+        .catch(() => caches.match("/"))
+    );
+    return;
+  }
+
+  // All other assets: cache-first with network fallback
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) {
-        // Return cached, and update in background (stale-while-revalidate)
-        const fetchPromise = fetch(event.request).then((response) => {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        }).catch(() => {});
-        return cached;
-      }
-      // Not in cache — fetch from network and cache it
-      return fetch(event.request).then((response) => {
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
         if (response && response.status === 200) {
           const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
         }
         return response;
       });

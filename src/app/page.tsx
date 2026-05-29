@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ServiceWorkerRegistration from "@/lib/ServiceWorkerRegistration";
 import policiesData from "../../data/policies.json";
 import type { Policy } from "@/lib/types";
 
@@ -35,7 +34,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <ServiceWorkerRegistration />
       <Header />
       <main id="main-content" className="flex-1">
         {/* Hero with background image */}

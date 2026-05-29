@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Import Excel data
-        run: npm run import-excel
-
       - name: Build
         run: npm run build
         env:

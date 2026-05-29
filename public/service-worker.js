@@ -6,7 +6,7 @@
  *   - Offline fallback for navigation
  */
 
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v6";
 const STATIC_CACHE = `cg-static-${CACHE_VERSION}`;
 const DATA_CACHE = `cg-data-${CACHE_VERSION}`;
 
@@ -88,7 +88,51 @@ self.addEventListener("fetch", (event) => {
           }
           return response;
         })
-        .catch(() => caches.match(request).then((cached) => cached || caches.match("/")))
+        .catch(() =>
+          caches.match(url.pathname, { ignoreSearch: true }).then(
+            (cached) => cached || caches.match("/")
+          )
+        )
+    );
+    return;
+  }
+
+  // Next.js client-side navigation (RSC requests to page URLs):
+  // These fetch the same page URL but with special headers (RSC: 1).
+  // Match by pathname ignoring headers so cached HTML is served offline.
+  if (request.headers.get("RSC") === "1" || request.headers.get("Next-Router-State-Tree")) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
+        .catch(() =>
+          caches.match(url.pathname, { ignoreSearch: true }).then(
+            (cached) => cached || caches.match("/")
+          )
+        )
+    );
+    return;
+  }
+
+  // Next.js RSC/prefetch requests: cache-first, fallback triggers full navigation
+  if (url.pathname.startsWith("/_next/")) {
+    event.respondWith(
+      caches.match(request).then(
+        (cached) =>
+          cached ||
+          fetch(request).then((response) => {
+            if (response.ok) {
+              const clone = response.clone();
+              caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
+            }
+            return response;
+          }).catch(() => new Response("", { status: 503 }))
+      )
     );
     return;
   }
@@ -102,7 +146,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
         }
         return response;
-      })
+      }).catch(() => new Response("", { status: 503 }))
     )
   );
 });

@@ -6,7 +6,7 @@
  *   - Offline fallback for navigation
  */
 
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const STATIC_CACHE = `cg-static-${CACHE_VERSION}`;
 const DATA_CACHE = `cg-data-${CACHE_VERSION}`;
 
@@ -20,13 +20,28 @@ const PRECACHE_ASSETS = [
   "/icons/icon-512.png",
 ];
 
-// Install: precache all static assets + policy data
+// Install: precache all static assets + policy pages
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches
-      .open(STATIC_CACHE)
-      .then((cache) => cache.addAll(PRECACHE_ASSETS))
-      .then(() => self.skipWaiting())
+    (async () => {
+      const cache = await caches.open(STATIC_CACHE);
+      await cache.addAll(PRECACHE_ASSETS);
+
+      // Fetch policies.json and precache all individual policy pages
+      try {
+        const response = await fetch("/data/policies.json");
+        const policies = await response.json();
+        const policyUrls = policies
+          .filter((p) => p.id !== "short-name" && p.overallSupport !== null)
+          .map((p) => `/policies/${p.id}/`);
+        await cache.addAll(policyUrls);
+      } catch (e) {
+        // If fetching policies fails, we still have base precache
+        console.warn("[SW] Could not precache policy pages:", e);
+      }
+
+      await self.skipWaiting();
+    })()
   );
 });
 

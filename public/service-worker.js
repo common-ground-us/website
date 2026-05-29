@@ -6,7 +6,7 @@
  *   - Offline fallback for navigation
  */
 
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const STATIC_CACHE = `cg-static-${CACHE_VERSION}`;
 const DATA_CACHE = `cg-data-${CACHE_VERSION}`;
 
@@ -18,6 +18,7 @@ const PRECACHE_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
+  "/images/hero.jpg",
 ];
 
 // Install: precache all static assets + policy pages

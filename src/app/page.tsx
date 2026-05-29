@@ -42,7 +42,7 @@ export default function Home() {
         <section className="relative">
           {/* Background image */}
           <img
-            src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=1400&q=80&fit=crop&crop=bottom"
+            src="/images/hero.jpg"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"

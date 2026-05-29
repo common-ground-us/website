@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Mulish, Inter, JetBrains_Mono } from "next/font/google";
+import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import "./globals.css";
 
 const mulish = Mulish({
@@ -76,6 +77,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
+        <ServiceWorkerRegistrar />
         {children}
       </body>
     </html>

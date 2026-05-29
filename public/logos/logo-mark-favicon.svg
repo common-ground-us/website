@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="143.95 61.95 312.09 215.72">
+  <defs>
+    <clipPath id="fav-l"><ellipse cx="271.50" cy="158.00" rx="123.90" ry="92.40"></ellipse></clipPath>
+    <clipPath id="fav-r"><ellipse cx="328.50" cy="158.00" rx="123.90" ry="92.40"></ellipse></clipPath>
+  </defs>
+  
+  <g fill="#1A2A4A">
+    <ellipse cx="271.50" cy="158.00" rx="127.05" ry="95.55"></ellipse>
+    <ellipse cx="213.75" cy="239.90" rx="14.70" ry="14.70"></ellipse>
+    <ellipse cx="181.99" cy="267.20" rx="9.97" ry="9.97"></ellipse>
+    <ellipse cx="328.50" cy="158.00" rx="127.05" ry="95.55"></ellipse>
+    <ellipse cx="386.25" cy="239.90" rx="14.70" ry="14.70"></ellipse>
+    <ellipse cx="418.01" cy="267.20" rx="9.97" ry="9.97"></ellipse>
+  </g>
+  
+  <g fill="#FFFFFF">
+    <ellipse cx="271.50" cy="158.00" rx="123.90" ry="92.40"></ellipse>
+    <ellipse cx="213.75" cy="239.90" rx="11.55" ry="11.55"></ellipse>
+    <ellipse cx="181.99" cy="267.20" rx="6.83" ry="6.83"></ellipse>
+    <ellipse cx="328.50" cy="158.00" rx="123.90" ry="92.40"></ellipse>
+    <ellipse cx="386.25" cy="239.90" rx="11.55" ry="11.55"></ellipse>
+    <ellipse cx="418.01" cy="267.20" rx="6.83" ry="6.83"></ellipse>
+  </g>
+  
+  <g clip-path="url(#fav-l)">
+    <rect x="0" y="80" width="600" height="24" fill="#C0392B"></rect>
+    <rect x="0" y="130" width="600" height="24" fill="#C0392B"></rect>
+    <rect x="0" y="180" width="600" height="24" fill="#C0392B"></rect>
+    <rect x="0" y="230" width="600" height="24" fill="#C0392B"></rect>
+  </g>
+  
+  <g clip-path="url(#fav-r)">
+    <rect x="0" y="105" width="600" height="24" fill="#1A5276"></rect>
+    <rect x="0" y="155" width="600" height="24" fill="#1A5276"></rect>
+    <rect x="0" y="205" width="600" height="24" fill="#1A5276"></rect>
+  </g>
+</svg>

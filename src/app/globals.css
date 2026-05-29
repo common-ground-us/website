@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* ─── Common Ground Brand Tokens ─── */
+@theme inline {
+  /* Colors */
+  --color-navy:           #1a2a4a;
+  --color-navy-light:     #2a3f6e;
+  --color-civic-red:      #b22234;
+  --color-civic-red-light:#c94a59;
+  --color-background:     #f5f6f8;
+  --color-surface:        #ffffff;
+  --color-text-primary:   #1a2a4a;
+  --color-text-secondary: #4a5568;
+  --color-text-muted:     #718096;
+  --color-border:         #e2e8f0;
+
+  /* Party colors */
+  --color-republican:     #e91d1d;
+  --color-democrat:       #1a56c4;
+  --color-independent:    #7c3aed;
+
+  /* Support level colors */
+  --color-support-high:   #16a34a;
+  --color-support-mid:    #ca8a04;
+  --color-support-low:    #dc2626;
+
+  /* Typography */
+  --font-display: var(--font-mulish), ui-sans-serif, system-ui, sans-serif;
+  --font-ui:      var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Breakpoints (mobile-first) */
+  --breakpoint-xs: 390px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1200px;
+}
+
+/* ─── Base Styles ─── */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+/* Skip to content for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 999;
+  padding: 0.5rem 1rem;
+  background: var(--color-navy);
+  color: white;
+  font-size: 0.875rem;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-civic-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Touch targets */
+button, a, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Hide scrollbar on tab strips */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

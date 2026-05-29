@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: common-ground-us/website
+  branch: main
+  # Netlify Identity + Git Gateway provides auth — enable both in Netlify dashboard
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  # Editable site pages (markdown with frontmatter)
+  - name: pages
+    label: Site Pages
+    files:
+      - name: home
+        label: Home Page
+        file: src/content/pages/home.md
+        fields:
+          - { label: Hero Heading, name: heroHeading, widget: string }
+          - { label: Hero Subheading, name: heroSubheading, widget: text }
+          - { label: Mission Title, name: missionTitle, widget: string }
+          - { label: Mission Body, name: missionBody, widget: markdown }
+          - { label: CTA Primary Label, name: ctaPrimaryLabel, widget: string, default: Browse All Policies }
+          - { label: CTA Secondary Label, name: ctaSecondaryLabel, widget: string, default: Learn More }
+
+      - name: about
+        label: About Page
+        file: src/content/pages/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }

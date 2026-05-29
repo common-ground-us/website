@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "Common Ground",
   "short_name": "Common Ground",
   "description": "Tools for an Informed Citizenry — bipartisan policy research",
@@ -9,6 +10,7 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
+  "prefer_related_applications": false,
   "categories": ["education", "government", "news"],
   "icons": [
     {

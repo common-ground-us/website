@@ -82,13 +82,13 @@ export default async function PolicyPage({ params }: Props) {
             <nav aria-label="Breadcrumb">
               <ol className="flex items-center gap-2 list-none m-0 p-0">
                 <li>
-                  <Link href="/" className="hover:text-[#1a2a4a] transition-colors">
+                  <Link href="/" className="hover:text-[#1a2a4a] hover:underline transition-colors">
                     Home
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <Link href="/search/" className="hover:text-[#1a2a4a] transition-colors">
+                  <Link href="/search/" className="hover:text-[#1a2a4a] hover:underline transition-colors">
                     Policies
                   </Link>
                 </li>
@@ -98,7 +98,7 @@ export default async function PolicyPage({ params }: Props) {
                     <li>
                       <Link
                         href={`/search/?category=${encodeURIComponent(policy.genericCategory)}`}
-                        className="hover:text-[#1a2a4a] transition-colors"
+                        className="hover:text-[#1a2a4a] hover:underline transition-colors"
                       >
                         {policy.genericCategory}
                       </Link>
@@ -114,16 +114,22 @@ export default async function PolicyPage({ params }: Props) {
         <section className="bg-white border-b border-[#e2e8f0]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
             <div className="max-w-3xl">
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
                 {policy.genericCategory && (
-                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568]">
+                  <Link
+                    href={`/search/?category=${encodeURIComponent(policy.genericCategory)}`}
+                    className="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568] hover:bg-[#e2e8f0] hover:text-[#1a2a4a] transition-colors leading-none"
+                  >
                     {policy.genericCategory}
-                  </span>
+                  </Link>
                 )}
                 {policy.subCategory && (
-                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568]">
+                  <Link
+                    href={`/search/?q=${encodeURIComponent(policy.subCategory)}`}
+                    className="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568] hover:bg-[#e2e8f0] hover:text-[#1a2a4a] transition-colors leading-none"
+                  >
                     {policy.subCategory}
-                  </span>
+                  </Link>
                 )}
               </div>
 

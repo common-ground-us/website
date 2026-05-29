@@ -6,12 +6,13 @@
  *   - Offline fallback for navigation
  */
 
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const STATIC_CACHE = `cg-static-${CACHE_VERSION}`;
 const DATA_CACHE = `cg-data-${CACHE_VERSION}`;
 
 const PRECACHE_ASSETS = [
   "/",
+  "/about/",
   "/search/",
   "/data/policies.json",
   "/manifest.webmanifest",
@@ -59,14 +60,18 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Navigation requests: cache-first with offline fallback
+  // Navigation requests: network-first with offline fallback
   if (request.mode === "navigate") {
     event.respondWith(
-      caches.match(request).then(
-        (cached) =>
-          cached ||
-          fetch(request).catch(() => caches.match("/") )
-      )
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match("/")))
     );
     return;
   }

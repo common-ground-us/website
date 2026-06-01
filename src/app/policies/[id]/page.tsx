@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import Collapsible from "@/components/ui/Collapsible";
 import policiesData from "../../../../data/policies.json";
 import type { Policy } from "@/lib/types";
@@ -78,7 +79,7 @@ export default async function PolicyPage({ params }: Props) {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <div className="bg-[#f5f6f8] border-b border-[#e2e8f0]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 text-sm text-[#718096]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 text-sm text-[#718096] flex items-center justify-between">
             <nav aria-label="Breadcrumb">
               <ol className="flex items-center gap-2 list-none m-0 p-0">
                 <li>
@@ -107,6 +108,7 @@ export default async function PolicyPage({ params }: Props) {
                 )}
               </ol>
             </nav>
+            <BackButton />
           </div>
         </div>
 

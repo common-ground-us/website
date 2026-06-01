@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PolicyCard from "@/components/PolicyCard";
@@ -167,15 +167,28 @@ function applySorting(policies: Policy[], sort: SortKey): Policy[] {
 
 function SearchPageInner() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const initialQuery = searchParams.get("q") ?? "";
   const initialCategory = searchParams.get("category") ?? "";
+  const initialSort = (searchParams.get("sort") as SortKey) || "support-desc";
 
   const [query, setQuery] = useState(initialQuery);
   const [categoryFilter, setCategoryFilter] = useState(initialCategory);
-  const [sortKey, setSortKey] = useState<SortKey>("support-desc");
+  const [sortKey, setSortKey] = useState<SortKey>(initialSort);
   const [allPolicies, setAllPolicies] = useState<Policy[]>([]);
   const [results, setResults] = useState<Policy[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Sync filter state to URL so it persists on back navigation
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (query) params.set("q", query);
+    if (categoryFilter) params.set("category", categoryFilter);
+    if (sortKey && sortKey !== "support-desc") params.set("sort", sortKey);
+    const search = params.toString();
+    const newUrl = search ? `/search/?${search}` : "/search/";
+    window.history.replaceState(null, "", newUrl);
+  }, [query, categoryFilter, sortKey]);
 
   // Load all policies on mount
   useEffect(() => {

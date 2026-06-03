@@ -275,7 +275,7 @@ function SearchPageInner() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Try &quot;background checks&quot;, &quot;drug pricing&quot;, &quot;ethics&quot;…"
+                placeholder="Try &quot;tax&quot;, &quot;medicare&quot;, &quot;energy&quot;…"
                 aria-label="Search policies"
                 className="w-full pl-10 pr-4 py-3 rounded-lg bg-white text-[#1a2a4a] placeholder-[#718096] text-base focus:outline-none focus:ring-2 focus:ring-[#b22234]"
               />

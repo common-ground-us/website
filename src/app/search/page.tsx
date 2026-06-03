@@ -239,13 +239,25 @@ function SearchPageInner() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main id="main-content" className="flex-1">
-        {/* Search header */}
-        <section className="bg-[#1a2a4a] text-white py-5 sm:py-6">
+        {/* Hero */}
+        <section className="bg-[#1a2a4a] text-white py-4 sm:py-[22px]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <h1 className="text-2xl sm:text-3xl font-display font-bold mb-3">
-              Policy Library
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-[1.6px] font-semibold text-[#e8b8be]">
+              A civic utility · Nonpartisan · Open methodology
+            </p>
+            <h1 className="font-display text-[24px] sm:text-[38px] leading-[1.08] tracking-[-0.5px] sm:tracking-[-1px] font-extrabold mt-1.5 sm:mt-2 [text-wrap:balance] text-white">
+              Making government accountable to the will of the people.
             </h1>
-            <div className="relative max-w-2xl">
+            <p className="font-sans text-[13px] sm:text-[14px] leading-[1.45] text-[#c7cfdc] mt-1.5 sm:mt-2 [text-wrap:pretty]">
+              {allPolicies.length || 216}{" "}places where Americans across party lines demonstrably agree — sourced from the Program for Public Consultation, U.&nbsp;Maryland.
+            </p>
+          </div>
+        </section>
+
+        {/* Search header */}
+        <section className="bg-[#1a2a4a] text-white pt-2 pb-5 sm:pt-3 sm:pb-6">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <div className="relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#718096]"
@@ -263,7 +275,7 @@ function SearchPageInner() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search policies…"
+                placeholder="Try &quot;background checks&quot;, &quot;drug pricing&quot;, &quot;ethics&quot;…"
                 aria-label="Search policies"
                 className="w-full pl-10 pr-4 py-3 rounded-lg bg-white text-[#1a2a4a] placeholder-[#718096] text-base focus:outline-none focus:ring-2 focus:ring-[#b22234]"
               />

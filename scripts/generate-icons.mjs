@@ -3,10 +3,10 @@ import { readFileSync } from "fs";
 
 const svg = readFileSync("public/logos/logo-mark.svg");
 
-// Standard icons (transparent background, logo fills frame)
-await sharp(svg).resize(192, 192).png().toFile("public/icons/icon-192.png");
-await sharp(svg).resize(512, 512).png().toFile("public/icons/icon-512.png");
-await sharp(svg).resize(180, 180).png().toFile("public/icons/apple-touch-icon.png");
+// Standard icons (transparent background, logo shows full breadth)
+await sharp(svg).resize(192, 192, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toFile("public/icons/icon-192.png");
+await sharp(svg).resize(512, 512, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toFile("public/icons/icon-512.png");
+await sharp(svg).resize(180, 180, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toFile("public/icons/apple-touch-icon.png");
 
 // Maskable icons (navy background, logo inset ~70% of frame)
 const bgSvg = Buffer.from(

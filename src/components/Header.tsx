@@ -29,7 +29,6 @@ export default function Header() {
           <ul className="flex items-center gap-1 sm:gap-2 list-none m-0 p-0">
             {[
               { href: "/", label: "Home" },
-              { href: "/search/", label: "Search" },
               { href: "/about/", label: "About" },
             ].map(({ href, label }) => (
               <li key={href}>

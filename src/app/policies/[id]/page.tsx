@@ -89,7 +89,7 @@ export default async function PolicyPage({ params }: Props) {
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <Link href="/search/" className="hover:text-[#1a2a4a] hover:underline transition-colors">
+                  <Link href="/" className="hover:text-[#1a2a4a] hover:underline transition-colors">
                     Policies
                   </Link>
                 </li>
@@ -98,7 +98,7 @@ export default async function PolicyPage({ params }: Props) {
                     <li aria-hidden="true">/</li>
                     <li>
                       <Link
-                        href={`/search/?category=${encodeURIComponent(policy.genericCategory)}`}
+                        href={`/?category=${encodeURIComponent(policy.genericCategory)}`}
                         className="hover:text-[#1a2a4a] hover:underline transition-colors"
                       >
                         {policy.genericCategory}
@@ -119,7 +119,7 @@ export default async function PolicyPage({ params }: Props) {
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 {policy.genericCategory && (
                   <Link
-                    href={`/search/?category=${encodeURIComponent(policy.genericCategory)}`}
+                    href={`/?category=${encodeURIComponent(policy.genericCategory)}`}
                     className="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568] hover:bg-[#e2e8f0] hover:text-[#1a2a4a] transition-colors leading-none"
                   >
                     {policy.genericCategory}
@@ -127,7 +127,7 @@ export default async function PolicyPage({ params }: Props) {
                 )}
                 {policy.subCategory && (
                   <Link
-                    href={`/search/?q=${encodeURIComponent(policy.subCategory)}`}
+                    href={`/?q=${encodeURIComponent(policy.subCategory)}`}
                     className="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-[#f5f6f8] text-[#4a5568] hover:bg-[#e2e8f0] hover:text-[#1a2a4a] transition-colors leading-none"
                   >
                     {policy.subCategory}

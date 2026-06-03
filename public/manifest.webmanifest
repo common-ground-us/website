@@ -44,7 +44,7 @@
       "name": "Search Policies",
       "short_name": "Search",
       "description": "Search the policy library",
-      "url": "/search/",
+      "url": "/",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     }
   ]

@@ -1,221 +1,374 @@
-import Link from "next/link";
+"use client";
+
+import { useState, useEffect, useCallback, useRef, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import policiesData from "../../data/policies.json";
+import PolicyCard from "@/components/PolicyCard";
 import type { Policy } from "@/lib/types";
 
-const allPolicies = (policiesData as Policy[]).filter(
-  (p) => p.overallSupport !== null && p.id !== "short-name"
-);
-const totalCount = allPolicies.length;
-const supermajorityCount = allPolicies.filter(
-  (p) => (p.overallSupport ?? 0) >= 60
-).length;
-const bipartisanCount = allPolicies.filter(
-  (p) =>
-    (p.republicanSupport ?? 0) >= 50 && (p.democratSupport ?? 0) >= 50
-).length;
+/** Horizontally-scrollable tab strip with prev/next arrow buttons */
+function CategoryTabs({
+  categories,
+  allPolicies,
+  categoryFilter,
+  setCategoryFilter,
+}: {
+  categories: string[];
+  allPolicies: Policy[];
+  categoryFilter: string;
+  setCategoryFilter: (c: string) => void;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
-// Top 6 policies by overall support for the featured section
-const topPolicies = [...allPolicies]
-  .sort((a, b) => (b.overallSupport ?? 0) - (a.overallSupport ?? 0))
-  .slice(0, 6);
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  };
 
-export default function Home() {
-  const categories = Array.from(
-    allPolicies.reduce((acc, p) => {
-      if (p.genericCategory)
-        acc.set(p.genericCategory, (acc.get(p.genericCategory) ?? 0) + 1);
-      return acc;
-    }, new Map<string, number>())
-  )
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8);
+  useEffect(() => {
+    updateArrows();
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateArrows, { passive: true });
+    const ro = new ResizeObserver(updateArrows);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", updateArrows);
+      ro.disconnect();
+    };
+  }, [categories]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -240 : 240, behavior: "smooth" });
+  };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="relative flex items-stretch">
+      {/* Left arrow */}
+      <button
+        onClick={() => scroll("left")}
+        aria-label="Scroll tabs left"
+        className={`shrink-0 flex items-center justify-center w-9 bg-white border-r border-[#e2e8f0] text-[#718096] hover:text-[#1a2a4a] hover:bg-[#f5f6f8] transition-all ${
+          canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
+      </button>
+
+      {/* Scrollable tab list */}
+      <div
+        ref={scrollRef}
+        role="tablist"
+        aria-label="Filter by category"
+        className="flex overflow-x-auto scrollbar-hide -mb-px flex-1 min-w-0"
+      >
+        <button
+          role="tab"
+          aria-selected={categoryFilter === ""}
+          onClick={() => setCategoryFilter("")}
+          className={`shrink-0 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#b22234] ${
+            categoryFilter === ""
+              ? "border-[#b22234] text-[#b22234]"
+              : "border-transparent text-[#718096] hover:text-[#1a2a4a] hover:border-[#e2e8f0]"
+          }`}
+        >
+          All
+        </button>
+        {categories.map((cat) => {
+          const count = allPolicies.filter((p) => p.genericCategory === cat).length;
+          const isActive = categoryFilter === cat;
+          return (
+            <button
+              key={cat}
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setCategoryFilter(isActive ? "" : cat)}
+              className={`shrink-0 flex items-center gap-1.5 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#b22234] ${
+                isActive
+                  ? "border-[#b22234] text-[#b22234]"
+                  : "border-transparent text-[#718096] hover:text-[#1a2a4a] hover:border-[#e2e8f0]"
+              }`}
+            >
+              {cat}
+              <span
+                className={`text-xs rounded-full px-1.5 py-0.5 tabular-nums leading-none ${
+                  isActive ? "bg-[#b22234] text-white" : "bg-[#f5f6f8] text-[#718096]"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Right arrow */}
+      <button
+        onClick={() => scroll("right")}
+        aria-label="Scroll tabs right"
+        className={`shrink-0 flex items-center justify-center w-9 bg-white border-l border-[#e2e8f0] text-[#718096] hover:text-[#1a2a4a] hover:bg-[#f5f6f8] transition-all ${
+          canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+type SortKey =
+  | "support-desc"
+  | "support-asc"
+  | "name-asc"
+  | "name-desc"
+  | "date-desc"
+  | "date-asc";
+
+const SORT_OPTIONS: { value: SortKey; label: string }[] = [
+  { value: "support-desc", label: "Support: High → Low" },
+  { value: "support-asc",  label: "Support: Low → High" },
+  { value: "name-asc",     label: "Name: A → Z" },
+  { value: "name-desc",    label: "Name: Z → A" },
+];
+
+function applySorting(policies: Policy[], sort: SortKey): Policy[] {
+  return [...policies].sort((a, b) => {
+    switch (sort) {
+      case "support-desc":
+        return (b.overallSupport ?? -1) - (a.overallSupport ?? -1);
+      case "support-asc":
+        return (a.overallSupport ?? 101) - (b.overallSupport ?? 101);
+      case "name-asc":
+        return a.shortName.localeCompare(b.shortName);
+      case "name-desc":
+        return b.shortName.localeCompare(a.shortName);
+      case "date-desc":
+        return (b.dateOfReport ?? "").localeCompare(a.dateOfReport ?? "");
+      case "date-asc":
+        return (a.dateOfReport ?? "").localeCompare(b.dateOfReport ?? "");
+      default:
+        return 0;
+    }
+  });
+}
+
+function HomePageInner() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const initialQuery = searchParams.get("q") ?? "";
+  const initialCategory = searchParams.get("category") ?? "";
+  const initialSort = (searchParams.get("sort") as SortKey) || "support-desc";
+
+  const [query, setQuery] = useState(initialQuery);
+  const [categoryFilter, setCategoryFilter] = useState(initialCategory);
+  const [sortKey, setSortKey] = useState<SortKey>(initialSort);
+  const [allPolicies, setAllPolicies] = useState<Policy[]>([]);
+  const [results, setResults] = useState<Policy[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Sync filter state to URL so it persists on back navigation
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (query) params.set("q", query);
+    if (categoryFilter) params.set("category", categoryFilter);
+    if (sortKey && sortKey !== "support-desc") params.set("sort", sortKey);
+    const search = params.toString();
+    const newUrl = search ? `/?${search}` : "/";
+    window.history.replaceState(null, "", newUrl);
+  }, [query, categoryFilter, sortKey]);
+
+  // Load all policies on mount
+  useEffect(() => {
+    import("../../data/policies.json").then((mod) => {
+      const policies = (mod.default as Policy[]).filter(
+        (p) => p.id !== "short-name" && p.overallSupport !== null
+      );
+      setAllPolicies(policies);
+      setLoading(false);
+    });
+  }, []);
+
+  const categories = Array.from(
+    new Set(allPolicies.map((p) => p.genericCategory).filter(Boolean))
+  ).sort();
+
+  const runSearch = useCallback(
+    async (q: string, cat: string, policies: Policy[]) => {
+      let filtered = policies;
+
+      if (cat) {
+        filtered = filtered.filter((p) => p.genericCategory === cat);
+      }
+
+      if (!q.trim()) {
+        setResults(filtered);
+        return;
+      }
+
+      const { searchPolicies } = await import("@/lib/search");
+      const searchResults = await searchPolicies(q);
+      const searchIds = new Set(searchResults.map((p) => p.id));
+      setResults(filtered.filter((p) => searchIds.has(p.id)));
+    },
+    []
+  );
+
+  // Debounced search
+  useEffect(() => {
+    if (loading) return;
+    const timer = setTimeout(() => {
+      runSearch(query, categoryFilter, allPolicies);
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [query, categoryFilter, allPolicies, loading, runSearch]);
+
+  const sortedResults = applySorting(results, sortKey);
+
+  return (
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main id="main-content" className="flex-1">
-        {/* Hero with background image */}
-        <section className="relative">
-          {/* Background image */}
-          <img
-            src="/images/hero.jpg"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/90" />
-
-          {/* Content */}
-          <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 pt-14 pb-12 sm:pt-20 sm:pb-16 text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-[#1a2a4a] leading-tight max-w-2xl mx-auto">
-              Americans agree on more than you think.
-            </h1>
-            <p className="mt-4 text-[#4a5568] text-base sm:text-lg max-w-xl mx-auto">
-              Peer-reviewed polling on {totalCount} federal policies shows broad
-              consensus — across party lines.
+        {/* Hero */}
+        <section className="bg-[#1a2a4a] text-white py-4 sm:py-[22px]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-[1.6px] font-semibold text-[#e8b8be]">
+              A civic utility · Nonpartisan · Open methodology
             </p>
-
-            {/* Inline stats row */}
-            <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-4">
-              {[
-                { n: totalCount, label: "Policies" },
-                { n: supermajorityCount, label: "≥60% Support" },
-                { n: bipartisanCount, label: "Bipartisan" },
-              ].map(({ n, label }) => (
-                <div key={label} className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-display font-extrabold text-[#1a2a4a] tabular-nums">
-                    {n}
-                  </span>
-                  <span className="text-[#718096] text-sm">{label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Search CTA */}
-            <div className="mt-8 max-w-md mx-auto">
-              <Link
-                href="/search/"
-                className="flex items-center gap-3 w-full bg-white rounded-lg px-4 py-3 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5 text-[#718096] shrink-0"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-[#718096] text-base text-left flex-1">
-                  Search policies…
-                </span>
-                <span className="text-[#b22234] font-semibold text-sm shrink-0">
-                  Browse All →
-                </span>
-              </Link>
-            </div>
+            <h1 className="font-display text-[24px] sm:text-[38px] leading-[1.08] tracking-[-0.5px] sm:tracking-[-1px] font-extrabold mt-1.5 sm:mt-2 [text-wrap:balance] text-white">
+              Making government accountable to the will of the people.
+            </h1>
+            <p className="font-sans text-[13px] sm:text-[14px] leading-[1.45] text-[#c7cfdc] mt-1.5 sm:mt-2 [text-wrap:pretty]">
+              {allPolicies.length || 216}{" "}places where Americans across party lines demonstrably agree — sourced from the Program for Public Consultation, U.&nbsp;Maryland.
+            </p>
           </div>
         </section>
 
-        {/* Top Policies */}
-        <section className="py-10 sm:py-14">
+        {/* Search header */}
+        <section className="bg-[#1a2a4a] text-white pt-2 pb-5 sm:pt-3 sm:pb-6">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <div className="flex items-baseline justify-between mb-6">
-              <h2 className="text-lg sm:text-xl font-display font-bold text-[#1a2a4a]">
-                Highest Agreement
-              </h2>
-              <Link
-                href="/search/"
-                className="text-sm text-[#b22234] font-medium hover:underline"
+            <div className="relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#718096]"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                View all →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {topPolicies.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/policies/${p.id}/`}
-                  className="group border border-[#e2e8f0] rounded-xl p-4 hover:border-[#1a2a4a] hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs text-[#718096] mb-1">
-                        {p.genericCategory}
-                      </p>
-                      <p className="font-semibold text-[#1a2a4a] text-sm leading-snug group-hover:text-[#b22234] transition-colors line-clamp-2">
-                        {p.shortName}
-                      </p>
-                    </div>
-                    <span className="shrink-0 bg-[#ecfdf5] text-[#065f46] text-sm font-bold px-2 py-0.5 rounded">
-                      {p.overallSupport}%
-                    </span>
-                  </div>
-                  {/* Party bars */}
-                  <div className="mt-3 flex gap-2 text-xs">
-                    {p.republicanSupport !== null && (
-                      <span className="flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-[#e91d1d]" />
-                        <span className="text-[#718096]">{p.republicanSupport}%</span>
-                      </span>
-                    )}
-                    {p.democratSupport !== null && (
-                      <span className="flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-[#1a56c4]" />
-                        <span className="text-[#718096]">{p.democratSupport}%</span>
-                      </span>
-                    )}
-                    {p.independentSupport !== null && (
-                      <span className="flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-[#7c3aed]" />
-                        <span className="text-[#718096]">{p.independentSupport}%</span>
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Categories */}
-        <section className="bg-[#f8f9fa] py-10 sm:py-12 border-t border-[#e2e8f0]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <h2 className="text-lg sm:text-xl font-display font-bold text-[#1a2a4a] mb-6 text-center">
-              Explore by Topic
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {categories.map(([category, count]) => (
-                <Link
-                  key={category}
-                  href={`/search/?category=${encodeURIComponent(category)}`}
-                  className="flex items-center justify-between gap-2 bg-white border border-[#e2e8f0] rounded-lg px-4 py-3 hover:border-[#1a2a4a] hover:shadow-sm transition-all group"
-                >
-                  <span className="font-medium text-sm text-[#1a2a4a] group-hover:text-[#b22234] transition-colors truncate">
-                    {category}
-                  </span>
-                  <span className="text-xs text-[#718096] tabular-nums shrink-0">
-                    {count}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* About teaser */}
-        <section className="py-10 sm:py-12">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-            <div className="flex-1 text-center sm:text-left">
-              <h2 className="text-lg sm:text-xl font-display font-bold text-[#1a2a4a] mb-2">
-                All-volunteer. Nonpartisan. Open source.
-              </h2>
-              <p className="text-[#4a5568] text-sm sm:text-base leading-relaxed max-w-lg">
-                Common Ground curates peer-reviewed research on where Americans
-                actually agree — regardless of party. Every source is cited,
-                every methodology documented.
-              </p>
-            </div>
-            <Link
-              href="/about/"
-              className="shrink-0 inline-flex items-center gap-1.5 bg-[#1a2a4a] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#2a3f6e] transition-colors"
-            >
-              About Us
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
               </svg>
-            </Link>
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Try &quot;tax&quot;, &quot;medicare&quot;, &quot;energy&quot;…"
+                aria-label="Search policies"
+                className="w-full pl-10 pr-4 py-3 rounded-lg bg-white text-[#1a2a4a] placeholder-[#718096] text-base focus:outline-none focus:ring-2 focus:ring-[#b22234]"
+              />
+            </div>
           </div>
+        </section>
+
+        {/* Category tabs */}
+        {!loading && (
+          <div className="bg-white border-b border-[#e2e8f0] sticky top-0 z-10 shadow-sm">
+            <div className="max-w-[1200px] mx-auto">
+              <CategoryTabs
+                categories={categories}
+                allPolicies={allPolicies}
+                categoryFilter={categoryFilter}
+                setCategoryFilter={setCategoryFilter}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Results */}
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
+          {loading ? (
+            <p className="text-[#718096]">Loading policies…</p>
+          ) : (
+            <>
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <p className="text-sm text-[#718096]" aria-live="polite">
+                  {results.length === 0
+                    ? "No policies found."
+                    : `${results.length} polic${results.length === 1 ? "y" : "ies"} found`}
+                  {(query || categoryFilter) && (
+                    <button
+                      onClick={() => {
+                        setQuery("");
+                        setCategoryFilter("");
+                      }}
+                      className="ml-3 text-[#b22234] underline hover:no-underline"
+                    >
+                      Clear filters
+                    </button>
+                  )}
+                </p>
+                {results.length > 1 && (
+                  <div className="flex items-center gap-2">
+                    <label
+                      htmlFor="sort-select"
+                      className="text-sm text-[#718096] whitespace-nowrap"
+                    >
+                      Sort by
+                    </label>
+                    <select
+                      id="sort-select"
+                      value={sortKey}
+                      onChange={(e) => setSortKey(e.target.value as SortKey)}
+                      className="text-sm border border-[#e2e8f0] rounded-md px-2.5 py-1.5 text-[#1a2a4a] bg-white focus:outline-none focus:ring-2 focus:ring-[#b22234] cursor-pointer"
+                    >
+                      {SORT_OPTIONS.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </div>
+
+              {results.length === 0 ? (
+                <div className="py-16 text-center text-[#718096]">
+                  <p className="text-lg font-medium mb-2">No results found</p>
+                  <p className="text-sm">Try a different search term or category.</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {sortedResults.map((policy) => (
+                    <PolicyCard key={policy.id} policy={policy} />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </section>
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[#718096]">Loading…</div>}>
+      <HomePageInner />
+    </Suspense>
   );
 }

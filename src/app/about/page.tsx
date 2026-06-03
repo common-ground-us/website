@@ -72,7 +72,7 @@ export default function AboutPage() {
 
           <div className="mt-10">
             <Link
-              href="/search/"
+              href="/"
               className="inline-flex items-center justify-center px-6 py-3 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
             >
               Explore the Policy Library

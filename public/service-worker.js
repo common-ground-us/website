@@ -13,7 +13,6 @@ const DATA_CACHE = `cg-data-${CACHE_VERSION}`;
 const PRECACHE_ASSETS = [
   "/",
   "/about/",
-  "/search/",
   "/data/policies.json",
   "/manifest.webmanifest",
   "/icons/icon-192.png",

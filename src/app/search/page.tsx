@@ -140,8 +140,6 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
   { value: "support-asc",  label: "Support: Low → High" },
   { value: "name-asc",     label: "Name: A → Z" },
   { value: "name-desc",    label: "Name: Z → A" },
-  { value: "date-desc",    label: "Date: Newest First" },
-  { value: "date-asc",     label: "Date: Oldest First" },
 ];
 
 function applySorting(policies: Policy[], sort: SortKey): Policy[] {

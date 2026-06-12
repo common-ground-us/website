@@ -40,6 +40,10 @@ export const metadata: Metadata = {
       "Americans have supermajority agreement on dozens of federal policies. Explore the evidence.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
   twitter: {
     card: "summary_large_image",
     title: "Common Ground",

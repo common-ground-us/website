@@ -91,3 +91,159 @@ button, a, [role="button"] {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   TEMPORARY: pre-launch "coming soon" banner (src/app/page.tsx).
+   Remove this whole block when the search tool is restored to `/` at launch.
+   ───────────────────────────────────────────────────────────────────────── */
+.lb-root {
+  --lb-navy: #1a2a4a;
+  --lb-red: #c0392b;
+  --lb-blue: #1a5276;
+  --lb-bg: #f0eee9;
+  --lb-ink2: #5b6678;
+  --lb-rule: #d9d5cc;
+
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--lb-bg);
+}
+
+/* the banner fills the available viewport */
+.lb-banner {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--lb-bg);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* top interweave rule — civic red over civic blue, the July-4 / common-ground motif */
+.lb-weave {
+  height: 10px;
+  width: 100%;
+  flex: 0 0 auto;
+  background:
+    repeating-linear-gradient(135deg, var(--lb-red) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(135deg, var(--lb-blue) 7px 14px, transparent 0 7px);
+  background-color: var(--lb-navy);
+}
+
+.lb-inner {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 52px;
+}
+
+.lb-content {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.lb-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.lb-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.lb-div {
+  width: 1px;
+  height: 26px;
+  background: var(--lb-rule);
+}
+.lb-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lb-red);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.lb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lb-red);
+  box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.5);
+  animation: lb-pulse 2.4s ease-out infinite;
+}
+@keyframes lb-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.45); }
+  70% { box-shadow: 0 0 0 9px rgba(192, 57, 43, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lb-dot { animation: none; }
+}
+
+.lb-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--lb-navy);
+  font-size: 66px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.lb-dl { color: var(--lb-red); }
+
+.lb-sub {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--lb-ink2);
+  font-size: 20px;
+  line-height: 1.45;
+  margin: 20px 0 0;
+  max-width: 34ch;
+  text-wrap: pretty;
+}
+
+/* big brand mark, bleeding off the right edge — decorative, never under text */
+.lb-mark {
+  flex: 0 0 auto;
+  width: 228px;
+  height: auto;
+  align-self: center;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 30px rgba(26, 42, 74, 0.14));
+}
+
+@media (max-width: 1080px) {
+  .lb-h1 { font-size: 54px; }
+  .lb-mark { width: 184px; }
+}
+@media (max-width: 760px) {
+  .lb-inner { padding: 40px 24px; }
+  .lb-h1 { font-size: 44px; }
+  .lb-sub { font-size: 17px; max-width: none; }
+  .lb-mark { display: none; }
+  /* eyebrow drops to its own line so it never crowds the logo on narrow screens */
+  .lb-lockup { flex-wrap: wrap; gap: 0 14px; margin-bottom: 22px; }
+  .lb-logo { height: 32px; }
+  .lb-div { display: none; }
+  .lb-eyebrow { flex-basis: 100%; margin-top: 14px; }
+}
+@media (max-width: 420px) {
+  .lb-h1 { font-size: 36px; }
+  .lb-sub { font-size: 16px; }
+}

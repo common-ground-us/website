@@ -1,6 +1,6 @@
 /**
  * search.ts
- * Client-side FlexSearch indexing over the 184 policies.
+ * Client-side FlexSearch indexing over the policy database.
  * Works fully offline — data is bundled at build time.
  */
 
@@ -23,12 +23,11 @@ async function getIndex() {
     document: {
       id: "id",
       index: [
-        { field: "shortName",         tokenize: "forward", resolution: 9 },
-        { field: "genericCategory",   tokenize: "forward", resolution: 5 },
-        { field: "categoryOfIssue",   tokenize: "forward", resolution: 5 },
-        { field: "subCategory",       tokenize: "forward", resolution: 4 },
-        { field: "keyTakeaway",       tokenize: "forward", resolution: 7 },
-        { field: "detailedDescription", tokenize: "forward", resolution: 3 },
+        { field: "policyTitle",       tokenize: "forward", resolution: 9 },
+        { field: "issueArea",         tokenize: "forward", resolution: 5 },
+        { field: "briefingSummary",   tokenize: "forward", resolution: 7 },
+        { field: "questionText",      tokenize: "forward", resolution: 4 },
+        { field: "sourceBillsSummary", tokenize: "forward", resolution: 3 },
       ],
       store: true,
     },
@@ -37,19 +36,20 @@ async function getIndex() {
   // Load policies from the pre-generated JSON
   const { default: policies } = await import("../../data/policies.json");
   indexedPolicies = (policies as Policy[]).filter(
-    (p) => p.id !== "short-name" && p.overallSupport !== null
+    (p) => p.natSupport !== null
   );
 
   for (const policy of indexedPolicies) {
-    await index.addAsync(policy.id, policy as unknown as Policy);
+    // Flatten nested fields for indexing
+    const indexDoc = {
+      ...policy,
+      briefingSummary: policy.proscons?.briefingSummary ?? "",
+      questionText: policy.surveys[0]?.questionText ?? "",
+    };
+    await index.addAsync(policy.id, indexDoc as unknown as Policy);
   }
 
   return index;
-}
-
-export interface SearchResult {
-  policy: Policy;
-  score: number;
 }
 
 export async function searchPolicies(query: string): Promise<Policy[]> {

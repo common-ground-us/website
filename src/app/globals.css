@@ -93,10 +93,11 @@ button, a, [role="button"] {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   TEMPORARY: pre-launch "coming soon" banner (src/app/page.tsx).
-   Remove this whole block when the search tool is restored to `/` at launch.
+   TEMPORARY: pre-launch hero banner (src/app/page.tsx), replaces the
+   "A civic utility…" hero copy above the search box. Remove this whole
+   block — and the <LaunchHero /> it styles — at launch.
    ───────────────────────────────────────────────────────────────────────── */
-.lb-root {
+.lb-hero {
   --lb-navy: #1a2a4a;
   --lb-red: #c0392b;
   --lb-blue: #1a5276;
@@ -104,71 +105,56 @@ button, a, [role="button"] {
   --lb-ink2: #5b6678;
   --lb-rule: #d9d5cc;
 
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  background: var(--lb-bg);
-}
-
-/* the banner fills the available viewport */
-.lb-banner {
   position: relative;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
   background: var(--lb-bg);
   isolation: isolate;
   overflow: hidden;
 }
 
 /* top interweave rule — civic red over civic blue, the July-4 / common-ground motif */
-.lb-weave {
+.lb-hero-weave {
   height: 10px;
   width: 100%;
-  flex: 0 0 auto;
   background:
     repeating-linear-gradient(135deg, var(--lb-red) 0 7px, transparent 7px 14px),
     repeating-linear-gradient(135deg, var(--lb-blue) 7px 14px, transparent 0 7px);
   background-color: var(--lb-navy);
 }
 
-.lb-inner {
+.lb-hero-inner {
   position: relative;
-  flex: 1 1 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 40px;
-  width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 56px 52px;
+  padding: 44px 24px 48px;
 }
 
-.lb-content {
+.lb-hero-content {
   position: relative;
   z-index: 2;
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.lb-lockup {
+.lb-hero-lockup {
   display: flex;
   align-items: center;
   gap: 14px;
   margin-bottom: 26px;
 }
-.lb-logo {
+.lb-hero-logo {
   height: 38px;
   width: auto;
   display: block;
 }
-.lb-div {
+.lb-hero-div {
   width: 1px;
   height: 26px;
   background: var(--lb-rule);
 }
-.lb-eyebrow {
+.lb-hero-eyebrow {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.22em;
@@ -179,7 +165,7 @@ button, a, [role="button"] {
   align-items: center;
   gap: 9px;
 }
-.lb-dot {
+.lb-hero-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -193,10 +179,10 @@ button, a, [role="button"] {
   100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lb-dot { animation: none; }
+  .lb-hero-dot { animation: none; }
 }
 
-.lb-h1 {
+.lb-hero-h1 {
   font-family: var(--font-display);
   font-weight: 800;
   color: var(--lb-navy);
@@ -205,9 +191,9 @@ button, a, [role="button"] {
   letter-spacing: -0.04em;
   margin: 0;
 }
-.lb-dl { color: var(--lb-red); }
+.lb-hero-dl { color: var(--lb-red); }
 
-.lb-sub {
+.lb-hero-sub {
   font-family: var(--font-ui);
   font-weight: 500;
   color: var(--lb-ink2);
@@ -219,7 +205,7 @@ button, a, [role="button"] {
 }
 
 /* big brand mark, bleeding off the right edge — decorative, never under text */
-.lb-mark {
+.lb-hero-mark {
   flex: 0 0 auto;
   width: 228px;
   height: auto;
@@ -229,21 +215,21 @@ button, a, [role="button"] {
 }
 
 @media (max-width: 1080px) {
-  .lb-h1 { font-size: 54px; }
-  .lb-mark { width: 184px; }
+  .lb-hero-h1 { font-size: 54px; }
+  .lb-hero-mark { width: 184px; }
 }
 @media (max-width: 760px) {
-  .lb-inner { padding: 40px 24px; }
-  .lb-h1 { font-size: 44px; }
-  .lb-sub { font-size: 17px; max-width: none; }
-  .lb-mark { display: none; }
+  .lb-hero-inner { padding: 30px 24px 34px; }
+  .lb-hero-h1 { font-size: 44px; }
+  .lb-hero-sub { font-size: 17px; max-width: none; }
+  .lb-hero-mark { display: none; }
   /* eyebrow drops to its own line so it never crowds the logo on narrow screens */
-  .lb-lockup { flex-wrap: wrap; gap: 0 14px; margin-bottom: 22px; }
-  .lb-logo { height: 32px; }
-  .lb-div { display: none; }
-  .lb-eyebrow { flex-basis: 100%; margin-top: 14px; }
+  .lb-hero-lockup { flex-wrap: wrap; gap: 0 14px; margin-bottom: 22px; }
+  .lb-hero-logo { height: 32px; }
+  .lb-hero-div { display: none; }
+  .lb-hero-eyebrow { flex-basis: 100%; margin-top: 14px; }
 }
 @media (max-width: 420px) {
-  .lb-h1 { font-size: 36px; }
-  .lb-sub { font-size: 16px; }
+  .lb-hero-h1 { font-size: 36px; }
+  .lb-hero-sub { font-size: 16px; }
 }

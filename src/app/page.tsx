@@ -117,7 +117,7 @@ function CategoryTabs({
           All
         </button>
         {categories.map((cat) => {
-          const count = allPolicies.filter((p) => p.genericCategory === cat).length;
+          const count = allPolicies.filter((p) => p.issueArea === cat).length;
           const isActive = categoryFilter === cat;
           return (
             <button
@@ -179,17 +179,17 @@ function applySorting(policies: Policy[], sort: SortKey): Policy[] {
   return [...policies].sort((a, b) => {
     switch (sort) {
       case "support-desc":
-        return (b.overallSupport ?? -1) - (a.overallSupport ?? -1);
+        return (b.natSupport ?? -1) - (a.natSupport ?? -1);
       case "support-asc":
-        return (a.overallSupport ?? 101) - (b.overallSupport ?? 101);
+        return (a.natSupport ?? 101) - (b.natSupport ?? 101);
       case "name-asc":
-        return a.shortName.localeCompare(b.shortName);
+        return a.policyTitle.localeCompare(b.policyTitle);
       case "name-desc":
-        return b.shortName.localeCompare(a.shortName);
+        return b.policyTitle.localeCompare(a.policyTitle);
       case "date-desc":
-        return (b.dateOfReport ?? "").localeCompare(a.dateOfReport ?? "");
+        return (b.surveys[0]?.date ?? "").localeCompare(a.surveys[0]?.date ?? "");
       case "date-asc":
-        return (a.dateOfReport ?? "").localeCompare(b.dateOfReport ?? "");
+        return (a.surveys[0]?.date ?? "").localeCompare(b.surveys[0]?.date ?? "");
       default:
         return 0;
     }
@@ -225,7 +225,7 @@ function HomePageInner() {
   useEffect(() => {
     import("../../data/policies.json").then((mod) => {
       const policies = (mod.default as Policy[]).filter(
-        (p) => p.id !== "short-name" && p.overallSupport !== null
+        (p) => p.natSupport !== null
       );
       setAllPolicies(policies);
       setLoading(false);
@@ -233,7 +233,7 @@ function HomePageInner() {
   }, []);
 
   const categories = Array.from(
-    new Set(allPolicies.map((p) => p.genericCategory).filter(Boolean))
+    new Set(allPolicies.map((p) => p.issueArea).filter(Boolean))
   ).sort();
 
   const runSearch = useCallback(
@@ -241,7 +241,7 @@ function HomePageInner() {
       let filtered = policies;
 
       if (cat) {
-        filtered = filtered.filter((p) => p.genericCategory === cat);
+        filtered = filtered.filter((p) => p.issueArea === cat);
       }
 
       if (!q.trim()) {

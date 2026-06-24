@@ -57,10 +57,10 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "Many drug companies charge higher prices for drugs in the US than in other developed countries. A proposal would have the federal government set maximum drug prices based on what the drugs are sold for in other developed countries. Drug companies say this would reduce their ability to fund research and development of new drugs.",
-      "proArgument": "Drug companies charge Americans far more than people in other countries for the same medications. Setting price caps based on international prices would ensure Americans pay no more than people in comparable countries, making medications affordable for millions who currently cannot afford them.",
-      "conArgument": "If the US sets drug prices at international levels, companies will have less revenue to fund new drug development. The US currently leads the world in pharmaceutical innovation because companies can earn profits here. Capping prices risks reducing the development of life-saving new drugs.",
-      "sourcePdf": "Common-Ground-National-Questionnaire-2026.pdf"
+      "briefingSummary": "As you may know, the prices that drugs sell for in other developed countries are on average less than half the price that Americans pay. There is currently a proposal that the federal government shall set maximum prices that drug companies can charge for each prescription drug, based on what is charged for those drugs in other developed countries. Drug companies say if required to lower US prices, this will reduce revenue for drug development. The Congressional Budget Office found limits could r",
+      "proArgument": "It is appropriate for the government to regulate the price of prescription drugs, which are necessary for people's survival and to live healthy lives. When drug prices are high some people can't afford them and as a result some will develop more serious illness or even die. High drug prices also drive up premiums for health insurance. Taxpayers fund a third of all research that goes into developing new drugs, yet many Americans can't afford them. Americans are getting taken advantage of, and it's time for the government to step in.",
+      "conArgument": "Companies take huge risks when they invest in developing new drugs—it can cost up to two billion dollars to develop one new successful drug, and there's no certainty they will make their money back. If we lower their revenues, and lower what they can expect to earn on future investments, they will make less investment and ultimately there will be fewer new drugs. This hurts everyone's health and some people will die who could have been saved.",
+      "sourcePdf": "SwingSix-Healthcare-Quaire-0724.pdf"
     }
   },
   {
@@ -110,10 +110,10 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "Some drug companies have been paying generic drug companies to hold off selling generic versions of their drugs after the original patent expires, extending their market monopoly. A proposal would ban these 'pay-for-delay' agreements so that generic drugs come to market as soon as the original patent expires.",
-      "proArgument": "Pay-for-delay agreements are anticompetitive arrangements that artificially keep drug prices high by preventing cheaper generics from reaching consumers. Banning them will allow the patent system to work as intended, opening markets to competition and lowering drug costs.",
-      "conArgument": "Pay-for-delay settlements sometimes bring generic drugs to market faster than waiting for full patent litigation to resolve, which can take years. Banning them could perversely delay generic drug entry in some cases.",
-      "sourcePdf": "Common-Ground-National-Questionnaire-2026.pdf"
+      "briefingSummary": "When a company develops a new drug, they can get a patent so that they are the only company that can sell the drug for up to 20 years. After the patent expires, other companies can sell cheaper generic versions. Some brand-name drug companies have been paying generic manufacturers to delay entering the market, extending their monopoly. A proposal would ban these 'pay-for-delay' agreements.",
+      "proArgument": "Drug companies are gaming the patent system to maintain monopolies long after their patents should have expired, keeping drug prices artificially high. Banning pay-for-delay agreements will allow cheaper generic drugs to come to market sooner, saving consumers and the government billions of dollars.",
+      "conArgument": "These settlements between brand-name and generic manufacturers often result in generic drugs coming to market sooner than they would if full patent litigation had to play out. Banning all such payments could perversely delay generic drug entry in some cases.",
+      "sourcePdf": "SwingSix-Healthcare-Quaire-0724.pdf"
     }
   },
   {
@@ -126,7 +126,7 @@
     "gap": 17,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": true,
+    "hasProscons": false,
     "sourceBillsSummary": "Health Care Affordability Act (S. 5194, H.R. 9774).",
     "surveys": [
       {
@@ -183,12 +183,7 @@
         "billOrSource": "Health Care Affordability Act (S. 5194, H.R. 9774)."
       }
     ],
-    "proscons": {
-      "briefingSummary": "For seniors on Medicare prescription drug coverage (Part D), there is currently no annual limit on out-of-pocket costs. For those with serious illnesses requiring expensive drugs, annual costs can reach $10,000 or more. A proposal would cap annual out-of-pocket prescription drug costs for Medicare beneficiaries at $2,000 per year.",
-      "proArgument": "Seniors on fixed incomes should not face unlimited out-of-pocket drug costs. For those with serious illnesses, out-of-pocket costs can reach $10,000 or more a year—a financial crisis on top of a health crisis. Capping costs at $2,000 protects the most vulnerable seniors from financial ruin.",
-      "conArgument": "Capping out-of-pocket drug costs will cause insurance premiums for Medicare drug plans to rise for all enrollees, since plans must recoup the costs of subsidizing those who would have paid more. Healthy seniors end up subsidizing sicker ones.",
-      "sourcePdf": "SwingSix-Healthcare-Quaire-0724.pdf"
-    }
+    "proscons": null
   },
   {
     "id": "allow-people-aged-55-years-or-older-to-purchase-a-medicare-plan-which-is-now-onl",
@@ -330,7 +325,7 @@
     "gap": 14,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "CARE Act (S. 4286, H.R. 8323)",
     "surveys": [
       {
@@ -366,7 +361,12 @@
         "billOrSource": "CARE Act (S. 4286, H.R. 8323)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "Providing $13 billion in additional federal funding to help make treatment for substance use disorder low-cost or free to nearly everyone who needs and wants it is favored by majorities in every swing state (65% to 79%), including Democrats (77% to 86%) and Republicans (56% to 77%). Nationally, a bipartisan majority (80%) is in favor.",
+      "proArgument": "Treatment is an effective and relatively inexpensive way to treat substance misuse and addiction. An abundance of research shows that treatment is very cost effective. Think about it: spending one dollar on treatment results in seven dollars of savings to society. Some studies put it at twelve dollars. Clearly, it is the sensible thing to do.\"",
+      "conArgument": "Taxpayers should not be paying to fix the problems that people knowingly got themselves into. If a person decides to start using dangerous and addictive drugs, that is their responsibility. They should be the ones to get their life back on track. When they are ready to change they will find a way",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "provide-25-billion-to-local-governments-to-increase-multi-family-housing-afforda",
@@ -378,7 +378,7 @@
     "gap": 21,
     "bothAbove67": false,
     "hasDeliberative": true,
-    "hasProscons": true,
+    "hasProscons": false,
     "sourceBillsSummary": "Biden Administration’s Housing Supply Action Plan",
     "surveys": [
       {
@@ -414,12 +414,7 @@
         "billOrSource": "Biden Administration’s Housing Supply Action Plan"
       }
     ],
-    "proscons": {
-      "briefingSummary": "Housing has become more expensive over the last several decades. Housing is considered affordable when it costs less than 30% of income. An increasing number of households spend more than 30% on housing. One reason housing is expensive is that local zoning laws restrict where and what type of housing can be built, limiting supply. A proposal would have the federal government encourage states and localities to reform their zoning laws to allow more housing to be built in more places.",
-      "proArgument": "The main reason housing is unaffordable is that there is not enough of it. Local zoning laws block new housing construction, keeping supply artificially low and prices artificially high. Removing these restrictions will increase the supply of housing and bring down costs for renters and buyers alike.",
-      "conArgument": "Local communities should have the right to decide their own character and how they develop. Federal pressure to override local zoning decisions ignores the legitimate preferences of local residents who want to preserve the character of their neighborhoods.",
-      "sourcePdf": "Housing_Quaire_FULL_1024.pdf"
-    }
+    "proscons": null
   },
   {
     "id": "provide-40-billion-to-increase-the-amount-of-high-density-housing-affordable-to-",
@@ -532,7 +527,7 @@
     "gap": 8,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": true,
+    "hasProscons": false,
     "sourceBillsSummary": "Workforce Housing Tax Credit Act (H.R. 6686, S. 3436)",
     "surveys": [
       {
@@ -581,12 +576,7 @@
         "billOrSource": "Workforce Housing Tax Credit Act (H.R. 6686, S. 3436)"
       }
     ],
-    "proscons": {
-      "briefingSummary": "The cost of buying a home has increased far faster than incomes, making homeownership out of reach for many first-time buyers. One major barrier is the down payment, typically 10-20% of the purchase price. A proposal would provide federal grants or loans to help first-generation homebuyers cover their down payment.",
-      "proArgument": "Homeownership is the primary way most middle-class Americans build wealth. Helping first-generation homebuyers get into the market addresses the racial and economic wealth gap. Every generation of Americans should have the opportunity to own a home.",
-      "conArgument": "Down payment assistance increases demand for homes without increasing supply, which will simply drive up home prices further—making housing less affordable for everyone, including those who didn't receive assistance.",
-      "sourcePdf": "Housing_Quaire_FULL_1024.pdf"
-    }
+    "proscons": null
   },
   {
     "id": "prohibit-large-corporations-from-buying-new-single-family-homes-and-require-they",
@@ -1005,9 +995,9 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "Currently, SNAP cannot be used for alcoholic beverages and usually not for hot ready-to-eat food. A proposal would extend restrictions to other items with little nutritional value—sweetened sodas, candy, cookies, cakes, ice cream, and chips.",
-      "proArgument": "Helping needy people meet their nutritional needs is one thing, but taxpayer dollars should not go to purchase junk food with no nutritional value. We should not encourage people to waste money on food that can damage their health. The rise in obesity and diabetes from eating fatty and sugary foods is a serious strain on America's healthcare system, which also costs the government money.",
-      "conArgument": "Just because people are poor does not mean the federal government should tell them what to eat. Furthermore, this requires setting up a government bureaucracy to decide what products count as sugary sodas or cookies—there are tens of thousands of products. This will cost a lot of money and is not worth it just to get poor people to drink fewer sodas.",
+      "briefingSummary": "The Supplemental Nutrition Assistance Program (SNAP / food stamps) provides food benefits to about 23 million low-income households (including 13 million children), at a cost of $94 billion in 2024. Eligibility requires income no more than 30% above the poverty line, savings under $3,000, and work registration for most adults. Average benefits are about $170/month for individuals living alone and $530/month for single mothers.",
+      "proArgument": "The people getting SNAP make very little and only get, on average, about $6 a day in benefits. That's clearly not enough. Many want to earn more, but can't find a job or a better paying job. Many are disabled or very old. Food is a basic human need, and it is simply wrong to keep people on the edge of hunger with benefits so low.",
+      "conArgument": "The amount the government spends on SNAP is a lot of money—$94 billion dollars last year. It should not be increased. The government should instead be encouraging people to get out there and try harder to get a job, or new skills to get higher income. The government shouldn't be making it easier for people not to make the effort.",
       "sourcePdf": "Low-Income-2025-Questionnaire-2.pdf"
     }
   },
@@ -1079,9 +1069,9 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "The federal minimum wage has never been automatically adjusted for inflation and has only been increased by acts of Congress. Since its last increase in 2009, its purchasing power has declined by about $2.80. A proposal would adjust the minimum wage each year according to the rate of inflation.",
-      "proArgument": "It makes no sense to have the purchasing power of the minimum wage on a constant downward slide, followed by a periodic catch-up. It is not fair to minimum-wage workers and it creates uncertainty for employers who need to make long-term plans. The minimum wage should not be subject to the special interest lobbying that Congress gets caught in.",
-      "conArgument": "The minimum wage should not be on autopilot. Congress should assess current economic conditions and decide whether to raise it. For example, when unemployment is high, raising the minimum wage can lead employers to lay off workers. The states can and do raise the minimum wage if they think it is needed.",
+      "briefingSummary": "The federal minimum wage is $7.25/hour (~$14,500/year full-time), unchanged since 2009. A full-time minimum wage earner falls below the poverty line if supporting children. Most states have raised their minimum wage. The main proposal in Congress is to gradually raise the federal minimum wage to $15/hour over five years. The CBO estimates this would raise wages for 18 million workers, lift 0.3 million above poverty, but reduce employment by about 0.5 million.",
+      "proArgument": "People who work full time should not have to live in poverty—on the brink of homelessness, unable to afford basic necessities. Increasing the minimum wage would raise many workers and their children above the poverty line, allowing them to invest in themselves and their family and build a better life.",
+      "conArgument": "If we raise the minimum wage, some employers will have to lay off workers because they cannot pay the higher wages. Some may also find it more cost-efficient to automate the job. That will especially hurt workers with few skills who are less likely to be rehired and may be thrown into poverty. It will also hurt younger workers who accept low wages to get work experience.",
       "sourcePdf": "Minimum_Wage_Quaire_040523.pdf"
     }
   },
@@ -1182,11 +1172,11 @@
     "id": "do-not-reduce-federal-funding-of-medicaid",
     "issueArea": "LOW-INCOME ASSISTANCE",
     "policyTitle": "Do NOT reduce federal funding of Medicaid",
-    "natSupport": 9,
-    "repSupport": 13,
-    "demSupport": 3,
-    "gap": 10,
-    "bothAbove67": false,
+    "natSupport": 91,
+    "repSupport": 80,
+    "demSupport": 97,
+    "gap": 17,
+    "bothAbove67": true,
     "hasDeliberative": true,
     "hasProscons": true,
     "sourceBillsSummary": "Republican Party's One Big Beautiful Bill Act",
@@ -1540,9 +1530,9 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "Currently, employers must verify workers are legally allowed to work in the US using paper documents that are easy to falsify. The federal E-Verify electronic system lets employers quickly check work authorization against government databases. Currently E-Verify is optional for most employers. A proposal would require all employers to use E-Verify before hiring workers.",
-      "proArgument": "Mandatory E-Verify would substantially reduce the incentive for undocumented workers to come to the US since they would not be able to get hired. It is the most direct way to reduce illegal immigration by addressing the primary economic reason people come—to find work.",
-      "conArgument": "E-Verify has a significant error rate, and legal workers and US citizens can be erroneously flagged, losing job opportunities while the error is corrected—a process that can take weeks. The burden of resolving errors falls unfairly on the employee.",
+      "briefingSummary": "Many people crossing the southern border illegally do so to work, because businesses will hire them. Undocumented workers make up about 10-15% of farming, construction, hotel and amusement park workforces. Work visas require an employer sponsor, proof US workers weren't available first, and equal pay for immigrants. A proposal would provide enough work visas to fully meet employer demand for migrant workers, substantially increasing the number of visas available each year.",
+      "proArgument": "Providing enough work visas to meet employer demand will greatly reduce illegal immigration by creating a legal path for workers and employers. It protects immigrant workers from exploitation since they would have legal status and could report abuses. It protects businesses from legal risk. It is an orderly, legal system.",
+      "conArgument": "Significantly increasing work visas will increase competition for jobs and put downward pressure on wages for American workers, especially those at the lower end of the income scale. We should require businesses to raise wages enough to attract American workers, rather than importing lower-cost labor.",
       "sourcePdf": "Immigration_Quaire_Full_1024.pdf"
     }
   },
@@ -1675,7 +1665,7 @@
     "gap": 11,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": true,
+    "hasProscons": false,
     "sourceBillsSummary": "",
     "surveys": [
       {
@@ -1752,12 +1742,7 @@
         "billOrSource": "(no specific legislation cited)"
       }
     ],
-    "proscons": {
-      "briefingSummary": "Defense spending makes up about half of all discretionary federal spending—about $850 billion per year. Congress is considering increases of about $150 billion. There is debate about whether the US should increase, maintain, or reduce defense spending given global threats and domestic budget pressures.",
-      "proArgument": "America is threatened by hostile forces in many corners of the world. We should have the ability to quickly project overwhelming military power anywhere. Much of our military equipment needs to be revamped. National defense is the first responsibility of government and it is too important to let budget concerns dictate our level of spending.",
-      "conArgument": "The Pentagon keeps thinking we need to be the world’s policeman, leading us to have this huge defense budget that is over twice as big as China's and six times larger than Russia's - even while Russia is actively at war. 4 US military spending is bigger than it has ever been, even higher than during the Cold War under President Reagan. We can deal with global threats by working together with our allies and sharing the burden. Furthermore, there is a lot of waste in the defense budget. Defense contractors persuade lawmakers to approve expensive weapons that aren’t really needed by giving them large campaign contributions. Clearly, there is room to cut the defense budget while still being, by far, the most powerful and secure country in the world. Q7 Very Convincing Somewhat Convincing Total Convincing Somewhat Unconvincing Very Unconvincing Total Unconvincing Ref / DK US-National 36.3% 38.9% 75.2% 16.4% 6.0% 22.4% 2.4% Republicans 33.0% 40.0% 73.0% 18.0% 7.4% 25.4% 1.6% Democrats 40.7% 37.8% 78.5% 14.1% 4.0% 18.1% 3.3% Independents 33.1% 38.5% 71.6% 18.4% 8.1% 26.5% 1.9% Here is a counter argument. 4 Russian spending is $146 billion, and Chinese spending is $235 billion: International Institute for Strategic Studies. (2025) The Military Balance: Defence Spending and Procurement Trends. An alternative estimate puts Chinese spending at $471 billion: Texas National Security Review. (2024) Estimating China’s Defense Spending: How to Get It Wrong (and Right)",
-      "sourcePdf": "FedBudget2025Quaire.pdf"
-    }
+    "proscons": null
   },
   {
     "id": "continue-to-be-part-of-nato",
@@ -2326,9 +2311,9 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "The US spends about $19.4 billion a year to help less developed countries improve their food production, develop their infrastructure, and build their private enterprises and financial systems.",
-      "proArgument": "Americans are generous, so it is natural to provide relief when people are suffering. But the really intelligent thing to do is to help countries develop their economies so they are strong enough to cope with their own problems. This will reduce humanitarian crises and mass migration, and reduce the need for aid in the long run.",
-      "conArgument": "Development aid interferes with the free market by having the US bureaucracy decide where money should go rather than private business and consumers. It is not clear that the aid really does any good. We need to trust the free market.",
+      "briefingSummary": "The US provides foreign aid totaling about 1% of the federal budget (~$72 billion), including military aid. Non-military aid covers humanitarian relief, global health, economic development, education, environment, and democracy promotion. Nearly all aid goes to non-profit and international organizations with specialized skills, not directly to foreign governments. All other developed countries also provide humanitarian and development aid.",
+      "proArgument": "The United States should be willing to share at least a small portion of its wealth with those in the world who are in great need. As one of the world's rich nations, the United States has a moral responsibility toward poor nations to help them develop economically and improve their people's lives.",
+      "conArgument": "Helping people in foreign countries is not the proper role for the US government. This should be strictly a private matter with individuals making charitable donations through private organizations.",
       "sourcePdf": "Foreign-Aid-2025-questionnaire.pdf"
     }
   },
@@ -2559,9 +2544,9 @@
       }
     ],
     "proscons": {
-      "briefingSummary": "Some areas of US federal waters are currently off limits to oil and gas drilling. There is debate about whether to open more areas to drilling (increasing US energy production and potentially lowering prices) or to maintain or expand drilling restrictions (protecting coastal environments and fishing industries).",
-      "proArgument": "Expanding offshore drilling increases US energy production, reduces dependence on foreign oil, creates jobs, and lowers energy prices for consumers. Energy independence strengthens national security and economic stability.",
-      "conArgument": "Offshore oil spills can cause catastrophic damage to coastal ecosystems, fishing industries, and tourism—as the Deepwater Horizon disaster showed. The environmental risk is not worth taking when we have abundant clean energy alternatives.",
+      "briefingSummary": "Scientific consensus holds that greenhouse gas emissions from burning fossil fuels are causing Earth's temperature to rise, leading to more extreme weather, rising sea levels, and other serious impacts. The US is among the largest emitters. Proposals to reduce emissions include regulations on power plants, carbon pricing, and clean energy incentives, which would reduce emissions but could increase energy costs.",
+      "proArgument": "Climate change poses serious risks to future generations. The scientific evidence is overwhelming. We have a moral obligation to reduce our greenhouse gas emissions. The costs of inaction—more extreme weather, rising seas, crop failures, and displacement of millions—far exceed the costs of acting now.",
+      "conArgument": "Unilateral US action will only hurt American businesses and workers while major emitters like China continue to increase emissions. We should not disadvantage American industry unless other major economies make equivalent binding commitments.",
       "sourcePdf": "EE-Questionnaire-National-and-Swing-Six.pdf"
     }
   },
@@ -3036,7 +3021,7 @@
     "gap": 5,
     "bothAbove67": false,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "Social Security Enhancement and Protection Act of 2025 (H.R. 3517)",
     "surveys": [
       {
@@ -3124,7 +3109,12 @@
         "billOrSource": "Social Security Enhancement and Protection Act of 2025 (H.R. 3517)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "Respondents were given the option of gradually increasing the payroll tax from 6.2 percent to 6.5 percent over six years, to 6.9 percent over fourteen years, or to 7.2 percent over twenty years, or they could not choose any of those options. Increasing the payroll tax to at least 6.5 percent, which would eliminate 15% of the shortfall, is supported by 83% to 88% in the swing states. This includes majorities of Republicans (83%-88%) and Democrats (85%-88%). Nationally, 86% are in support.",
+      "proArgument": "Social Security is a good investment because it provides a foundation for Americans’ retirement, as well as protection in the event of worker disability or a spouse’s death. Paying a little more now will shore up Social Security and make all Americans more secure later. It is also appropriate for employers to make slightly higher contributions to their employees’ retirement, since fewer and fewer offer any pensions.",
+      "conArgument": "Raising the tax rate is bad for employees, especially people who are living paycheck to paycheck. Any increase leaves them with less to spend and less to save for retirement. It is also bad for employers because it increases their costs, leading them to cut back their employees, and makes it harder to create new jobs. And it is bad for the self-employed, who pay both the employer’s and employee’s share of the payroll tax.",
+      "sourcePdf": "https://publicconsultation.org/swing-six-ss/social-security/"
+    }
   },
   {
     "id": "reduce-benefits-for-the-top-20-of-lifetime-earners",
@@ -3136,7 +3126,7 @@
     "gap": 7,
     "bothAbove67": false,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "Congressional Budget Office, Options for Reducing the Deficit 2025-2034",
     "surveys": [
       {
@@ -3211,7 +3201,12 @@
         "billOrSource": "Congressional Budget Office, Options for Reducing the Deficit 2025-2034"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "Respondents were given the options of reducing benefits for the top 20 percent of earners, the top 40 percent, or the top 50 percent, or they could not choose any of those options. Reducing benefits for the top 20 percent of income earners, which would eliminate 11% of the shortfall, is supported by an overwhelming 91% to 94% in the swing states. This includes majorities of Republicans (88%-93%) and Democrats (91%-94%). Nationally, 92% are in support.",
+      "proArgument": "We have to cover the Social Security shortfall in one way or another. Wealthier retirees have other ways to fund their retirement, such as pensions and savings. But right now they get benefits that are higher than other people. This gap should be reduced so that their benefits are more like others. It’s only fair.",
+      "conArgument": "Many of the proposals for reducing benefits based on income would end up hurting some people who are part of the middle class, particularly people who live in areas of the country where the cost of living is high. We should not change Social Security in a way that forces seniors to lower their quality of life.",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "gradually-increase-the-full-retirement-age-to-68",
@@ -3300,7 +3295,7 @@
     "gap": 5,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "Social Security 2100 Act (H.R. 5723, S. 3071); Social Security Expansion Act (H.R. 1114, S. 427)",
     "surveys": [
       {
@@ -3339,7 +3334,12 @@
         "billOrSource": "Social Security Expansion Act (H.R. 1114, S. 427)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "Increasing the minimum monthly benefit for someone who worked 30 years from $1,066 to $1,570 which would increase the shortfall by 7%, is supported by 70% to 73% in the swing states. This includes majorities of Republicans (65%-72%) and Democrats (68%-78%). Nationally, 71% are in support. The minimum benefit would rise with inflation, and always be set at 125% of the federal poverty line.",
+      "proArgument": "The current minimum benefit is below the poverty line. It should be a basic principle that if you work for 30 years and pay your Social Security taxes, your benefits should assure that you can retire with dignity and not be condemned to live in poverty.",
+      "conArgument": "Given the difficulty of reducing the Social Security shortfall, we should not be considering any additional benefits. The main problem of covering the shortfall should be solved first and only then should we consider raising the minimum benefit.",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "change-cost-of-living-adjustments-to-focus-more-on-what-older-adults-buy-thus-in",
@@ -3351,7 +3351,7 @@
     "gap": 3,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "Social Security 2100 Act (H.R. 5723, S. 3071); Social Security Expansion Act (H.R. 1114, S. 427)",
     "surveys": [
       {
@@ -3401,7 +3401,12 @@
         "billOrSource": "Social Security Expansion Act (H.R. 1114, S. 427)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "Changing the way COLAs are calculated by focusing on the goods and services that older adults tend to buy, which would increase the shortfall by 12%",
+      "proArgument": "The whole idea of making cost of living adjustments is that Social Security recipients should not be hurt by inflation. The current system for calculating inflation does not really keep up with inflation for what seniors actually buy, thus reducing their purchasing power. The only fair thing to do is to change the method to reflect reality.",
+      "conArgument": "People can come up with all kinds of arguments for why this group or that group needs to get higher benefit payments. The reality we have to face is that Social Security is in trouble because it will not have the means to meet its obligations. We should be thinking of ways to reduce the shortfall, not make it worse by increasing the cost-of-living adjustment.",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "increase-income-tax-rates-on-income-over-500-000",
@@ -3510,7 +3515,7 @@
     "gap": 8,
     "bothAbove67": false,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "",
     "surveys": [
       {
@@ -3585,7 +3590,12 @@
         "billOrSource": "(no specific legislation cited)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "",
+      "proArgument": "Taxing capital gains and dividends at the same rate as wage income would generate significant additional revenue, especially from high-income individuals. For example, taxing capital gains as ordinary income for those earning above $1 million would raise an estimated $120 billion.",
+      "conArgument": "More important than reducing the deficit is for the government to continue making investments that ensure the economy continues to grow and that more people are brought into the workforce. There are seven million people who are unemployed or underemployed and wages are only just starting to keep up with inflation. Cutting government spending or raising taxes could weaken the economy and reduce investments. We shouldn’t be obsessive about reducing the deficit. Our interest payments, as a percentage of GDP, are similar to how they have been historically.",
+      "sourcePdf": "FedBudget2025Quaire.pdf"
+    }
   },
   {
     "id": "adopt-a-tax-of-2-on-wealth-over-50-million-and-3-over-1-billion",
@@ -3681,7 +3691,7 @@
     "gap": 12,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "",
     "surveys": [
       {
@@ -3728,7 +3738,12 @@
         "billOrSource": "(no specific legislation cited)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "",
+      "proArgument": "Lowering the exemption threshold or increasing the tax rate would generate significant additional revenue.",
+      "conArgument": "Critics argue that the estate tax is unfair because it taxes wealth that has already been taxed as income or capital gains during the decedent's lifetime.",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "end-the-special-tax-rate-for-carried-interest",
@@ -3740,7 +3755,7 @@
     "gap": 8,
     "bothAbove67": true,
     "hasDeliberative": true,
-    "hasProscons": false,
+    "hasProscons": true,
     "sourceBillsSummary": "Carried Interest Fairness Act (HR. 1091, S.445)",
     "surveys": [
       {
@@ -3776,7 +3791,12 @@
         "billOrSource": "Carried Interest Fairness Act (HR. 1091, S.445)"
       }
     ],
-    "proscons": null
+    "proscons": {
+      "briefingSummary": "",
+      "proArgument": "Ending the special rate would ensure that income earned by investment managers (carried interest) is taxed at the same rate as ordinary income, rather than at the lower capital gains rate. This is seen as making the tax system more equitable.",
+      "conArgument": "Critics argue that raising taxes on carried interest could discourage investment in businesses, real estate, and startups, as it may reduce the incentive for investment managers to take risks.",
+      "sourcePdf": ""
+    }
   },
   {
     "id": "adopt-a-0-01-tax-on-the-purchase-of-stocks-and-bonds",
@@ -6115,11 +6135,11 @@
     "id": "restrict-the-use-of-solitary-confinement-so-it-can-only-be-used-as-punishment-fo",
     "issueArea": "CRIMINAL JUSTICE",
     "policyTitle": "Restrict the use of solitary confinement, so it can only be used as punishment for serious violations and for no more than 30 days in a row",
-    "natSupport": 13,
-    "repSupport": 10,
-    "demSupport": 16,
-    "gap": 6,
-    "bothAbove67": false,
+    "natSupport": 82,
+    "repSupport": 75,
+    "demSupport": 90,
+    "gap": 15,
+    "bothAbove67": true,
     "hasDeliberative": true,
     "hasProscons": true,
     "sourceBillsSummary": "Next Step Act (H.R. 1893)",
@@ -6169,10 +6189,10 @@
         "date": "February 2026",
         "subLabel": "",
         "questionText": "Limit the use of solitary confinement as punishment for serious violations only or for their own safety, and to no more than 30 days in a row or 40 days in a two-month period",
-        "natPercent": 23,
-        "repPercent": 23,
-        "demPercent": 21,
-        "gap": 2,
+        "natPercent": 82,
+        "repPercent": 75,
+        "demPercent": 90,
+        "gap": 15,
         "metric": "other",
         "metricNote": ""
       },

@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 /**
  * import-excel.ts
- * Parses "CGOAP_PolicyDatabase_v2.xlsx" (5 sheets) and generates:
+ * Parses "CGOAP_PolicyDatabase_v5.xlsx" (5 sheets) and generates:
  *   - data/policies.json  (full policy data with nested surveys, polls, legislation, pros/cons)
  *
  * Run with: npm run import-excel
@@ -14,7 +14,7 @@ import type { Policy, SurveyResult, ExternalPoll, Legislation, ProsCons } from "
 
 const EXCEL_PATH = path.join(
   process.cwd(),
-  "CGOAP_PolicyDatabase_v2.xlsx"
+  "CGOAP_PolicyDatabase_v5.xlsx"
 );
 const OUTPUT_PATH = path.join(process.cwd(), "data", "policies.json");
 

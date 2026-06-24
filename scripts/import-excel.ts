@@ -24,13 +24,13 @@ const OUTPUT_PATH = path.join(process.cwd(), "data", "policies.json");
 function parsePercent(val: ExcelJS.CellValue): number | null {
   if (val === null || val === undefined || val === "") return null;
   if (typeof val === "number") {
-    return val <= 1 && val > 0 ? Math.round(val * 100) : Math.round(val);
+    return val < 1 && val > 0 ? Math.round(val * 100) : Math.round(val);
   }
   if (typeof val === "string") {
     const cleaned = val.replace("%", "").trim();
     const num = parseFloat(cleaned);
     if (isNaN(num)) return null;
-    return num <= 1 && num > 0 ? Math.round(num * 100) : Math.round(num);
+    return num < 1 && num > 0 ? Math.round(num * 100) : Math.round(num);
   }
   return null;
 }

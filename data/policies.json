@@ -685,7 +685,7 @@
         "natPercent": 72,
         "repPercent": 79,
         "demPercent": 78,
-        "gap": 100,
+        "gap": 1,
         "metric": "support"
       },
       {
@@ -1733,7 +1733,7 @@
         "natPercent": 67,
         "repPercent": 68,
         "demPercent": 67,
-        "gap": 100,
+        "gap": 1,
         "metric": "other"
       }
     ],
@@ -1927,7 +1927,7 @@
         "natPercent": 83,
         "repPercent": 84,
         "demPercent": 83,
-        "gap": 100,
+        "gap": 1,
         "metric": "other",
         "metricNote": ""
       }
@@ -3151,7 +3151,7 @@
         "natPercent": 92,
         "repPercent": 92,
         "demPercent": 93,
-        "gap": 100,
+        "gap": 1,
         "metric": "other",
         "metricNote": ""
       },
@@ -4227,7 +4227,7 @@
     "natSupport": 86,
     "repSupport": 89,
     "demSupport": 88,
-    "gap": 100,
+    "gap": 1,
     "bothAbove67": true,
     "hasDeliberative": true,
     "hasProscons": true,
@@ -4242,7 +4242,7 @@
         "natPercent": 86,
         "repPercent": 89,
         "demPercent": 88,
-        "gap": 100,
+        "gap": 1,
         "metric": "favor",
         "metricNote": ""
       },
@@ -4347,7 +4347,7 @@
     "natSupport": 79,
     "repSupport": 81,
     "demSupport": 82,
-    "gap": 100,
+    "gap": 1,
     "bothAbove67": true,
     "hasDeliberative": true,
     "hasProscons": true,
@@ -4362,7 +4362,7 @@
         "natPercent": 79,
         "repPercent": 81,
         "demPercent": 82,
-        "gap": 100,
+        "gap": 1,
         "metric": "favor",
         "metricNote": ""
       },
@@ -4541,7 +4541,7 @@
         "natPercent": 81,
         "repPercent": 82,
         "demPercent": 83,
-        "gap": 100,
+        "gap": 1,
         "metric": "other"
       }
     ],
@@ -4993,7 +4993,7 @@
         "natPercent": 68,
         "repPercent": 66,
         "demPercent": 67,
-        "gap": 100,
+        "gap": 1,
         "metric": "support"
       },
       {
@@ -5061,7 +5061,7 @@
     "natSupport": 85,
     "repSupport": 87,
     "demSupport": 86,
-    "gap": 100,
+    "gap": 1,
     "bothAbove67": true,
     "hasDeliberative": true,
     "hasProscons": true,
@@ -5076,7 +5076,7 @@
         "natPercent": 85,
         "repPercent": 87,
         "demPercent": 86,
-        "gap": 100,
+        "gap": 1,
         "metric": "favor",
         "metricNote": ""
       },
@@ -5531,7 +5531,7 @@
         "natPercent": 81,
         "repPercent": 82,
         "demPercent": 83,
-        "gap": 100,
+        "gap": 1,
         "metric": "favor",
         "metricNote": ""
       },
@@ -5606,7 +5606,7 @@
         "natPercent": 76,
         "repPercent": 78,
         "demPercent": 79,
-        "gap": 100,
+        "gap": 1,
         "metric": "other"
       },
       {
@@ -5841,7 +5841,7 @@
         "natPercent": 89,
         "repPercent": 89,
         "demPercent": 90,
-        "gap": 100,
+        "gap": 1,
         "metric": "support"
       },
       {
@@ -6280,7 +6280,7 @@
     "natSupport": 65,
     "repSupport": 66,
     "demSupport": 65,
-    "gap": 100,
+    "gap": 1,
     "bothAbove67": false,
     "hasDeliberative": true,
     "hasProscons": true,
@@ -6295,7 +6295,7 @@
         "natPercent": 65,
         "repPercent": 66,
         "demPercent": 65,
-        "gap": 100,
+        "gap": 1,
         "metric": "favor",
         "metricNote": ""
       },

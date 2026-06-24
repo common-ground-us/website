@@ -26,10 +26,14 @@ export default function Header() {
         </Link>
 
         <nav aria-label="Main navigation">
-          <ul className="flex items-center gap-1 sm:gap-2 list-none m-0 p-0">
+          <ul className="flex flex-wrap items-center justify-end gap-1 sm:gap-2 list-none m-0 p-0">
             {[
-              { href: "/", label: "Home" },
               { href: "/about/", label: "About" },
+              { href: "/roadmap/", label: "Roadmap" },
+              { href: "/research/", label: "Research" },
+              { href: "/governance/", label: "Governance" },
+              { href: "/get-involved/", label: "Get Involved" },
+              { href: "/contact/", label: "Contact" },
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link

@@ -4,42 +4,51 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-[#1a2a4a] text-white/70 mt-auto">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-        <p className="text-center sm:text-left">
-          © {year}{" "}
-          <span className="text-white font-medium">Common Ground</span>. All
-          rights reserved.
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
+        <p className="text-center sm:text-left text-sm max-w-2xl">
+          <span className="text-white font-medium">
+            Americans agree more than you think.
+          </span>{" "}
+          Self-funded — no donations, no advertising, no party affiliation.
         </p>
-        <nav aria-label="Footer navigation">
-          <ul className="flex flex-wrap justify-center gap-4 list-none m-0 p-0">
-            <li>
-              <Link
-                href="/about/"
-                className="hover:text-white transition-colors focus-visible:outline-white"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <a
-                href="https://github.com/common-ground-us/website"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors focus-visible:outline-white"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <Link
-                href="/privacy/"
-                className="hover:text-white transition-colors focus-visible:outline-white"
-              >
-                Privacy
-              </Link>
-            </li>
-          </ul>
-        </nav>
+
+        {/* Social links to be added here pending intern read-out. */}
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+          <p className="text-center sm:text-left">
+            © {year}{" "}
+            <span className="text-white font-medium">Common Ground</span>. All
+            rights reserved.
+          </p>
+          <nav aria-label="Footer navigation">
+            <ul className="flex flex-wrap justify-center gap-4 list-none m-0 p-0">
+              <li>
+                <Link
+                  href="/about/"
+                  className="hover:text-white transition-colors focus-visible:outline-white"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy/"
+                  className="hover:text-white transition-colors focus-visible:outline-white"
+                >
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms/"
+                  className="hover:text-white transition-colors focus-visible:outline-white"
+                >
+                  Terms
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </footer>
   );

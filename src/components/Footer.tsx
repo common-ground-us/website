@@ -17,8 +17,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <p className="text-center sm:text-left">
             © {year}{" "}
-            <span className="text-white font-medium">Common Ground</span>. All
-            rights reserved.
+            <span className="text-white font-medium">Common Ground</span>
           </p>
           <nav aria-label="Footer navigation">
             <ul className="flex flex-wrap justify-center gap-4 list-none m-0 p-0">
@@ -28,22 +27,6 @@ export default function Footer() {
                   className="hover:text-white transition-colors focus-visible:outline-white"
                 >
                   About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy/"
-                  className="hover:text-white transition-colors focus-visible:outline-white"
-                >
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms/"
-                  className="hover:text-white transition-colors focus-visible:outline-white"
-                >
-                  Terms
                 </Link>
               </li>
             </ul>

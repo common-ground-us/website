@@ -32,7 +32,6 @@ export default function Header() {
               { href: "/roadmap/", label: "Roadmap" },
               { href: "/research/", label: "Research" },
               { href: "/governance/", label: "Governance" },
-              { href: "/get-involved/", label: "Get Involved" },
               { href: "/contact/", label: "Contact" },
             ].map(({ href, label }) => (
               <li key={href}>
@@ -44,6 +43,14 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/get-involved/"
+                className="ml-1 px-3 py-2 rounded-md text-sm font-semibold bg-[#b22234] text-white hover:bg-[#9a1d2d] transition-colors focus-visible:outline-white whitespace-nowrap"
+              >
+                Get Involved
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroCarousel from "@/components/HeroCarousel";
 import PolicyCard from "@/components/PolicyCard";
 import type { Policy } from "@/lib/types";
 
@@ -239,24 +241,33 @@ function HomePageInner() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main id="main-content" className="flex-1">
-        {/* Hero */}
-        <section className="bg-[#1a2a4a] text-white py-4 sm:py-[22px]">
+        {/* Hero — brand line + launch carousel */}
+        <section className="bg-[#1a2a4a] text-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <p className="text-[10px] sm:text-[11px] uppercase tracking-[1.6px] font-semibold text-[#e8b8be]">
               A civic utility · Nonpartisan · Open methodology
             </p>
-            <h1 className="font-display text-[24px] sm:text-[38px] leading-[1.08] tracking-[-0.5px] sm:tracking-[-1px] font-extrabold mt-1.5 sm:mt-2 [text-wrap:balance] text-white">
-              Making government accountable to the will of the people.
-            </h1>
-            <p className="font-sans text-[13px] sm:text-[14px] leading-[1.45] text-[#c7cfdc] mt-1.5 sm:mt-2 [text-wrap:pretty]">
-              {allPolicies.length || 82}{" "}policies where Americans across party lines demonstrably agree — sourced from the Program for Public Consultation, U.&nbsp;Maryland.
+            <p className="font-display text-[22px] sm:text-[30px] leading-tight tracking-[-0.5px] font-extrabold mt-1.5 text-white">
+              Common-Ground.US
             </p>
+            <h1 className="font-display text-[15px] sm:text-[17px] leading-snug font-semibold text-[#c7cfdc] mt-0.5">
+              Making Government Accountable to the Will of the People
+            </h1>
+            <HeroCarousel />
           </div>
         </section>
 
         {/* Search header */}
         <section className="bg-[#1a2a4a] text-white pt-2 pb-5 sm:pt-3 sm:pb-6">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <p className="mb-2.5 sm:mb-3 text-[15px] sm:text-[16px]">
+              <span className="font-display font-bold text-white">
+                Look up any policy.
+              </span>{" "}
+              <span className="text-[#c7cfdc]">
+                Browse by area. Search by topic.
+              </span>
+            </p>
             <div className="relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -358,6 +369,28 @@ function HomePageInner() {
               )}
             </>
           )}
+        </section>
+
+        {/* Closing band — below the lookup */}
+        <section className="border-t border-[#e2e8f0] bg-[#f5f6f8]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 flex flex-col items-start gap-5">
+            <p className="text-[#4a5568] leading-relaxed">
+              The look-up tool is just the start. The full Common Ground Platform
+              publishes August&nbsp;1,&nbsp;2026. The Scorecard follows in October.{" "}
+              <Link
+                href="/roadmap/"
+                className="text-[#1a56c4] underline hover:no-underline"
+              >
+                See the full Product Roadmap →
+              </Link>
+            </p>
+            <Link
+              href="/get-involved/"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
+            >
+              Get Involved
+            </Link>
+          </div>
         </section>
       </main>
       <Footer />

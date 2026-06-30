@@ -13,7 +13,7 @@ export default function Header() {
           <Image
             src="/logos/logo-mark.svg"
             alt=""
-            width={36}
+            width={48}
             height={36}
             priority
           />

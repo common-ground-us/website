@@ -105,7 +105,47 @@ export default function GovernancePage() {
               editorial, not ideological.
             </p>
 
-            {/* Section 3 — What We Publish */}
+            {/* Section 3 — How the Platform Is Built */}
+            <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
+              How the Platform is built
+            </h2>
+            <p>
+              The Common Ground Platform selects policies that meet three
+              criteria:
+            </p>
+            <ol>
+              <li>
+                <strong className="text-[#1a2a4a]">
+                  Supermajority public support
+                </strong>{" "}
+                — a clear majority of Americans, well beyond a slim plurality,
+                support the policy.
+              </li>
+              <li>
+                <strong className="text-[#1a2a4a]">
+                  Cross-partisan agreement
+                </strong>{" "}
+                — that support holds across party lines, not just within one
+                party.
+              </li>
+              <li>
+                <strong className="text-[#1a2a4a]">
+                  Respect for individual constitutional rights
+                </strong>{" "}
+                — the policy operates within the limits the Bill of Rights places
+                on government action.
+              </li>
+            </ol>
+            <p>
+              The third criterion is not a caveat. It is a constitutional
+              constraint. A policy with overwhelming public support that would
+              abridge a right protected by the Bill of Rights has no place on the
+              Platform — however large the majority. American democracy was built
+              on two foundational commitments: democratic accountability and
+              individual liberty. The Platform honors both.
+            </p>
+
+            {/* Section 4 — What We Publish */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               What we publish
             </h2>
@@ -139,7 +179,7 @@ export default function GovernancePage() {
               directly.
             </p>
 
-            {/* Section 4 — Where We Are */}
+            {/* Section 5 — Where We Are */}
             <h2
               id="where-we-are"
               className="text-2xl font-display font-bold text-[#1a2a4a] scroll-mt-6"
@@ -170,7 +210,7 @@ export default function GovernancePage() {
               failure.
             </p>
 
-            {/* Section 5 — Read More */}
+            {/* Section 6 — Read More */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Read more
             </h2>

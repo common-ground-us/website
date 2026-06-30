@@ -17,7 +17,7 @@ const milestones = [
   {
     title: "The Common Ground Platform",
     status: "Publishing August 1, 2026",
-    body: "A select set of 10–15 federal policies with supermajority and bipartisan support — the democratic floor, the baseline that a representative democracy should reasonably be expected to reflect.",
+    body: "A select set of 10–15 federal policies meeting three criteria: supermajority public support, cross-partisan agreement, and respect for individual constitutional rights as protected by the Bill of Rights. The democratic floor — the baseline that a representative democracy should reasonably be expected to reflect.",
   },
   {
     title: "The Common Ground Scorecard",

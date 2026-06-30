@@ -79,10 +79,10 @@ export default function ResearchPage() {
                   </a>
                 </strong>
                 , which refined that work to{" "}
-                <strong className="text-[#1a2a4a]">88 policies</strong> on which
-                more than two-thirds of both Republicans and Democrats agree.
-                (Common Ground&apos;s own look-up tool displays the 82 of those 88
-                policies that are publicly available on PPC&apos;s site.)
+                <strong className="text-[#1a2a4a]">82 policies</strong> on which
+                more than two-thirds of both Republicans and Democrats agree —
+                the policies publicly available on PPC&apos;s site, which Common
+                Ground&apos;s own look-up tool displays.
               </li>
             </ul>
 
@@ -176,8 +176,10 @@ export default function ResearchPage() {
 
             {/* Closing line */}
             <p>
-              For the full governance framework on how research is selected and
-              applied, see our{" "}
+              For the full governance framework — including the three criteria
+              that govern Platform selection (supermajority public support,
+              cross-partisan agreement, and respect for individual constitutional
+              rights) — see our{" "}
               <Link
                 href="/governance/"
                 className="text-[#1a56c4] underline hover:no-underline"

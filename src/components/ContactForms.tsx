@@ -56,6 +56,7 @@ export default function ContactForms() {
           height={active.height}
           className="mx-auto max-w-full border-0"
           title={`${active.label} contact form`}
+          onLoad={() => window.scrollTo(0, 0)}
         >
           Loading…
         </iframe>

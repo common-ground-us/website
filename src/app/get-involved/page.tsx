@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import VolunteerForm from "@/components/VolunteerForm";
 
 export const metadata = {
   title: "Get Involved",
@@ -16,15 +17,13 @@ export default function GetInvolvedPage() {
           <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a] mb-8">
             Get Involved
           </h1>
-          <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6">
+          <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6 mb-8">
             <p>
-              Common Ground is an all-volunteer effort. This page will explain
-              the ways you can contribute and will host a sign-up form for
-              prospective volunteers.
+              Common Ground is an all-volunteer effort. Sign up below to let
+              us know how you&apos;d like to get involved.
             </p>
-            {/* A Google Form will be embedded/linked here as the volunteer sign-up. */}
-            <p className="text-[#6b7280] italic">Full content coming soon.</p>
           </div>
+          <VolunteerForm />
         </div>
       </main>
       <Footer />

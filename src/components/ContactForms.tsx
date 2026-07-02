@@ -4,22 +4,28 @@ import { useState } from "react";
 
 const FORMS = [
   {
-    id: "general",
-    label: "General Inquiry",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform?embedded=true",
-    height: 1697,
+    id: "press",
+    label: "Press / Media",
+    src: "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform?embedded=true",
+    openSrc:
+      "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform",
+    height: 2044,
   },
   {
     id: "partners",
     label: "Partners",
     src: "https://docs.google.com/forms/d/e/1FAIpQLSfsAXL6A8xJx7lHGfk3qaCyBCq5VJ_wUc7MCNkrxHkUbu4ovg/viewform?embedded=true",
+    openSrc:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfsAXL6A8xJx7lHGfk3qaCyBCq5VJ_wUc7MCNkrxHkUbu4ovg/viewform",
     height: 2073,
   },
   {
-    id: "press",
-    label: "Press / Media",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform?embedded=true",
-    height: 2044,
+    id: "general",
+    label: "General Inquiry",
+    src: "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform?embedded=true",
+    openSrc:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform",
+    height: 1697,
   },
 ] as const;
 
@@ -48,6 +54,18 @@ export default function ContactForms() {
           </button>
         ))}
       </div>
+      <p className="text-sm text-[#4a5568] mb-4">
+        Trouble seeing the form below (especially on iPhone or iPad)?{" "}
+        <a
+          href={active.openSrc}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-[#1a2a4a] underline"
+        >
+          Open it in a new tab
+        </a>
+        .
+      </p>
       <div className="w-full overflow-x-auto">
         <iframe
           key={active.id}

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   description:
     "Americans have supermajority agreement on dozens of federal policies. Explore the evidence.",
   keywords: ["bipartisan", "policy", "public opinion", "polling", "common ground"],
-  metadataBase: new URL("https://common-ground.us"),
+  metadataBase: new URL("https://www.common-ground.us"),
   openGraph: {
     type: "website",
     siteName: "Common Ground",
@@ -39,10 +39,6 @@ export const metadata: Metadata = {
     description:
       "Americans have supermajority agreement on dozens of federal policies. Explore the evidence.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-  },
-  robots: {
-    index: false,
-    follow: false,
   },
   twitter: {
     card: "summary_large_image",

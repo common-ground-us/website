@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1a2a4a] text-white/70 mt-auto">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
-        <p className="text-center sm:text-left text-sm max-w-2xl">
+        <p className="text-center sm:text-left text-sm">
           <span className="text-white font-medium">
             Americans agree more than you think.
           </span>{" "}
@@ -17,8 +17,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <p className="text-center sm:text-left">
             © {year}{" "}
-            <span className="text-white font-medium">Common Ground</span>. All
-            rights reserved.
+            <span className="text-white font-medium">Common Ground</span>
           </p>
           <nav aria-label="Footer navigation">
             <ul className="flex flex-wrap justify-center gap-4 list-none m-0 p-0">
@@ -28,22 +27,6 @@ export default function Footer() {
                   className="hover:text-white transition-colors focus-visible:outline-white"
                 >
                   About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy/"
-                  className="hover:text-white transition-colors focus-visible:outline-white"
-                >
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms/"
-                  className="hover:text-white transition-colors focus-visible:outline-white"
-                >
-                  Terms
                 </Link>
               </li>
             </ul>

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForms from "@/components/ContactForms";
 
 export const metadata = {
   title: "Contact",
@@ -15,14 +16,11 @@ export default function ContactPage() {
           <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a] mb-8">
             Contact
           </h1>
-          <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6">
-            <p>
-              Have a question, correction, or suggestion? This page will host a
-              contact form so you can reach the Common Ground team.
-            </p>
-            {/* A Google Form will be embedded/linked here as the contact form. */}
-            <p className="text-[#6b7280] italic">Full content coming soon.</p>
-          </div>
+          <p className="prose prose-lg max-w-none text-[#4a5568] mb-8">
+            Have a question, correction, or suggestion? Choose the option
+            below that best fits your inquiry.
+          </p>
+          <ContactForms />
         </div>
       </main>
       <Footer />

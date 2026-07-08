@@ -80,6 +80,7 @@ export default async function PolicyPage({ params }: Props) {
         {/* Breadcrumb */}
         <div className="bg-[#f5f6f8] border-b border-[#e2e8f0]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 text-sm text-[#718096] flex items-center justify-between">
+            <BackButton />
             <nav aria-label="Breadcrumb">
               <ol className="flex items-center gap-2 list-none m-0 p-0">
                 <li>
@@ -108,7 +109,6 @@ export default async function PolicyPage({ params }: Props) {
                 )}
               </ol>
             </nav>
-            <BackButton />
           </div>
         </div>
 

@@ -45,14 +45,6 @@ export const metadata: Metadata = {
     title: "Common Ground",
     description: "Americans agree more than you think.",
   },
-  appleWebApp: {
-    capable: true,
-    title: "Common Ground",
-    statusBarStyle: "black-translucent",
-  },
-  other: {
-    "mobile-web-app-capable": "yes",
-  },
 };
 
 export const viewport: Viewport = {

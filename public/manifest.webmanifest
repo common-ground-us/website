@@ -4,7 +4,7 @@
   "short_name": "Common Ground",
   "description": "Tools for an Informed Citizenry — bipartisan policy research",
   "start_url": "/",
-  "display": "standalone",
+  "display": "minimal-ui",
   "background_color": "#f5f6f8",
   "theme_color": "#1a2a4a",
   "orientation": "portrait-primary",

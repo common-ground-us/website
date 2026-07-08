@@ -7,6 +7,7 @@ import { Menu, X } from "./icons";
 
 const NAV_LINKS = [
   { href: "/about/", label: "About" },
+  { href: "/about/founder/", label: "Founder's Message" },
   { href: "/roadmap/", label: "Roadmap" },
   { href: "/research/", label: "Research" },
   { href: "/governance/", label: "Governance" },

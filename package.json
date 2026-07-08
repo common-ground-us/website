@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/generate-sw.mjs",
+    "build": "node scripts/build.mjs",
     "start": "next start",
     "lint": "eslint",
     "import-excel": "tsx scripts/import-excel.ts"

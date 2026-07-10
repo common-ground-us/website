@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     title: "Common Ground",
     description: "Americans agree more than you think.",
   },
+  verification: {
+    google: "CJM6tVCzBomQE60P5H6QkY_49AIZZK2A1Itua1clcbA",
+  },
 };
 
 export const viewport: Viewport = {

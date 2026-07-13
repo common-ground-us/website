@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 flex flex-col gap-6">
         <p className="text-center sm:text-left text-sm">
           <span className="text-white font-medium">
-            Americans agree more than you think.
+            Making Government Accountable to the Will of the People
           </span>{" "}
           Self-funded — no donations, no advertising, no party affiliation.
         </p>

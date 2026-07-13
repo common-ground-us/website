@@ -3,9 +3,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Common Ground",
+  title: {
+    absolute: "About | Common Ground — What Americans Want from Their Government",
+  },
   description:
-    "Common Ground is civic infrastructure that makes the People's existing agreement visible, measurable, and usable.",
+    "Common Ground is nonpartisan civic infrastructure curating peer-reviewed research on what Americans want from their government. About the initiative.",
 };
 
 export default function AboutPage() {

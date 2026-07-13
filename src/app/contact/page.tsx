@@ -3,8 +3,11 @@ import Footer from "@/components/Footer";
 import ContactForms from "@/components/ContactForms";
 
 export const metadata = {
-  title: "Contact",
-  description: "Contact Common Ground.",
+  title: {
+    absolute: "Contact | Common Ground — What Americans Want from Their Government",
+  },
+  description:
+    "Contact Common Ground — nonpartisan civic infrastructure making visible what Americans want from their government. Press, partnership, general inquiries.",
 };
 
 export default function ContactPage() {

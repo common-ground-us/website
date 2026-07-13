@@ -198,7 +198,7 @@ function applySorting(policies: Policy[], sort: SortKey): Policy[] {
   });
 }
 
-function HomePageInner() {
+function HomeSearch() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const initialQuery = searchParams.get("q") ?? "";
@@ -271,27 +271,9 @@ function HomePageInner() {
   const sortedResults = applySorting(results, sortKey);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main id="main-content" className="flex-1">
-        {/* Hero — brand line + launch carousel */}
-        <section className="bg-[#1a2a4a] text-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <p className="text-[10px] sm:text-[11px] uppercase tracking-[1.6px] font-semibold text-[#e8b8be]">
-              A civic utility · Nonpartisan · Open methodology
-            </p>
-            <p className="font-display text-[22px] sm:text-[30px] leading-tight tracking-[-0.5px] font-extrabold mt-1.5 text-white">
-              Common-Ground.US
-            </p>
-            <h1 className="font-display text-[15px] sm:text-[17px] leading-snug font-semibold text-[#c7cfdc] mt-0.5">
-              Making Government Accountable to the Will of the People
-            </h1>
-            <HeroCarousel />
-          </div>
-        </section>
-
-        {/* Search header */}
-        <section className="bg-[#1a2a4a] text-white pt-2 pb-5 sm:pt-3 sm:pb-6">
+    <>
+      {/* Search header */}
+      <section className="bg-[#1a2a4a] text-white pt-2 pb-5 sm:pt-3 sm:pb-6">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <p className="mb-2.5 sm:mb-3 text-[15px] sm:text-[16px]">
               <span className="font-display font-bold text-white">
@@ -425,16 +407,54 @@ function HomePageInner() {
             </Link>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
+  );
+}
+
+/**
+ * Static hero (eyebrow, brand line, H1). Kept outside the Suspense boundary in
+ * <Home> so it prerenders into the static HTML for SEO — the search UI below
+ * uses useSearchParams, which would otherwise opt the whole page into
+ * client-only rendering and drop the H1 from the server response.
+ */
+function HomeHero() {
+  return (
+    <section className="bg-[#1a2a4a] text-white">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <p className="text-[10px] sm:text-[11px] uppercase tracking-[1.6px] font-semibold text-[#e8b8be]">
+          A civic utility · Nonpartisan · Open methodology
+        </p>
+        <p className="font-display text-[22px] sm:text-[30px] leading-tight tracking-[-0.5px] font-extrabold mt-1.5 text-white">
+          Common-Ground.US
+        </p>
+        <h1 className="font-display text-[15px] sm:text-[17px] leading-snug font-semibold text-[#c7cfdc] mt-0.5">
+          What Americans Want from Their Government
+        </h1>
+        <HeroCarousel />
+      </div>
+    </section>
   );
 }
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[#718096]">Loading…</div>}>
-      <HomePageInner />
-    </Suspense>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main id="main-content" className="flex-1">
+        <HomeHero />
+        <Suspense
+          fallback={
+            <div className="bg-[#1a2a4a] text-white">
+              <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 text-[#c7cfdc]">
+                Loading…
+              </div>
+            </div>
+          }
+        >
+          <HomeSearch />
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
   );
 }

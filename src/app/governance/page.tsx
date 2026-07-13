@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Our Governance & Transparency",
+  title: "Governance Principles",
   description:
     "How Common Ground is built to be trusted — structurally, not rhetorically.",
 };

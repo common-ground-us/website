@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects. Ported from netlify.toml.
+# Decap CMS: serve the admin SPA under /admin/.
+/admin/*  /admin/index.html  200
+
+# NOTE: the old Netlify SPA catch-all (/* -> /index.html 200) is intentionally
+# dropped. This is a static export with a real HTML file per route, so the
+# catch-all is unnecessary and would mask genuine 404s.
+#
+# SEO redirects (apex -> www 301, vanity /ig /tiktok, etc.) are added in Phase 2.

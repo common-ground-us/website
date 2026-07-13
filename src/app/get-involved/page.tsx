@@ -3,9 +3,12 @@ import Footer from "@/components/Footer";
 import VolunteerForm from "@/components/VolunteerForm";
 
 export const metadata = {
-  title: "Get Involved",
+  title: {
+    absolute:
+      "Get Involved | Common Ground — What Americans Want from Their Government",
+  },
   description:
-    "Get involved with Common Ground — volunteer, contribute, and help build tools for an informed citizenry.",
+    "Sign the Common Ground Pledge — stand publicly with fellow citizens for the policies supermajorities of Americans already agree on.",
 };
 
 export default function GetInvolvedPage() {

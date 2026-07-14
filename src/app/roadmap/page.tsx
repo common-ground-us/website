@@ -6,6 +6,7 @@ export const metadata = {
   title: "Our Product Roadmap",
   description:
     "What's launching when. Common Ground's 2026 product roadmap — Look-Up Tool through Gap Analysis.",
+  alternates: { canonical: "/roadmap/" },
 };
 
 const milestones = [

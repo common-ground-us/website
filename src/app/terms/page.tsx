@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Terms of Use",
   description: "The terms of use for the Common Ground website.",
+  alternates: { canonical: "/terms/" },
 };
 
 export default function TermsPage() {

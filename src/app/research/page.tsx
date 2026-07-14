@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "The Research Behind Common Ground",
   description: "The sources, methodology, and rigor behind Common Ground.",
+  alternates: { canonical: "/research/" },
 };
 
 export default function ResearchPage() {

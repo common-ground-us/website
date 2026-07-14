@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: policy.policyTitle,
     description: policy.proscons?.briefingSummary?.slice(0, 160) || policy.surveys[0]?.questionText?.slice(0, 160),
+    alternates: { canonical: `/policies/${id}/` },
     openGraph: {
       title: `${policy.policyTitle} | Common Ground`,
       description: policy.proscons?.briefingSummary?.slice(0, 160) || undefined,

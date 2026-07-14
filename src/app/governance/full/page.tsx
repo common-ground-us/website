@@ -6,6 +6,7 @@ export const metadata = {
   title: "Full Governance Principles",
   description:
     "The complete governance framework for Common Ground — our structure, criteria, methodology, and commitments.",
+  alternates: { canonical: "/governance/full/" },
 };
 
 export default function GovernanceFullPage() {

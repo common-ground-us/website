@@ -6,6 +6,7 @@ export const metadata = {
   title: "Governance Principles",
   description:
     "How Common Ground is built to be trusted — structurally, not rhetorically.",
+  alternates: { canonical: "/governance/" },
 };
 
 export default function GovernancePage() {

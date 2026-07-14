@@ -8,6 +8,7 @@ export const metadata = {
   },
   description:
     "Common Ground is nonpartisan civic infrastructure curating peer-reviewed research on what Americans want from their government. About the initiative.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

@@ -1,46 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import PolicyCard from "@/components/PolicyCard";
 import type { Policy } from "@/lib/types";
-
-// TEMPORARY: pre-launch hero banner shown above the search box until the
-// public launch on July 4, 2026. Remove this and the `.lb-hero*` rules in
-// globals.css once the site has launched, restoring the original "A civic
-// utility…" hero copy in its place.
-function LaunchHero() {
-  return (
-    <section className="lb-hero" role="banner" data-screen-label="Launch banner">
-      <div className="lb-hero-weave" />
-      <div className="lb-hero-inner">
-        <div className="lb-hero-content">
-          <div className="lb-hero-lockup">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="lb-hero-logo" src="/logos/logo-stacked-beside.svg" alt="Common Ground" />
-            <div className="lb-hero-div" />
-            <div className="lb-hero-eyebrow">
-              <span className="lb-hero-dot" />
-              Public launch
-            </div>
-          </div>
-          <h1 className="lb-hero-h1">
-            Launching <span className="lb-hero-dl">July&nbsp;4,&nbsp;2026</span>
-          </h1>
-          <p className="lb-hero-sub">
-            Free, nonpartisan tools built on what Americans actually agree on.
-          </p>
-        </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="lb-hero-mark" src="/logos/logo-mark.svg" alt="" aria-hidden="true" />
-      </div>
-    </section>
-  );
-}
 
 /** Horizontally-scrollable tab strip with prev/next arrow buttons */
 function CategoryTabs({
@@ -200,7 +167,6 @@ function applySorting(policies: Policy[], sort: SortKey): Policy[] {
 
 function HomeSearch() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const initialQuery = searchParams.get("q") ?? "";
   const initialCategory = searchParams.get("category") ?? "";
   const initialSort = (searchParams.get("sort") as SortKey) || "support-desc";

@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "A Message from the Founder",
   description: "Why I started Common Ground — from Keith Lietzke, founder.",
+  alternates: { canonical: "/about/founder/" },
 };
 
 export default function FounderPage() {

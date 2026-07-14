@@ -6,6 +6,7 @@ export const metadata = {
   title: "Privacy Policy",
   description:
     "Common Ground's privacy policy — what we collect, how it's used, and your choices.",
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {

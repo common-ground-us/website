@@ -31,6 +31,19 @@ const jetbrainsMono = JetBrains_Mono({
 const HOME_DESCRIPTION =
   "Common Ground makes visible what Americans want from their government — the policies where supermajorities of Democrats and Republicans already agree.";
 
+// Organization structured data (spec 2.7). Rendered as JSON-LD in <head> to help
+// Google build the knowledge-panel / organization entry. `sameAs` is omitted
+// until social profiles exist (Footer notes them as pending).
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Common Ground",
+  alternateName: "Common-Ground.US",
+  url: "https://www.common-ground.us",
+  logo: "https://www.common-ground.us/icons/icon-512.png",
+  description: HOME_DESCRIPTION,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Common Ground | What Americans Want from Their Government",
@@ -39,6 +52,9 @@ export const metadata: Metadata = {
   description: HOME_DESCRIPTION,
   keywords: ["bipartisan", "policy", "public opinion", "polling", "common ground"],
   metadataBase: new URL("https://www.common-ground.us"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     siteName: "Common Ground",
@@ -75,6 +91,10 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {GTM_ID && (
           <Script id="gtm-init" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}

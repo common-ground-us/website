@@ -9,6 +9,7 @@ export const metadata = {
   },
   description:
     "Sign the Common Ground Pledge — stand publicly with fellow citizens for the policies supermajorities of Americans already agree on.",
+  alternates: { canonical: "/get-involved/" },
 };
 
 export default function GetInvolvedPage() {

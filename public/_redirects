@@ -1,9 +1,20 @@
-# Cloudflare Pages redirects. Ported from netlify.toml.
+# Cloudflare Pages redirects. Ported from netlify.toml + Phase 2 SEO/vanity rules.
+# Format: <source>  <destination>  <status>. First match wins; static files win
+# over redirects. See https://developers.cloudflare.com/pages/configuration/redirects/
+
 # Decap CMS: serve the admin SPA under /admin/.
 /admin/*  /admin/index.html  200
+
+# Canonical host (spec 2.5): apex -> www 301 and http -> https are handled by
+# Cloudflare (a Redirect Rule + "Always Use HTTPS") at the edge, not here.
+
+# --- Vanity UTM links for no-clickable-link platforms (spec 4.1) ---
+# Short paths that 301 to home with the campaign UTM stamped automatically.
+/ig      https://www.common-ground.us/?utm_source=cg_official&utm_medium=instagram&utm_campaign=launch2026  301
+/tiktok  https://www.common-ground.us/?utm_source=cg_official&utm_medium=tiktok&utm_campaign=launch2026     301
+/yt      https://www.common-ground.us/?utm_source=cg_official&utm_medium=youtube&utm_campaign=launch2026    301
+/li      https://www.common-ground.us/?utm_source=cg_official&utm_medium=linkedin&utm_campaign=launch2026   301
 
 # NOTE: the old Netlify SPA catch-all (/* -> /index.html 200) is intentionally
 # dropped. This is a static export with a real HTML file per route, so the
 # catch-all is unnecessary and would mask genuine 404s.
-#
-# SEO redirects (apex -> www 301, vanity /ig /tiktok, etc.) are added in Phase 2.

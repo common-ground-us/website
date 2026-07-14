@@ -8,6 +8,7 @@ export const metadata = {
   },
   description:
     "Contact Common Ground — nonpartisan civic infrastructure making visible what Americans want from their government. Press, partnership, general inquiries.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

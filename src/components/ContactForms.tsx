@@ -1,84 +1,54 @@
-"use client";
-
-import { useState } from "react";
+import FormLaunchButton from "@/components/FormLaunchButton";
 
 const FORMS = [
   {
     id: "press",
     label: "Press / Media",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform?embedded=true",
-    openSrc:
-      "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform",
-    height: 2044,
+    description:
+      "Interview requests, media inquiries, and fact-checks for journalists.",
+    event: "contact_press",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLScCZlM0z6V6e1B_g8Oo-zUQG53mU6W9v9SXcov4g9fdEfL25g/viewform",
   },
   {
     id: "partners",
     label: "Partners",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLSfsAXL6A8xJx7lHGfk3qaCyBCq5VJ_wUc7MCNkrxHkUbu4ovg/viewform?embedded=true",
-    openSrc:
-      "https://docs.google.com/forms/d/e/1FAIpQLSfsAXL6A8xJx7lHGfk3qaCyBCq5VJ_wUc7MCNkrxHkUbu4ovg/viewform",
-    height: 2073,
+    description:
+      "Organizations interested in collaborating or amplifying the work.",
+    event: "contact_partners",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfsAXL6A8xJx7lHGfk3qaCyBCq5VJ_wUc7MCNkrxHkUbu4ovg/viewform",
   },
   {
     id: "general",
     label: "General Inquiry",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform?embedded=true",
-    openSrc:
-      "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform",
-    height: 1697,
+    description: "Questions, corrections, and everything else.",
+    event: "contact_info",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSdLNK-EeeX6WtDeDuMCqwFZSF1EGXBa0G9p9YBTEyXZK-7SKg/viewform",
   },
 ] as const;
 
 export default function ContactForms() {
-  const [activeId, setActiveId] = useState<(typeof FORMS)[number]["id"]>(
-    FORMS[0].id
-  );
-  const active = FORMS.find((form) => form.id === activeId) ?? FORMS[0];
-
   return (
-    <div>
-      <div className="flex flex-wrap gap-2 border-b border-gray-200 mb-8">
-        {FORMS.map((form) => (
-          <button
-            key={form.id}
-            type="button"
-            onClick={() => setActiveId(form.id)}
-            className={`px-4 py-2 text-sm sm:text-base font-medium rounded-t-md transition-colors ${
-              form.id === activeId
-                ? "bg-[#1a2a4a] text-white"
-                : "text-[#4a5568] hover:text-[#1a2a4a] hover:bg-gray-100"
-            }`}
-            aria-current={form.id === activeId ? "true" : undefined}
-          >
+    <div className="grid gap-4 sm:grid-cols-3">
+      {FORMS.map((form) => (
+        <div
+          key={form.id}
+          className="flex flex-col rounded-lg border border-gray-200 bg-white p-6"
+        >
+          <h2 className="text-lg font-semibold text-[#1a2a4a] mb-2">
             {form.label}
-          </button>
-        ))}
-      </div>
-      <p className="text-sm text-[#4a5568] mb-4">
-        Trouble seeing the form below (especially on iPhone or iPad)?{" "}
-        <a
-          href={active.openSrc}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-[#1a2a4a] underline"
-        >
-          Open it in a new tab
-        </a>
-        .
-      </p>
-      <div className="w-full overflow-x-auto">
-        <iframe
-          key={active.id}
-          src={active.src}
-          width="640"
-          height={active.height}
-          className="mx-auto max-w-full border-0"
-          title={`${active.label} contact form`}
-          onLoad={() => window.scrollTo(0, 0)}
-        >
-          Loading…
-        </iframe>
-      </div>
+          </h2>
+          <p className="text-sm text-[#4a5568] mb-6 flex-1">
+            {form.description}
+          </p>
+          <FormLaunchButton
+            baseUrl={form.url}
+            eventName={form.event}
+            className="inline-flex items-center justify-center px-4 py-2 bg-[#1a2a4a] text-white text-sm font-medium rounded-lg hover:bg-[#2a3f6e] transition-colors"
+          >
+            Open the {form.label} form
+          </FormLaunchButton>
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,60 +1,30 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import FormLaunchButton from "@/components/FormLaunchButton";
 
 const FORM_ID = "1FAIpQLSf0VIlFeyQybJEY47dh2Q7F1LpP8f6ZYTCDJNzhS-x02t13bg";
 
+// Hidden "source" field on the Pledge/Champion form. Prefilled from the inbound
+// UTM parameters so every response row is tagged with which Champion drove it.
+const SOURCE_ENTRY_ID = "entry.1512858090";
+
+const FORM_URL = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
+
 export default function VolunteerForm() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    // The Pledge form is a cross-origin Google Forms iframe, so the page cannot
-    // observe the real submit. As an interim conversion proxy we treat "user
-    // focused into the form" as a signal and push a `pledge_submit` event once
-    // per session. This measures form-start intent, not a confirmed submission
-    // (it over-counts) — see the analytics setup notes.
-    function handleBlur() {
-      if (document.activeElement !== iframeRef.current) return;
-      try {
-        if (sessionStorage.getItem("cg_pledge_submit_fired") === "1") return;
-        sessionStorage.setItem("cg_pledge_submit_fired", "1");
-      } catch {
-        // sessionStorage unavailable (private mode); fall through and still fire.
-      }
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "pledge_submit", form: "pledge" });
-    }
-    window.addEventListener("blur", handleBlur);
-    return () => window.removeEventListener("blur", handleBlur);
-  }, []);
-
   return (
-    <div>
-      <p className="text-sm text-[#4a5568] mb-4">
-        Trouble seeing the form below (especially on iPhone or iPad)?{" "}
-        <a
-          href={`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-[#1a2a4a] underline"
-        >
-          Open it in a new tab
-        </a>
-        .
+    <div className="rounded-lg border border-gray-200 bg-white p-6 sm:p-8">
+      <p className="text-[#4a5568] mb-6">
+        Add your name to the Common Ground Pledge, and let us know if you&apos;d
+        like to take the next step and become a Champion. The form opens in a new
+        tab — submit it there, then close the tab to return here.
       </p>
-      <div className="w-full overflow-x-auto">
-        <iframe
-          ref={iframeRef}
-          src={`https://docs.google.com/forms/d/e/${FORM_ID}/viewform?embedded=true`}
-          width="640"
-          height={2000}
-          className="mx-auto max-w-full border-0"
-          title="Volunteer sign-up form"
-          onLoad={() => window.scrollTo(0, 0)}
-        >
-          Loading…
-        </iframe>
-      </div>
+      <FormLaunchButton
+        baseUrl={FORM_URL}
+        eventName="pledge_form_open"
+        eventForm="pledge"
+        sourceEntryId={SOURCE_ENTRY_ID}
+        className="inline-flex items-center justify-center px-6 py-3 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
+      >
+        Sign the Pledge
+      </FormLaunchButton>
     </div>
   );
 }

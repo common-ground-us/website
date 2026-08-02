@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "A Message from the Founder",
@@ -14,9 +15,22 @@ export default function FounderPage() {
       <Header />
       <main id="main-content" className="flex-1">
         <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a] mb-8">
-            A Message from the Founder
-          </h1>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 mb-8">
+            <Image
+              src="/images/keith-lietzke-400.webp"
+              alt="Keith Lietzke, founder of Common Ground"
+              width={400}
+              height={400}
+              priority
+              className="w-32 h-32 sm:w-40 sm:h-40 shrink-0 rounded-full object-cover bg-white ring-4 ring-[#e2e8f0]"
+            />
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a]">
+                A Message from the Founder
+              </h1>
+              <p className="mt-2 text-[#4a5568]">Keith Lietzke, Founder</p>
+            </div>
+          </div>
 
           <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6">
             {/* Section 1 — Who I Am (and Where I Stand) */}

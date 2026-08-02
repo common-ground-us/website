@@ -12,13 +12,18 @@ export const metadata = {
 const milestones = [
   {
     title: "Website & Look-Up Tool",
-    status: "Launching July 4, 2026",
+    status: "Launched July 4, 2026",
     body: "Best-in-class research on what Americans want from their government — browse by policy area, search by topic. Use it to evaluate candidates and to ground conversations with family, friends, and neighbors. Facts at your fingertips.",
   },
   {
     title: "The Common Ground Platform",
-    status: "Publishing August 1, 2026",
+    status: "Publishing August 2026",
     body: "A select set of 10–15 federal policies meeting three criteria: supermajority public support, cross-partisan agreement, and respect for individual constitutional rights as protected by the Bill of Rights. The democratic floor — the baseline that a representative democracy should reasonably be expected to reflect.",
+  },
+  {
+    title: "The Pledge List",
+    status: "Launching August 2026",
+    body: "A public declaration that government should respond to the Will of the People — and a growing, visible count of the citizens who stand behind it. The Pledge connects like-minded citizens across party lines so we can act in concert.",
   },
   {
     title: "The Common Ground Scorecard",

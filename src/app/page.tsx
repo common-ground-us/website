@@ -357,7 +357,7 @@ function HomeSearch() {
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 flex flex-col items-start gap-5">
             <p className="text-[#4a5568] leading-relaxed">
               The look-up tool is just the start. The full Common Ground Platform
-              publishes August&nbsp;1,&nbsp;2026. The Scorecard follows in October.{" "}
+              publishes August&nbsp;2026. The Scorecard follows in October.{" "}
               <Link
                 href="/roadmap/"
                 className="text-[#1a56c4] underline hover:no-underline"

@@ -23,7 +23,33 @@ export default function AboutPage() {
           </h1>
 
           <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6">
-            {/* Section 1 — What we are */}
+            {/* Section 1 — Our goals */}
+            <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
+              Our goals
+            </h2>
+            <p>
+              <strong className="text-[#1a2a4a]">Goal #1 </strong> is to make
+              visible Americans&apos; agreement on key policy issues — so visible
+              that it cannot be ignored.
+            </p>
+            <p>
+              <strong className="text-[#1a2a4a]">Goal #2 </strong> is to serve as a
+              rallying point for citizen action in two ways:
+            </p>
+            <ul>
+              <li>
+                <strong className="text-[#1a2a4a]">The Platform</strong> and its
+                principles provide an objective digest that we can all point to,
+                representing in the best possible way what we agree on.
+              </li>
+              <li>
+                <strong className="text-[#1a2a4a]">The Pledge</strong> is a public
+                declaration that connects like-minded citizens so we can act in
+                concert.
+              </li>
+            </ul>
+
+            {/* Section 2 — What we are */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               What we are
             </h2>
@@ -44,7 +70,7 @@ export default function AboutPage() {
               movement. Not a party. Not a campaign.
             </p>
 
-            {/* Section 2 — Why we exist */}
+            {/* Section 3 — Why we exist */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Why we exist
             </h2>
@@ -86,7 +112,7 @@ export default function AboutPage() {
             </p>
             <p>Common Ground exists to close that gap.</p>
 
-            {/* Section 3 — How we work */}
+            {/* Section 4 — How we work */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               How we work
             </h2>
@@ -102,7 +128,7 @@ export default function AboutPage() {
               data comes from Pew, KFF, Gallup, More in Common, Harvard
               CAPS/Harris, and other peer-reviewed sources.
             </p>
-            <p>Four tools deliver this information to citizens:</p>
+            <p>Five tools deliver this information to citizens:</p>
             <ul>
               <li>
                 <strong className="text-[#1a2a4a]">The Look-Up Tool</strong> lets
@@ -113,6 +139,12 @@ export default function AboutPage() {
                 to fifteen policies on which broad bipartisan supermajorities
                 agree — a documented standard, the baseline a representative
                 democracy should reasonably be expected to reflect.
+              </li>
+              <li>
+                <strong className="text-[#1a2a4a]">The Pledge</strong> is a public
+                declaration that government should respond to the Will of the
+                People — and a growing, visible count of the citizens who stand
+                behind it.
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">The Scorecard</strong> measures
@@ -133,7 +165,7 @@ export default function AboutPage() {
               </Link>
             </p>
 
-            {/* Section 4 — What we are not */}
+            {/* Section 5 — What we are not */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               What we are not
             </h2>
@@ -153,12 +185,12 @@ export default function AboutPage() {
               to show it — and make it usable.
             </p>
 
-            {/* Section 5 — Why now */}
+            {/* Section 6 — Why now */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Why now
             </h2>
             <p>
-              Common Ground launches July 4, 2026 — America&apos;s 250th
+              Common Ground launched July 4, 2026 — America&apos;s 250th
               anniversary. It is the right civic moment to ask whether we are
               living up to our founding promise.
             </p>
@@ -171,7 +203,7 @@ export default function AboutPage() {
               whether we will see ourselves clearly enough to act on it.
             </p>
 
-            {/* Section 6 — Why you can trust it */}
+            {/* Section 7 — Why you can trust it */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Why you can trust it
             </h2>
@@ -212,7 +244,7 @@ export default function AboutPage() {
               </Link>
             </p>
 
-            {/* Section 7 — Who we are */}
+            {/* Section 8 — Who we are */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Who we are
             </h2>
@@ -229,14 +261,17 @@ export default function AboutPage() {
               </Link>
             </p>
 
-            {/* Section 8 — What you can do */}
+            {/* Section 9 — What you can do */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               What you can do
             </h2>
             <p>
-              Common Ground compounds only through sharing. That makes the work
-              answerable to one test: is the idea good enough that you want to
-              spread it?
+              Common Ground gives citizens an opportunity to express their support
+              for the fundamental principle that Government should respond to the
+              Will of the People. The best way to show this support is by taking
+              the Common Ground Pledge. Further, citizens can become a Champion
+              for this principle by spreading the word to friends, family and
+              neighbors.
             </p>
             <p>
               Share this. Stand to be counted.{" "}

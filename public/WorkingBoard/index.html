@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Common Ground — Working Board</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #fafaf7;
+  color: #1a1a1a;
+}
+h1 { margin: 0; font-size: 20px; font-weight: 600; color: #1a1a1a; }
+h2 { font-size: 15px; margin: 20px 0 10px 0; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.5px; font-family: -apple-system, sans-serif; }
+h3 { font-size: 14px; margin: 16px 0 6px 0; font-weight: 600; color: #555; }
+p { margin: 0 0 8px 0; }
+a { color: #2b4a7f; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 900px; margin: 0 auto; }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0 16px 0;
+  border-bottom: 1px solid #e5e2da;
+  margin-bottom: 4px;
+}
+.header-left { display: flex; flex-direction: column; gap: 4px; }
+.header-meta { font-size: 12px; color: #6a6a6a; }
+.header-right { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.help {
+  color: #6a6a6a; font-size: 12px; cursor: help;
+  border-bottom: 1px dotted #6a6a6a;
+}
+.tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid #e5e2da;
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+.tab {
+  padding: 8px 14px;
+  cursor: pointer;
+  color: #6a6a6a;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+}
+.tab:hover { color: #2b4a7f; }
+.tab.active { color: #2b4a7f; border-bottom-color: #2b4a7f; font-weight: 600; }
+.tab-count {
+  background: #e5e2da;
+  color: #555;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.tab.active .tab-count { background: #d3e0f0; color: #2b4a7f; }
+.content { min-height: 400px; }
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e2da;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.card.done { opacity: 0.65; background: #f4f2ec; }
+.card.blocked { border-left: 3px solid #b06060; }
+.card.in_progress { border-left: 3px solid #2b4a7f; }
+.card.waiting_external { border-left: 3px solid #b58a3a; }
+.card-title { font-weight: 600; font-size: 14px; color: #1a1a1a; margin-bottom: 4px; }
+.card-title.done-strike { text-decoration: line-through; }
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11px;
+  color: #6a6a6a;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.pill {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  background: #eee6d3;
+  color: #6a5a2a;
+}
+.pill.domain-content   { background: #e6dfff; color: #4e3aa0; }
+.pill.domain-platform  { background: #d0e8d5; color: #2f6f3f; }
+.pill.domain-pledge    { background: #ffe1d0; color: #a05230; }
+.pill.domain-website   { background: #dcebf5; color: #2b4a7f; }
+.pill.domain-social    { background: #f5e0f0; color: #833867; }
+.pill.domain-outreach  { background: #ffe6c9; color: #a06d2c; }
+.pill.domain-research  { background: #e0eee2; color: #3a6a4e; }
+.pill.domain-ops       { background: #ececec; color: #4a4a4a; }
+.pill.domain-product   { background: #d5e3d0; color: #3a6a3a; }
+.pill.domain-discussion { background: #f2e1e6; color: #7f3a55; }
+
+.pri {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+}
+.pri.H { background: #f4d0d0; color: #a33a3a; }
+.pri.M { background: #ffe9c4; color: #a06d2c; }
+.pri.L { background: #e5e5e5; color: #6a6a6a; }
+.status {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.status.not_started { background: #eee; color: #555; }
+.status.in_progress { background: #d3e0f0; color: #2b4a7f; }
+.status.blocked { background: #f4d0d0; color: #a33a3a; }
+.status.waiting_external { background: #ffe6c9; color: #a06d2c; }
+.status.done { background: #dfe8dc; color: #3a6a4e; }
+.status.archived { background: #e8e5dc; color: #6a6a6a; }
+.dep-hint {
+  font-size: 11px;
+  color: #a33a3a;
+  margin-top: 4px;
+  font-style: italic;
+}
+.dep-hint::before { content: "🔒 "; }
+.dep-progress {
+  font-size: 11px;
+  color: #6a6a6a;
+  margin-top: 4px;
+}
+.notes {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #e5e2da;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+.notes.hidden { display: none; }
+.toggle-notes {
+  font-size: 11px;
+  color: #2b4a7f;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 4px;
+  display: inline-block;
+}
+.toggle-notes:hover { text-decoration: underline; }
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+}
+.filters label { color: #6a6a6a; }
+.filters select {
+  padding: 4px 8px;
+  border: 1px solid #d0cdc4;
+  border-radius: 4px;
+  background: white;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+.today-reason {
+  font-size: 11px;
+  color: #4a6a2b;
+  background: #eef4e5;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.empty {
+  padding: 30px;
+  text-align: center;
+  color: #9a9a9a;
+  font-style: italic;
+  font-size: 13px;
+}
+.rel-card {
+  background: white;
+  border: 1px solid #e5e2da;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.rel-header { display: flex; justify-content: space-between; align-items: baseline; }
+.rel-name { font-weight: 600; font-size: 14px; }
+.rel-stage {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.rel-stage.cold { background: #ececec; color: #6a6a6a; }
+.rel-stage.initial { background: #d3e0f0; color: #2b4a7f; }
+.rel-stage.active { background: #dfe8dc; color: #3a6a4e; }
+.rel-stage.dormant { background: #f2e5c9; color: #886a30; }
+.rel-context { font-size: 12px; color: #555; margin: 4px 0; }
+.rel-meta { font-size: 11px; color: #6a6a6a; margin-top: 6px; }
+.rel-next { font-size: 12px; color: #1a1a1a; margin-top: 4px; }
+.rel-next-label { color: #6a6a6a; font-weight: 500; }
+.group-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 16px 0 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e5e2da;
+}
+.group-header .count { color: #9a9a9a; font-weight: 500; margin-left: 6px; font-size: 11px; text-transform: none; letter-spacing: 0; }
+.footer {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e2da;
+  font-size: 11px;
+  color: #9a9a9a;
+  text-align: center;
+}
+.idea-card {
+  background: #fff9e6;
+  border: 1px solid #f0e6c5;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #4a4a4a;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-left">
+    <h1>Common Ground — Working Board</h1>
+    <div class="header-meta" id="header-meta">Loading…</div>
+  </div>
+  <div class="header-right">
+    <span class="help" title="Tasks live in this artifact. To add or update items, ask Claude in chat: 'Add a task: [description]' or 'Mark [task title] as done'. Any Claude thread in this project can update this board.">how to add tasks</span>
+  </div>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-tab="active">Active <span class="tab-count" id="count-active">0</span></div>
+  <div class="tab" data-tab="pending">Pending <span class="tab-count" id="count-pending">0</span></div>
+  <div class="tab" data-tab="domain">Domain</div>
+  <div class="tab" data-tab="all">All Open <span class="tab-count" id="count-all">0</span></div>
+  <div class="tab" data-tab="relationships">Relationships <span class="tab-count" id="count-rel">0</span></div>
+  <div class="tab" data-tab="ideas">Ideas <span class="tab-count" id="count-ideas">0</span></div>
+  <div class="tab" data-tab="done">Done <span class="tab-count" id="count-done">0</span></div>
+</div>
+
+<div class="content" id="content"></div>
+
+<div class="footer" id="footer"></div>
+
+</div>
+
+<script>
+// ===== DATA =====
+
+const TASKS = [
+  // ---- NOW ----
+  { id:'t001', title:'Draft TOC essay for Substack (Arendt / Acemoglu / Levin integration)',
+    domains:['content'], timeframe:'next', status:'not_started', priority:'H',
+    added:'2026-08-19', source:'main',
+    notes:'Integrate Arendt / Acemoglu / Levin / Fukuyama / Cass citations per CommonGround_TOC_Enhancement_Acemoglu_Levin_v1.md. Working title suggestion: "How Change Compounds: The Common Ground Theory of Change." Ships as a coordinated pair with t002.',
+    depends_on:[] },
+  { id:'t002', title:'Draft Intellectual Foundation blog post (on-site, links to TOC essay)',
+    domains:['content','website'], timeframe:'next', status:'not_started', priority:'H',
+    added:'2026-08-19', source:'main',
+    notes:'Short on-site version of the intellectual case (Arendt / Acemoglu / Levin three-part synthesis). Targeted at analytical/academic readers. Links out to the deeper TOC Substack essay (t001).',
+    depends_on:['t001'] },
+  { id:'t003', title:'Fix Perception Gap sentence in KL Email Google Doc + resync',
+    domains:['content'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-19', source:'main', done_date:'2026-08-20',
+    notes:'Fixed in Google Doc to: "Democrats assume a minority of Republicans favor stronger gun safety regulations — actually two-thirds do." Version A in CommonGround_FindingCommonGround_AutoResponderCopy_v1.md resynced 2026-08-20.',
+    depends_on:[] },
+  { id:'t004', title:'Answer 4 open decisions in Website Handoff v2, then hand off to Website thread',
+    domains:['website','ops'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-19', source:'main', done_date:'2026-08-21',
+    notes:'All 4 decisions locked in and embedded in CommonGround_WebsiteHandoff_LinkedInReadiness_v3.md. Ready for handoff.',
+    depends_on:[] },
+  { id:'t005', title:'Answer 13 questions in Tally Auto-Responder Handoff, then hand off to Website thread',
+    domains:['pledge','website','ops'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-18', source:'main', done_date:'2026-08-21',
+    notes:'All 13 decisions locked in and embedded in CommonGround_WebsiteHandoff_TallyAutoResponder_v2.md. Ready for handoff.',
+    depends_on:[] },
+  { id:'t011', title:'[LAUNCH] Build on-site canonical "Finding Common Ground" essay page (with chart + one-click copy-essay button)',
+    domains:['website','content'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-21', source:'main',
+    notes:'Keith believes done (2026-08-23) pending verification via t022. URL: /finding-common-ground. Serves as: (a) forward-link destination for Version B of auto-responder, (b) canonical landing page for LinkedIn/X shares from /pledge, (c) permanent on-site version of Keith\'s founding essay. Text = Version A from CommonGround_FindingCommonGround_AutoResponderCopy_v1.md. Chart embedded in "Just Powers" section. Includes copy-essay button, OG tags, ?src=forward on internal CG-links.',
+    depends_on:[] },
+  { id:'t023', title:'Download CES dataset — but first analyze and harmonize',
+    domains:['research'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-08-24', source:'main',
+    notes:'Target: Q4 2026. Cooperative Election Study (CES) is publicly available (replaces the earlier planned Ansolabehere & Schaffner outreach — see archived t008). Approach: (a) analyze the dataset structure to understand fields, waves, and variables relevant to CG\'s planks; (b) harmonize with PPC data conventions so both can be joined/compared cleanly; (c) then download and integrate. Do NOT just download without the upfront analysis — harmonization work is the enabler.',
+    depends_on:[] },
+  { id:'t024', title:'Get access to Stanford dataset (approval process)',
+    domains:['research'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-08-24', source:'main',
+    notes:'Target: Q4 2026. Stanford dataset access requires an approval process — start it early since approval may take weeks. Once granted, similar harmonization work as t023 applies before integration.',
+    depends_on:[] },
+  { id:'t022', title:'[LAUNCH] Verify Keith\'s believed-done launch items (t011, t014, t016) actually match spec',
+    domains:['website','ops'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-23', source:'main',
+    notes:'Meta-task: Keith believes these three items are done but couldn\'t confirm without direct verification: t011 (/finding-common-ground page built with chart + copy button), t014 (Tally form content review delivered), t016 (2 text corrections on /finding-common-ground). Steps: (1) Chrome MCP navigate to localhost /finding-common-ground → confirm chart present in Just Powers section, copy-essay button present, "favor" (not "endorse") in Perception Gap, "9 planks" in both spots. (2) Confirm with Website thread that Tally form has Keith\'s revised content. (3) Once verified, mark t011, t014, t016 as done and close this task. Blocked from starting until Chrome extension reconnects.',
+    depends_on:[] },
+  { id:'t017', title:'[LAUNCH] Keith reviews all website pages for launch-ready copy',
+    domains:['website','content'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-22', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Keith walks the full site (Home, About, Get Involved, Platform, Governance, Contact, and any new pages like /finding-common-ground) to catch stale copy, broken references, outdated tagline usage, missing calls-to-action, orphan links, and anything that reads pre-launch. Compare against Message Library and current Platform (9 planks). Flag findings to Website thread for correction before launch.',
+    depends_on:[] },
+  { id:'t018', title:'[LAUNCH] Website thread: complete Tally form + auto-responder wiring end-to-end (per Tally Handoff v2)',
+    domains:['pledge','website'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-22', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Website thread executes on Tally Handoff v2 all decisions: build the Pledge form with Keith\'s content (t014), configure routing (?src=email/forward/pledger_share → Version B; else Version A), set sender/reply-to/subjects, HTML formatting, first-name merge, immediate send, and Task 0 on-site canonical essay page. Once complete, unblocks t012 (E2E verification) and the launch itself (t020).',
+    depends_on:[] },
+  { id:'t019', title:'[LAUNCH] Set up a Claude thread to monitor common1ground.us@gmail.com inbox',
+    domains:['ops'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-22', source:'main',
+    notes:'LAUNCH SPRINT enabling task. Once t039 is done (Dreamhost forwarding to Gmail set up), spin up a Claude thread with Gmail MCP connected to common1ground.us@gmail.com to triage inbox, surface priority items to Keith, and handle routine responses. Depends on t039. Priority M (nice-to-have for launch, not blocking).',
+    depends_on:['t039'] },
+  { id:'t016', title:'[LAUNCH] Website thread: correct 2 text items on /finding-common-ground page to match definitive version',
+    domains:['website','content'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-22', source:'main',
+    notes:'Keith believes done (2026-08-23) pending verification via t022. Two corrections on /finding-common-ground: (1) "endorse" → "favor" (Perception Gap), (2) "10 planks" → "9 planks" in two places (main text + Pledge text).',
+    depends_on:[] },
+  { id:'t015', title:'[LAUNCH] Host essay chart — discuss with Website thread whether separate asset URL is needed or can be page-embedded + email-inline',
+    domains:['website','content'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-22', source:'main',
+    notes:'Keith proposal (2026-08-23): the chart can simply be part of the on-site /finding-common-ground page AND part of the auto-responder email inline — no need for a separate stable CG.us asset URL just to reference from Version A. Discuss with Website thread: (a) confirm the chart is on the page as an embedded image, (b) confirm Tally HTML auto-responder can inline the chart or references it from wherever Website thread hosts it, (c) if all good, close this task and update Version A to remove the placeholder URL reference in favor of whatever wiring Website thread uses. Source file: Common Ground/Brand Assets/Essay Chart/decliningTrustChart.png.',
+    depends_on:[] },
+  { id:'t014', title:'[LAUNCH] Keith: review current Tally Pledge form content and provide edits to Website thread',
+    domains:['pledge','content'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-21', source:'main',
+    notes:'Keith believes done (2026-08-23) pending verification via t022. Website thread builds the Tally form; Keith owns content. Review the current form and provide: (a) updated Pledge statement text, (b) consent-checkbox wording, (c) intro copy on the form page, (d) confirmation-before-submit text.',
+    depends_on:[] },
+  { id:'t013', title:'Update ThankYouPage_DesignBrief_v1 + GetInvolved_Redesign_Spec_v1 to remove Champion tier before Website thread builds',
+    domains:['pledge','website','ops'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-21', source:'main', done_date:'2026-08-21',
+    notes:'Both docs updated to v2 with Champion tier removed cleanly. ThankYouPage_DesignBrief_v2 goes to Claude Design (mockups). GetInvolved_Redesign_Spec_v2 goes to Website thread (flow architecture) + Keith (Tally form build). Also updated Moorthy → Website thread labels throughout.',
+    depends_on:[] },
+  { id:'t012', title:'[LAUNCH] End-to-end verify Tally routing (?src=email/forward/pledger_share) — GO/NO-GO for launch',
+    domains:['pledge','website'], timeframe:'today', status:'blocked', priority:'H',
+    added:'2026-08-21', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Test all routing paths per Tally Handoff v2 Testing section: (1) no ?src → Version A, (2) each of ?src=email / forward / pledger_share → Version B with correct [First name] merge, (3) unknown value like ?src=foo → falls through to Version A, (4) chain works (Version B forward-link submission also routes to Version B), (5) deliverability across Gmail/Outlook/iCloud. Blocked on Tally auto-responder being wired first (t018).',
+    depends_on:['t018'] },
+  { id:'t006', title:'Substack for reach — discussion Tuesday 8/25',
+    domains:['content','social'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main',
+    notes:'Scheduled discussion. Prep questions in CommonGround_Substack_Reach_ActionPlan_v1.md — 5 open questions attached as prep tasks t006-p1..p5. Do these before the meeting.',
+    depends_on:['t006-p1','t006-p2','t006-p3','t006-p4','t006-p5'] },
+  { id:'t006-p1', title:'Prep for 8/25: What portion of 6-8 hrs/week Substack reach is realistic?',
+    domains:['content','social'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
+    depends_on:[] },
+  { id:'t006-p2', title:'Prep for 8/25: Delegate Notes drafts / aligned-Substack reading / comment identification to Zain?',
+    domains:['content','social'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
+    depends_on:[] },
+  { id:'t006-p3', title:'Prep for 8/25: Move Report Card timing up in roadmap?',
+    domains:['content','platform'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
+    depends_on:[] },
+  { id:'t006-p4', title:'Prep for 8/25: Long-shot response-essay targets — any specific writers Keith has connections/affinity to?',
+    domains:['content','outreach'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
+    depends_on:[] },
+  { id:'t006-p5', title:'Prep for 8/25: Confirm essay sequencing (TOC → Platform launch → Report Card v1) or change?',
+    domains:['content'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
+    depends_on:[] },
+  { id:'t007', title:'[LAUNCH] Complete LinkedIn Company Page setup + publish first (pinned) post',
+    domains:['social','ops'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-18', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Complete the Company Page setup per LinkedIn playbook: About/Description text, cover image, admin structure, remaining setup decisions (some already answered — page slug is common-ground-us, vanity URL confirmed). Then publish the first pinned post (Post at top of Company Page + Keith\'s personal profile) announcing the Platform launch. Pinned post draft template lives in LinkedIn playbook.',
+    depends_on:[] },
+  { id:'t008', title:'Ansolabehere & Schaffner (S&A) cold email — draft after Kull replies',
+    domains:['outreach'], timeframe:'next', status:'archived', priority:'M',
+    added:'2026-07-09', source:'main', done_date:'2026-08-24',
+    notes:'ARCHIVED (not completed) 2026-08-24: Keith\'s current understanding is the desired data is publicly available (CES + Stanford datasets), so the cold email outreach isn\'t needed. Related follow-on work captured in t023 (CES dataset download+harmonize) and t024 (Stanford dataset access). Original research notes still available in CommonGround_AnsolabehereSchaffnerNotes_v1.md if the situation changes.',
+    depends_on:['t009'] },
+  { id:'t009', title:'Kull follow-up on Ansolabehere/Schaffner posture',
+    domains:['outreach'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-07-09', source:'main', done_date:'2026-08-23',
+    notes:'DONE 2026-08-23. Kull follow-up completed; his answer on S&A posture is captured and unblocks t008 (S&A cold email).',
+    depends_on:[] },
+  { id:'t010', title:'Sonnenfeld — settle 6 key points, draft Substack piece, then email with link',
+    domains:['outreach','content'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'6 key points to settle before drafting. Substack piece first, then email introducing the piece.',
+    depends_on:[] },
+
+  // ---- SOON ----
+  { id:'t020', title:'[LAUNCH] Platform launches — target ~8/23',
+    domains:['platform','website'], timeframe:'today', status:'in_progress', priority:'H',
+    added:'2026-08-17', source:'main',
+    notes:'LAUNCH SPRINT anchor task (target 8/23, day-by-day slip acceptable). Tally + auto-responder + Platform + all supporting pieces (LinkedIn Company Page ready, Discourse ready, chart hosted, /finding-common-ground page live, website corrections applied) all coordinate to go live together. Coordinate with Website thread on final QA. Zain promotes on Reddit; Keith on LinkedIn.',
+    depends_on:[] },
+  { id:'t021', title:'[LAUNCH] Zain — Reddit handoff prep + first intro post ~ Sun 8/23 (Platform launch promo)',
+    domains:['social'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-14', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Playbook exists (CommonGround_Reddit_AccountPlaybook_v1.md). Zain onboard. Sunday 8/23 target for first substantive intro post promoting the Platform launch. Coordinates with Keith\'s LinkedIn launch post (t007) as the two-channel launch amplification.',
+    depends_on:[] },
+  { id:'t022', title:'Zaki (Jamil) — Hope for Cynics angle, email + drafting',
+    domains:['outreach','content'], timeframe:'soon', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Scheduled discussion previously flagged for "Thursday next week." Angle: Hope for Cynics framing complements CG mission.',
+    depends_on:[] },
+
+  // ---- LATER ----
+  { id:'t030', title:'Launch "Finding Common Ground" LinkedIn Newsletter',
+    domains:['content','social'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-08-18', source:'main',
+    notes:'Wait 2-3 months after posting cadence is established. Monthly. Republish essays natively from Substack with canonical link.',
+    depends_on:[] },
+  { id:'t031', title:'Report Card v1 — development + methodology',
+    domains:['product','platform'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Periodic (annual? semi-annual?) benchmark scoring Congress on delivery against Platform planks. Potential CG flagship analytical asset. News-hookable.',
+    depends_on:[] },
+  { id:'t032', title:'Look-Up Tool — development',
+    domains:['product'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Rep-alignment tool. Uses PPC data plus possibly CES as supplementary source.',
+    depends_on:[] },
+  { id:'t033', title:'Contact DB architecture spec',
+    domains:['ops'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Was originally for Moorthy; now for Website thread.',
+    depends_on:[] },
+  { id:'t034', title:'FAQ from inbound questions',
+    domains:['content','website'], timeframe:'ongoing', status:'in_progress', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Organic / iterative as questions arrive.',
+    depends_on:[] },
+  { id:'t035', title:'Email triage system (Cowork + Gmail)',
+    domains:['ops'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Set up when inbox load justifies.',
+    depends_on:[] },
+  { id:'t039', title:'[LAUNCH] Dreamhost email: enable +tag proxies on keith@common-ground.us + auto-forward to Gmail (so Claude can manage inbox)',
+    domains:['ops'], timeframe:'next', status:'not_started', priority:'H',
+    added:'2026-08-22', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Goal: (a) support plus-addressing like keith+partners@common-ground.us so replies from specific outreach channels/people are self-tagging in the inbox; (b) auto-forward all keith@ mail (including +tag variants) to common1ground.us@gmail.com **so a Claude thread can monitor/triage the inbox**. Dreamhost specifics per Keith\'s Gemini research: plus-addressing works natively on FULLY-HOSTED mailboxes; a Dreamhost address cannot be BOTH fully-hosted AND forward-only in the panel; workaround = keep keith@ as fully-hosted (retains +tag) and set up the Gmail forwarding via internal webmail filter/rule. Recommended path: fully-hosted + webmail forward rule to Gmail (preserves +tag; Gmail is where Keith reads AND where Claude can monitor via Gmail MCP). Optional enhancement: "Send Mail As" in Gmail (SMTP) so replies from Gmail go out as keith@common-ground.us. Same setup pattern also applies to linkedin@common-ground.us if that address is created per LinkedIn playbook. Gemini source: https://www.google.com/search?q=I%27m+using+dreamhost+for+my+website+domain.',
+    depends_on:[] },
+  { id:'t038', title:'Set vanity URL on LinkedIn Company Page',
+    domains:['social','ops'], timeframe:'pending', status:'done', priority:'L',
+    added:'2026-08-21', source:'main', done_date:'2026-08-21',
+    notes:'Already set — vanity URL confirmed: https://www.linkedin.com/company/common-ground-us. Verified via Keith\'s LinkedIn admin panel screenshot 2026-08-21. Website Handoff v3 updated to reference vanity URL instead of numeric.',
+    depends_on:[] },
+  { id:'t036', title:'Draft Factual Commons essay for Substack',
+    domains:['content'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-08-20', source:'main',
+    notes:'Not time-sensitive — captured for later development. Existing concept notes: Google Doc "Factual Commons – Essay Concepts" (created 2026-07-20) — https://docs.google.com/document/d/1FHWFC80ISJlREuLcKtH0HvNtcCa6bkMdZSCBaS3AR1s/edit — start there when activating. Pair with t037 (on-site blog post linking to it), same pattern as the Intellectual Foundation pair (t001/t002): Substack essay is the deep version; on-site blog post is the short version that links out.',
+    depends_on:[] },
+  { id:'t037', title:'Draft Factual Commons blog post (on-site, links to Substack essay)',
+    domains:['content','website'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-08-20', source:'main',
+    notes:'Short on-site version of the Factual Commons idea; links out to the deeper Substack essay (t036). Same pattern as t002.',
+    depends_on:['t036'] },
+
+  // ---- DEFERRED ----
+  { id:'t050', title:'Pledge Phase 2 — quarterly action template infrastructure',
+    domains:['pledge','product'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main', notes:'Phase 2 / October launch.', depends_on:[] },
+  { id:'t051', title:'Pledge Phase 2 — zip-to-rep + tell-my-rep mechanic',
+    domains:['pledge','product'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main', notes:'Phase 2.', depends_on:[] },
+  { id:'t052', title:'Pledge Phase 2 — public visibility design',
+    domains:['pledge','product'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main', notes:'Phase 2.', depends_on:[] },
+  { id:'t053', title:'Signature-density research for political impact',
+    domains:['research'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Deprioritized with district focus.', depends_on:[] },
+  { id:'t054', title:'Pick 5-8 pilot districts',
+    domains:['outreach','research'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Deprioritized with district focus.', depends_on:[] },
+  { id:'t055', title:'[LAUNCH] Set up Discourse forum for Platform discussion',
+    domains:['discussion','website'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-07-09', source:'main',
+    notes:'LAUNCH SPRINT (target 8/23). Elevated from Deferred 2026-08-22 — Discourse forum needed live at Platform launch to give Pledgers/visitors a discussion venue. Setup: choose hosting (Discourse-hosted vs self-host), configure subdomain (e.g., discuss.common-ground.us), set up categories aligned with the Platform planks, seed a few starter threads, wire authentication if desired. Website thread coordinates the DNS/subdomain side.',
+    depends_on:[] },
+  { id:'t056', title:'commonground.us (no-hyphen) domain grab + defensive redirects',
+    domains:['ops','website'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main', notes:'Nice-to-have.', depends_on:[] },
+  { id:'t057', title:'TOC socialization to academics/pundits/policy intellectuals',
+    domains:['outreach'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Post-2026-election window (Nov+). Outreach targets: Levin, Cass, Fukuyama, Goldberg, MIT Stone Center, UVA political science faculty. Writing work (t001, t002) has been elevated to Now; outreach itself stays deferred.',
+    depends_on:['t001','t002'] },
+  { id:'t058', title:'Substack essay engaging Acemoglu’s book directly',
+    domains:['content','research'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main',
+    notes:'"What Common Ground Looks Like" or "The Mechanism Acemoglu Called For" — signals CG is serious civic infrastructure to his intellectual audience.',
+    depends_on:[] },
+  { id:'t062', title:'Champion tier — revisit when demand pull emerges',
+    domains:['pledge','product'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-08-21', source:'main',
+    notes:'Decision 2026-08-21: ditch Champion tier for launch. Reasoning: (a) share/follow buttons ARE the "do more" invitation at the thank-you moment, (b) adds decision friction at the emotional peak of the Pledge, (c) YAGNI — committing to monthly Champion content is ops overhead without demonstrated pull. Watch for self-selecting Champion behavior in Pledger data (repeat sharers, tag-CG posts, socials engagement) and formalize the tier when natural demand emerges. Existing reference material (Champion Blurb Kit v1/v2, Champion Cover Note) preserved in Outputs for future reactivation.',
+    depends_on:[] },
+  { id:'t059', title:'Video: Perception-Gap symmetric pair (side-by-side scenes)',
+    domains:['content'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Gun safety + border security symmetric perception-gap video. ~30-45s. Hand to Hassan or freelance AI creator. Part of a trilogy with t060, t061.',
+    depends_on:[] },
+  { id:'t060', title:'Video: Emotional Arc — as-is to to-be journey visual (for TOC)',
+    domains:['content'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-07-09', source:'main',
+    notes:'Rising arc: Unease → Pride → Indignation → Hope → Acting in Concert → visible "we." For TOC context specifically (arc, not cycle). Part of trilogy.',
+    depends_on:[] },
+  { id:'t061', title:'Illustration: Hearth as gathering place (points of light converging)',
+    domains:['content'], timeframe:'pending', status:'not_started', priority:'L',
+    added:'2026-07-09', source:'main',
+    notes:'Static illustration first, animated later. Symbolic coalescence without depicting people. Fits Substack visual identity, CH illustration, possibly About/Platform pages.',
+    depends_on:[] },
+
+  // ---- DONE (recent, notable) ----
+  { id:'d001', title:'Sync KL Email edits to Version A in Outputs (auto-responder copy)',
+    domains:['content'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-19', source:'main', done_date:'2026-08-19', depends_on:[] },
+  { id:'d002', title:'Design Brief v2 for Claude Design (share image + icons)',
+    domains:['content','social'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-19', source:'main', done_date:'2026-08-19', depends_on:[] },
+  { id:'d003', title:'Website Handoff v2 (LinkedIn readiness — two-row structure)',
+    domains:['website','social'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-19', source:'main', done_date:'2026-08-19', depends_on:[] },
+  { id:'d004', title:'Tally Auto-Responder handoff doc (v1)',
+    domains:['pledge','website','ops'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-18', source:'main', done_date:'2026-08-18', depends_on:[] },
+  { id:'d005', title:'Auto-responder copy for Tally (both versions)',
+    domains:['pledge','content'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-18', source:'main', done_date:'2026-08-18', depends_on:[] },
+  { id:'d006', title:'LinkedIn Playbook v1 (setup, sharing, best practices)',
+    domains:['social','ops'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-18', source:'main', done_date:'2026-08-18', depends_on:[] },
+  { id:'d007', title:'Americans Agree essay review + deliberative-polling critique research',
+    domains:['research','content'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-18', source:'main', done_date:'2026-08-18', depends_on:[] },
+  { id:'d008', title:'Reddit Account Playbook for Zain',
+    domains:['social'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-14', source:'main', done_date:'2026-08-14', depends_on:[] },
+  { id:'d009', title:'TOC v6 restructure + TOC Enhancement (Acemoglu / Levin) doc',
+    domains:['content','research'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-17', source:'main', done_date:'2026-08-17', depends_on:[] },
+  { id:'d010', title:'Civic Heart v13 essay published on Substack',
+    domains:['content'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-15', source:'main', done_date:'2026-08-15', depends_on:[] },
+  { id:'d011', title:'Platform artifact (soft launch, three view modes, dark toggle)',
+    domains:['platform','product'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-15', source:'main', done_date:'2026-08-15', depends_on:[] },
+  { id:'d012', title:'Adam & Shari Pledge concern → Pledge v2 refinement',
+    domains:['pledge','content'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-07-29', source:'main', done_date:'2026-07-29', depends_on:[] },
+  { id:'d013', title:'Decision: ditch Champion tier for launch',
+    domains:['pledge','product'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-21', source:'main', done_date:'2026-08-21',
+    notes:'Ditched for launch. Removed Champion bullet from Version B of auto-responder (both AutoResponderCopy and PledgerWelcomeEmail_B source files). See t062 for the "revisit when pull emerges" deferred item. Design specs that bake in Champion (ThankYouPage_DesignBrief_v1, GetInvolved_Redesign_Spec_v1) still need to be updated before Website thread builds — see t013.',
+    depends_on:[] },
+];
+
+const RELATIONSHIPS = [
+  { name:'Steve Kull', context:'PPC (Program for Public Consultation) — the research organization behind CG’s core supermajority data. Key data-source relationship.',
+    stage:'active', last_contact:'2026-07-09', last_note:'Reconnecting email sent; then rescheduled to Friday 2pm.',
+    next_action:'Await his answer on Ansolabehere/Schaffner posture', next_action_date:'ongoing' },
+  { name:'Steve Krause', context:'Founder of Americans Agree — closest sibling project to CG. Site is now a permanent archive.',
+    stage:'initial', last_contact:'2026-08-18', last_note:'Introductory call — walked through his 26 Insights essays; deliberative-polling critique discussion.',
+    next_action:'Thank + invite as TOC v7 reviewer + citation acknowledgement', next_action_date:'TBD' },
+  { name:'Ansolabehere & Schaffner (Harvard / UMD)', context:'CES (Cooperative Election Study) leadership. Cold — outreach depends on Kull’s intro/posture guidance.',
+    stage:'cold', last_contact:'—', last_note:'Not yet contacted.',
+    next_action:'Cold email after Kull replies (t008)', next_action_date:'blocked on Kull' },
+  { name:'Jeff Sonnenfeld', context:'Yale — endorsed CG in principle. Provided partner-org endorsements (Keep Our Republic, Bipartisan American Election Project, Leadership Now).',
+    stage:'active', last_contact:'—', last_note:'6 key points to settle before response drafting.',
+    next_action:'Settle 6 key points; Substack piece first, then email with link (t010)', next_action_date:'TBD' },
+  { name:'Jamil Zaki', context:'Stanford — author of "Hope for Cynics." Natural intellectual/tonal ally.',
+    stage:'cold', last_contact:'—', last_note:'Discussion scheduled per to-do (t022).',
+    next_action:'Email with Hope for Cynics angle', next_action_date:'~week of 8/25' },
+  { name:'Richard Davies', context:'Podcast: "How Do We Fix It?" — via Kull intro request.',
+    stage:'cold', last_contact:'—', last_note:'Intro request parked pending Kull.',
+    next_action:'Revive intro request after Kull follow-up', next_action_date:'parked' },
+  { name:'Zain', context:'Interim CG Reddit operator (u/CommonGroundUS). Onboard with plan; ~8/23 first intro post targeted.',
+    stage:'active', last_contact:'2026-08-14', last_note:'Reddit playbook shared; onboard.',
+    next_action:'~8/23 first substantive Reddit post + coordinate with Platform launch', next_action_date:'2026-08-23' },
+  { name:'Yuval Levin', context:'AEI / National Affairs. Most reachable of the intellectual anchors; American Covenant complements CG mission.',
+    stage:'cold', last_contact:'—', last_note:'Deferred to post-2026 election window.',
+    next_action:'Outreach after election + after Intellectual Foundation blog + TOC essay published', next_action_date:'post-Nov 2026' },
+  { name:'Oren Cass', context:'American Compass. Cross-partisan working-class economics; strong fit with CG’s economic planks.',
+    stage:'cold', last_contact:'—', last_note:'Deferred to post-2026 election window.',
+    next_action:'Outreach after election', next_action_date:'post-Nov 2026' },
+  { name:'Francis Fukuyama', context:'Stanford. Centrist gravitas on institutional decay.',
+    stage:'cold', last_contact:'—', last_note:'Deferred to post-2026 election window.',
+    next_action:'Outreach after election', next_action_date:'post-Nov 2026' },
+  { name:'Jonah Goldberg', context:'The Dispatch. Center-right voice on civic-institution renewal.',
+    stage:'cold', last_contact:'—', last_note:'Deferred to post-2026 election window.',
+    next_action:'Outreach after election', next_action_date:'post-Nov 2026' },
+];
+
+const IDEAS = [
+  { title:'CES as supplementary data source for Look-Up Tool',
+    note:'Cooperative Election Study — via Schaffner connection. Worth pursuing when Look-Up Tool development activates.' },
+  { title:'Carnegie Foundation as potential future funder',
+    note:'Via Schaffner connection. Back-pocket for funding conversations post-2026.' },
+  { title:'Cottle quote as canonical addition to Message Library',
+    note:'"Do not leave the political arena to the loudest, fringiest, or richest voices."' },
+  { title:'Ask PPC if Charles’s spreadsheet format can be standard companion to future CGOAP releases',
+    note:'Would give CG a consistent, structured data hand-off from PPC to leverage in analytics + Report Card work.' },
+  { title:'"Our" vs "their" in tagline — worth a Writing Reference note',
+    note:'Peer-to-peer vs public-facing register nuance.' },
+];
+
+const DOMAINS = {
+  content:    'Content',
+  platform:   'Platform',
+  pledge:     'Pledge',
+  website:    'Website',
+  social:     'Social',
+  outreach:   'Outreach',
+  research:   'Research',
+  ops:        'Ops',
+  product:    'Product',
+  discussion: 'Discussion',
+};
+
+const TIMEFRAMES = ['today','next','soon','ongoing','pending'];
+const TIMEFRAME_LABELS = { today:'Today', next:'Next', soon:'Soon', ongoing:'Ongoing', pending:'Pending' };
+const ACTIVE_TIMEFRAMES = ['today','next','soon','ongoing'];
+const PRIORITY_LABELS = { H:'High priority', M:'Medium priority', L:'Low priority' };
+const STATUS_LABELS = { not_started:'Not started', in_progress:'In progress', blocked:'Blocked', waiting_external:'Waiting external', done:'Done', archived:'Archived' };
+const priOrder = p => ({H:0,M:1,L:2}[p] ?? 3);
+const isBlocked = t => t.status === 'blocked' || t.status === 'waiting_external' || unmetDeps(t).length > 0;
+const isArchived = t => t.status === 'archived';
+
+// ===== HELPERS =====
+
+const byId = id => TASKS.find(t => t.id === id);
+const isDone = t => t.status === 'done';
+const openTasks = () => TASKS.filter(t => !isDone(t) && t.status !== 'archived');
+const doneTasks = () => TASKS.filter(isDone);
+const archivedTasks = () => TASKS.filter(t => t.status === 'archived');
+
+function unmetDeps(t) {
+  return (t.depends_on || []).map(byId).filter(x => x && !isDone(x));
+}
+
+function daysAgo(dateStr) {
+  if (!dateStr || dateStr === '—') return null;
+  const d = new Date(dateStr + 'T00:00:00');
+  const now = new Date();
+  return Math.floor((now - d) / (1000 * 60 * 60 * 24));
+}
+
+// ===== RENDERING =====
+
+function taskCard(t, opts={}) {
+  const card = document.createElement('div');
+  card.className = 'card ' + t.status;
+  if (isDone(t)) card.className += ' done';
+
+  const title = document.createElement('div');
+  title.className = 'card-title' + (isDone(t) ? ' done-strike' : '');
+  title.textContent = t.title;
+  card.appendChild(title);
+
+  if (opts.reason) {
+    const reason = document.createElement('div');
+    reason.className = 'today-reason';
+    reason.textContent = opts.reason;
+    card.appendChild(reason);
+  }
+
+  const meta = document.createElement('div');
+  meta.className = 'card-meta';
+
+  const pri = document.createElement('span');
+  pri.className = 'pri ' + t.priority;
+  pri.textContent = t.priority;
+  pri.title = 'Priority ' + t.priority;
+  meta.appendChild(pri);
+
+  const st = document.createElement('span');
+  st.className = 'status ' + t.status;
+  st.textContent = STATUS_LABELS[t.status] || t.status;
+  meta.appendChild(st);
+
+  (t.domains || []).forEach(d => {
+    const p = document.createElement('span');
+    p.className = 'pill domain-' + d;
+    p.textContent = DOMAINS[d] || d;
+    meta.appendChild(p);
+  });
+
+  if (t.added) {
+    const dateInfo = document.createElement('span');
+    const dAgo = daysAgo(t.added);
+    dateInfo.textContent = dAgo !== null && dAgo >= 0
+      ? (dAgo === 0 ? 'added today' : 'added ' + dAgo + 'd ago')
+      : 'added ' + t.added;
+    meta.appendChild(dateInfo);
+  }
+
+  card.appendChild(meta);
+
+  const unmet = unmetDeps(t);
+  if (unmet.length > 0 && !isDone(t)) {
+    if (t.depends_on.length === unmet.length) {
+      const dep = document.createElement('div');
+      dep.className = 'dep-hint';
+      dep.textContent = 'blocked by: ' + unmet.map(x => x.title).join(' · ');
+      card.appendChild(dep);
+    } else {
+      const dep = document.createElement('div');
+      dep.className = 'dep-progress';
+      dep.textContent = (t.depends_on.length - unmet.length) + '/' + t.depends_on.length + ' prereqs done. Remaining: ' + unmet.map(x => x.title).join(' · ');
+      card.appendChild(dep);
+    }
+  }
+
+  if (t.notes) {
+    const toggle = document.createElement('span');
+    toggle.className = 'toggle-notes';
+    toggle.textContent = 'notes ▸';
+    const notes = document.createElement('div');
+    notes.className = 'notes hidden';
+    notes.textContent = t.notes;
+    toggle.addEventListener('click', () => {
+      const isHidden = notes.classList.toggle('hidden');
+      toggle.textContent = isHidden ? 'notes ▸' : 'notes ▾';
+    });
+    card.appendChild(toggle);
+    card.appendChild(notes);
+  }
+
+  return card;
+}
+
+function relCard(r) {
+  const c = document.createElement('div');
+  c.className = 'rel-card';
+  const h = document.createElement('div');
+  h.className = 'rel-header';
+  const n = document.createElement('div');
+  n.className = 'rel-name';
+  n.textContent = r.name;
+  const s = document.createElement('span');
+  s.className = 'rel-stage ' + r.stage;
+  s.textContent = r.stage;
+  h.appendChild(n);
+  h.appendChild(s);
+  c.appendChild(h);
+  const ctx = document.createElement('div');
+  ctx.className = 'rel-context';
+  ctx.textContent = r.context;
+  c.appendChild(ctx);
+  const next = document.createElement('div');
+  next.className = 'rel-next';
+  next.innerHTML = '<span class="rel-next-label">Next:</span> ' + escapeHtml(r.next_action) + (r.next_action_date && r.next_action_date !== 'TBD' ? ' <span class="rel-next-label">(' + escapeHtml(r.next_action_date) + ')</span>' : '');
+  c.appendChild(next);
+  const m = document.createElement('div');
+  m.className = 'rel-meta';
+  m.textContent = 'Last contact: ' + r.last_contact + ' · ' + r.last_note;
+  c.appendChild(m);
+  return c;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function ideaCard(i) {
+  const c = document.createElement('div');
+  c.className = 'idea-card';
+  const t = document.createElement('div');
+  t.style.fontWeight = '600';
+  t.style.marginBottom = '3px';
+  t.textContent = i.title;
+  c.appendChild(t);
+  const n = document.createElement('div');
+  n.textContent = i.note;
+  n.style.fontSize = '12px';
+  n.style.color = '#6a5a3a';
+  c.appendChild(n);
+  return c;
+}
+
+// ===== VIEWS =====
+
+function viewActive() {
+  const container = document.createElement('div');
+  const intro = document.createElement('p');
+  intro.style.fontSize = '13px';
+  intro.style.color = '#6a6a6a';
+  intro.style.marginBottom = '14px';
+  intro.textContent = 'Scheduled and in-progress work. Grouped by timeframe (Today at top); within each group, sorted by priority (H → M → L).';
+  container.appendChild(intro);
+
+  ACTIVE_TIMEFRAMES.forEach(tf => {
+    const items = openTasks().filter(t => t.timeframe === tf);
+    if (!items.length) return;
+    items.sort((a, b) => priOrder(a.priority) - priOrder(b.priority));
+    container.appendChild(groupHeader(TIMEFRAME_LABELS[tf], items.length));
+    items.forEach(t => container.appendChild(taskCard(t)));
+  });
+  return container;
+}
+
+function viewPending() {
+  const container = document.createElement('div');
+  const intro = document.createElement('p');
+  intro.style.fontSize = '13px';
+  intro.style.color = '#6a6a6a';
+  intro.style.marginBottom = '14px';
+  intro.textContent = 'Backlog: captured but not yet scheduled. Grouped by priority; blocked items are marked with 🔒 and their blocker.';
+  container.appendChild(intro);
+
+  ['H','M','L'].forEach(p => {
+    const items = openTasks().filter(t => t.timeframe === 'pending' && t.priority === p);
+    if (!items.length) return;
+    container.appendChild(groupHeader(PRIORITY_LABELS[p], items.length));
+    items.forEach(t => container.appendChild(taskCard(t)));
+  });
+  return container;
+}
+
+function viewDomain() {
+  const container = document.createElement('div');
+  Object.keys(DOMAINS).forEach(d => {
+    const items = openTasks().filter(t => (t.domains || []).includes(d));
+    if (!items.length) return;
+    container.appendChild(groupHeader(DOMAINS[d], items.length));
+    items.forEach(t => container.appendChild(taskCard(t)));
+  });
+  return container;
+}
+
+function viewAll() {
+  const container = document.createElement('div');
+
+  const filters = document.createElement('div');
+  filters.className = 'filters';
+  filters.innerHTML = `
+    <label>Domain: <select id="f-domain"><option value="">any</option>${Object.entries(DOMAINS).map(([k,v]) => `<option value="${k}">${v}</option>`).join('')}</select></label>
+    <label>Status: <select id="f-status"><option value="">any</option>${Object.entries(STATUS_LABELS).filter(([k]) => k !== 'done').map(([k,v]) => `<option value="${k}">${v}</option>`).join('')}</select></label>
+    <label>Priority: <select id="f-priority"><option value="">any</option><option value="H">H</option><option value="M">M</option><option value="L">L</option></select></label>
+    <label>Timeframe: <select id="f-timeframe"><option value="">any</option>${TIMEFRAMES.map(tf => `<option value="${tf}">${TIMEFRAME_LABELS[tf]}</option>`).join('')}</select></label>
+    <label>Sort: <select id="f-sort"><option value="timeframe">by timeframe</option><option value="priority">by priority</option><option value="added">by age</option></select></label>
+  `;
+  container.appendChild(filters);
+
+  const list = document.createElement('div');
+  container.appendChild(list);
+
+  function renderList() {
+    list.innerHTML = '';
+    const d = document.getElementById('f-domain').value;
+    const s = document.getElementById('f-status').value;
+    const p = document.getElementById('f-priority').value;
+    const tf = document.getElementById('f-timeframe').value;
+    const sort = document.getElementById('f-sort').value;
+    let items = openTasks();
+    if (d) items = items.filter(t => (t.domains || []).includes(d));
+    if (s) items = items.filter(t => t.status === s);
+    if (p) items = items.filter(t => t.priority === p);
+    if (tf) items = items.filter(t => t.timeframe === tf);
+    if (sort === 'priority') items.sort((a,b) => priOrder(a.priority) - priOrder(b.priority));
+    else if (sort === 'added') items.sort((a,b) => (a.added || '').localeCompare(b.added || ''));
+    else items.sort((a,b) => TIMEFRAMES.indexOf(a.timeframe) - TIMEFRAMES.indexOf(b.timeframe));
+    if (!items.length) {
+      list.innerHTML = '<div class="empty">No tasks match these filters.</div>';
+      return;
+    }
+    items.forEach(t => list.appendChild(taskCard(t)));
+  }
+
+  setTimeout(() => {
+    ['f-domain','f-status','f-priority','f-timeframe','f-sort'].forEach(id => {
+      document.getElementById(id).addEventListener('change', renderList);
+    });
+    renderList();
+  }, 0);
+
+  return container;
+}
+
+function viewRelationships() {
+  const container = document.createElement('div');
+  const intro = document.createElement('p');
+  intro.style.fontSize = '13px';
+  intro.style.color = '#6a6a6a';
+  intro.style.marginBottom = '14px';
+  intro.textContent = 'Mini-CRM for the people Keith is actively cultivating. Sorted with active first, then initial, then cold and dormant.';
+  container.appendChild(intro);
+  const order = { active: 0, initial: 1, cold: 2, dormant: 3 };
+  const sorted = [...RELATIONSHIPS].sort((a, b) => order[a.stage] - order[b.stage]);
+  sorted.forEach(r => container.appendChild(relCard(r)));
+  return container;
+}
+
+function viewIdeas() {
+  const container = document.createElement('div');
+  const intro = document.createElement('p');
+  intro.style.fontSize = '13px';
+  intro.style.color = '#6a6a6a';
+  intro.style.marginBottom = '14px';
+  intro.textContent = 'Parking lot — notes and ideas worth remembering that aren’t yet tasks. Promote to a task via chat when you want to activate one.';
+  container.appendChild(intro);
+  IDEAS.forEach(i => container.appendChild(ideaCard(i)));
+  return container;
+}
+
+function viewDone() {
+  const container = document.createElement('div');
+  const items = [...doneTasks()].sort((a, b) => (b.done_date || '').localeCompare(a.done_date || ''));
+  items.forEach(t => container.appendChild(taskCard(t)));
+  return container;
+}
+
+function groupHeader(label, count) {
+  const h = document.createElement('div');
+  h.className = 'group-header';
+  h.textContent = label;
+  if (count !== undefined) {
+    const c = document.createElement('span');
+    c.className = 'count';
+    c.textContent = '· ' + count;
+    h.appendChild(c);
+  }
+  return h;
+}
+
+// ===== APP =====
+
+const VIEW_FNS = { active: viewActive, pending: viewPending, domain: viewDomain, all: viewAll, relationships: viewRelationships, ideas: viewIdeas, done: viewDone };
+
+function render(tab) {
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  const fn = VIEW_FNS[tab] || viewActive;
+  content.appendChild(fn());
+
+  document.querySelectorAll('.tab').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tab);
+  });
+  try { localStorage.setItem('cg-board-tab', tab); } catch (e) {}
+}
+
+function initCounts() {
+  const open = openTasks();
+  document.getElementById('count-all').textContent = open.length;
+  document.getElementById('count-active').textContent = open.filter(t => ACTIVE_TIMEFRAMES.includes(t.timeframe)).length;
+  document.getElementById('count-pending').textContent = open.filter(t => t.timeframe === 'pending').length;
+  document.getElementById('count-rel').textContent = RELATIONSHIPS.length;
+  document.getElementById('count-ideas').textContent = IDEAS.length;
+  document.getElementById('count-done').textContent = doneTasks().length;
+}
+
+function initHeader() {
+  document.getElementById('header-meta').textContent =
+    'LAUNCH SPRINT active (target 8/23) · Data as of 2026-08-24 · ' + openTasks().length + ' open · ' + doneTasks().length + ' done · ' + archivedTasks().length + ' archived · [LAUNCH] items in Today view are the priority focus this week.';
+}
+
+function initFooter() {
+  const open = openTasks();
+  const byTf = TIMEFRAMES.map(tf => TIMEFRAME_LABELS[tf] + ': ' + open.filter(t => t.timeframe === tf).length).join(' · ');
+  document.getElementById('footer').textContent = byTf;
+}
+
+document.querySelectorAll('.tab').forEach(el => {
+  el.addEventListener('click', () => render(el.dataset.tab));
+});
+
+initCounts();
+initHeader();
+initFooter();
+let savedTab = 'active';
+try { savedTab = localStorage.getItem('cg-board-tab') || 'active'; } catch (e) {}
+// Migrate old tab names from prior version
+if (savedTab === 'today') savedTab = 'active';
+if (savedTab === 'horizon') savedTab = 'pending';
+render(savedTab);
+</script>
+</body>
+</html>

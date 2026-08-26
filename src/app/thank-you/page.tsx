@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 const FLAGS = {
   pledgeList: true, // static note (no link) — "published in October"
   forward: true,
-  shareLinkedin: false, // BOOST — OFF until a live CG LinkedIn post URL exists (then set URLS.boostLinkedin + flip true)
-  shareX: false, // BOOST — OFF until a live CG X post URL exists (then set URLS.boostX + flip true)
+  shareLinkedin: true, // BOOST — live CG LinkedIn launch post (URLS.boostLinkedin)
+  shareX: true, // BOOST — live CG X launch thread (URLS.boostX)
   followX: true,
   followReddit: true,
   followLinkedin: true,
@@ -33,9 +33,9 @@ const FLAGS = {
 
 /* ── Destinations ───────────────────────────────────────────────────── */
 const URLS = {
-  // BOOST = reshare a LIVE CG post. TODO: real post URLs, or flag off at go-live.
-  boostLinkedin: "#",
-  boostX: "#",
+  // BOOST = reshare a LIVE CG post.
+  boostLinkedin: "https://www.linkedin.com/feed/update/urn:li:share:7498426852491964416/",
+  boostX: "https://x.com/Common1GroundUS/status/2092669046353190917",
   // FOLLOW = CG profiles (confirmed in LinkedIn Readiness v3).
   followLinkedin: "https://www.linkedin.com/company/common-ground-us",
   followX: "https://x.com/Common1GroundUS",

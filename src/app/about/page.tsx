@@ -50,8 +50,7 @@ export default function AboutPage() {
             </h2>
             <p>
               Common Ground&apos;s mission is to make Government Accountable to the
-              Will of the People — by making Americans&apos; agreement on policy
-              visible, and giving citizens a way to act on it together.
+              Will of the People.
             </p>
 
             {/* Section 3 — Our goals */}

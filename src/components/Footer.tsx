@@ -8,7 +8,8 @@ export default function Footer() {
         <p className="text-center sm:text-left text-sm">
           <span className="text-white font-medium">
             Making Government Accountable to the Will of the People
-          </span>{" "}
+          </span>
+          <br />
           Self-funded — no donations, no advertising, no party affiliation.
         </p>
 

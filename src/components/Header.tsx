@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "./icons";
 
 const NAV_LINKS = [
-  // { href: "/platform/", label: "Platform" }, // hidden for now — re-enable at launch
+  { href: "/platform/", label: "Platform" },
   { href: "/about/", label: "About" },
   { href: "/roadmap/", label: "Roadmap" },
   { href: "/research/", label: "Research" },

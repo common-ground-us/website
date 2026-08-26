@@ -58,7 +58,7 @@ export default function GovernanceFullPage() {
             <p>
               <strong className="text-[#1a2a4a]">Transparent.</strong> Every
               consequential decision — which policies qualify, which are selected,
-              how officials are scored — is documented and published. The
+              how officials are scored — will be documented and published. The
               reasoning is available, not just the conclusion.
             </p>
             <p>
@@ -101,7 +101,7 @@ export default function GovernanceFullPage() {
             <p>
               <strong className="text-[#1a2a4a]">The Executive Team</strong> holds
               final decision-making authority over the Common Ground Platform and
-              manages the Scorecard process. The Executive Team sets and publishes
+              manages the Report Card and Scorecard process. The Executive Team sets and publishes
               the eligibility and selection criteria the Advisory Panel applies,
               incorporates the Panel&apos;s recommendations, and is responsible for
               all public-facing communications about methodology. When Executive
@@ -112,7 +112,8 @@ export default function GovernanceFullPage() {
               <strong className="text-[#1a2a4a]">The Advisory Panel</strong> is the
               research integrity layer. The Panel advises on which policies meet
               the eligibility criteria, which merit inclusion in the Core Platform,
-              and what scoring criteria should govern the Scorecard. The
+              and what scoring criteria should govern the Report Card and
+              Scorecard. The
               Panel&apos;s role is editorial, analytical, and communicative — not
               ideological. Panel members are selected for methodological expertise
               and ideological breadth. Their work is documented and explained to a
@@ -147,11 +148,12 @@ export default function GovernanceFullPage() {
             <ul>
               <li>
                 <strong className="text-[#1a2a4a]">Supermajority support:</strong>{" "}
-                ≥60% overall
+                at least two-thirds (67%) overall
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">Bipartisan support:</strong>{" "}
-                ≥50% among both Republican and Democratic respondents
+                at least two-thirds (67%) among both Republican and Democratic
+                respondents
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">
@@ -169,6 +171,18 @@ export default function GovernanceFullPage() {
               place on the Platform — however large the majority. American
               democracy was built on two foundational commitments: democratic
               accountability and individual liberty. The Platform honors both.
+            </p>
+            <p>
+              Majorities are not always right — especially on questions of
+              individual rights. History records rights being extended over time —
+              the vote for women and African Americans, marriage across racial
+              lines, marriage between same-sex partners. In each case, a determined
+              minority persuaded the courts to override the majority view of the
+              day, and public opinion eventually followed. That tradition of
+              minority advocacy is essential to American democracy. Our criteria
+              define what belongs on the Platform, not what deserves advocacy.
+              What we publish complements minority advocacy on causes without such
+              consensus; it does not replace it.
             </p>
             <p>
               <strong className="text-[#1a2a4a]">Selection criteria</strong> narrow
@@ -202,8 +216,9 @@ export default function GovernanceFullPage() {
               </li>
             </ul>
             <p>
-              The Core Platform targets 10–15 planks — enough to be comprehensive,
-              few enough to be memorable and actionable.
+              The Core Platform is intentionally compact — nine planks at the
+              inaugural Platform — enough to be comprehensive, few enough to be
+              memorable and actionable.
             </p>
             <p>
               All qualifying policies — whether or not they appear in the Core
@@ -219,11 +234,12 @@ export default function GovernanceFullPage() {
 
             {/* How the Scorecard Works */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
-              How the Scorecard works
+              How the Report Card and Scorecard work
             </h2>
             <p>
-              The Common Ground Scorecard measures whether elected officials are
-              delivering on the Platform.
+              Congress&apos;s Report Card and, later, the Scorecard for
+              Legislators measure whether elected officials are delivering on the
+              Platform — Congress as a whole, and each member individually.
             </p>
             <p>
               Scoring criteria are developed by the Advisory Panel and approved by
@@ -269,7 +285,7 @@ export default function GovernanceFullPage() {
               <strong className="text-[#1a2a4a]">
                 A note on the inaugural Platform.
               </strong>{" "}
-              The Common Ground Platform publishing August 1, 2026 is selected by
+              The Common Ground Platform, published in August 2026, is selected by
               the founder, working with informal advisors rather than a formal
               Advisory Panel. The Executive Team — currently the founder — holds
               final decision-making authority on Platform selection for both the

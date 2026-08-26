@@ -40,24 +40,20 @@ export default function FounderPage() {
               informed, occasionally fired up about a particular issue. By most
               measures, I am an engaged citizen.
             </p>
-            <p>
-              My friends think I should do more. They have a point. I try.
-              Something always stops me.
-            </p>
-
             {/* Section 2 — The Wall */}
             <p>
-              It isn&apos;t the partisan part. Partisanship I understand — people
-              disagree, sometimes deeply, and democracy is the system we built for
-              working through that. What I can&apos;t navigate is the adversarial
-              part. Getting engaged seems to mean joining a side — or being
-              claimed by one. Adopting a tribe&apos;s whole view of the world, its
-              enemies and its allies. That posture is at odds with everything the
-              word civic is supposed to mean. I am not built for it.
+              My friends want me to do more, and their causes are almost always
+              good ones. But so often, getting involved feels less like joining a
+              conversation and more like being asked to pick a side in an endless
+              fight. Partisanship itself isn&apos;t the problem — disagreement is
+              how a free country works. What stops me is how quickly it turns
+              tribal, where winning for &ldquo;our side&rdquo; replaces serving the
+              whole. My allegiance is to the Will of the People, not a political
+              party. I am simply not built for it.
             </p>
 
             {/* Section 3 — The Origin */}
-            <p>Then something started to shift.</p>
+            <p>So I took a fresh look.</p>
             <p>
               I have friends whose television is reliably tuned to Fox News when we
               visit. One of them also composts and saves rainwater. I used to
@@ -124,6 +120,15 @@ export default function FounderPage() {
               className="inline-flex items-center justify-center px-6 py-3 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
             >
               Stand to be counted → Get Involved
+            </Link>
+          </div>
+
+          <div className="mt-4">
+            <Link
+              href="/finding-common-ground/"
+              className="text-[#b22234] underline underline-offset-2 hover:no-underline"
+            >
+              Read the fuller case → Finding Common Ground
             </Link>
           </div>
 

@@ -17,23 +17,28 @@ const milestones = [
   },
   {
     title: "The Common Ground Platform",
-    status: "Publishing August 2026",
-    body: "A select set of 10–15 federal policies meeting three criteria: supermajority public support, cross-partisan agreement, and respect for individual constitutional rights as protected by the Bill of Rights. The democratic floor — the baseline that a representative democracy should reasonably be expected to reflect.",
+    status: "Published August 2026",
+    body: "9 Planks covering federal policies that meet three criteria: supermajority public support, cross-partisan agreement, and respect for individual constitutional rights as protected by the Bill of Rights. The democratic floor — the baseline that a representative democracy should reasonably be expected to reflect.",
   },
   {
     title: "The Pledge List",
-    status: "Launching August 2026",
+    status: "Launching October 2026",
     body: "A public declaration that government should respond to the Will of the People — and a growing, visible count of the citizens who stand behind it. The Pledge connects like-minded citizens across party lines so we can act in concert.",
   },
   {
-    title: "The Common Ground Scorecard",
+    title: "Congress's Report Card",
     status: "Coming October 2026",
-    body: "A clear record of how Congress's votes align with the Platform — and where they don't. Facts for voters, grounded in shared data rather than partisan talking points.",
+    body: "A plain-language grade for how Congress as a whole is progressing on the Common Ground Planks — where it's delivering, and where it isn't. Facts for voters, grounded in shared data rather than partisan talking points.",
   },
   {
     title: "The Gap Analysis Report",
     status: "Coming Year-End 2026",
     body: "A rigorous, documented accounting of the distance between what Americans want and what Congress has delivered — by issue, by policy area, over time. The record, made visible.",
+  },
+  {
+    title: "The Scorecard for Legislators",
+    status: "Coming 2027",
+    body: "Individual grades for each Senator and Representative — how each one's record aligns with the Common Ground Platform, so voters can see exactly where their own representatives stand.",
   },
 ];
 

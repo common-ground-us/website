@@ -51,16 +51,16 @@ export default function PrivacyPage() {
               >
                 Contact
               </Link>{" "}
-              pages. These are Google Forms. Any information you choose to enter
+              pages. These are Tally forms. Any information you choose to enter
               — such as your name, email address, or message — is submitted to
-              and stored by Google on our behalf, and is also handled under{" "}
+              and stored by Tally on our behalf, and is also handled under{" "}
               <a
-                href="https://policies.google.com/privacy"
+                href="https://tally.so/help/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#1a56c4] underline hover:no-underline"
               >
-                Google&apos;s Privacy Policy
+                Tally&apos;s Privacy Policy
               </a>
               .
             </p>
@@ -70,7 +70,8 @@ export default function PrivacyPage() {
             </h2>
             <p>
               We use information you submit through those forms only to respond
-              to you, coordinate volunteers, and follow up on questions or
+              to you, send the quarterly action prompts that come with the Pledge
+              (you can opt out anytime), and follow up on questions or
               suggestions. We do not use it for advertising and we do not sell or
               rent it to anyone.
             </p>

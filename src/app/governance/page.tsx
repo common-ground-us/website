@@ -47,8 +47,8 @@ export default function GovernancePage() {
             <p>
               <strong className="text-[#1a2a4a]">Transparent.</strong> Every
               decision — what qualifies, what&apos;s selected, how officials are
-              evaluated — is documented and published. The reasoning is available,
-              not just the conclusion.
+              evaluated — will be documented and published. The reasoning is
+              available, not just the conclusion.
             </p>
             <p>
               <strong className="text-[#1a2a4a]">Independent.</strong> Common
@@ -93,15 +93,17 @@ export default function GovernancePage() {
             </p>
             <p>
               <strong className="text-[#1a2a4a]">The Executive Team</strong> makes
-              final decisions on the Platform and manages the Scorecard process.
+              final decisions on the Platform and manages the Report Card and
+              Scorecard process.
               When executive decisions diverge from Advisory Panel recommendations,
               the rationale is documented and published.
             </p>
             <p>
               <strong className="text-[#1a2a4a]">The Advisory Panel</strong> is the
               research integrity layer — advising on which policies qualify, which
-              belong in the Core Platform, and what criteria should govern
-              Scorecard evaluation. Panel members are selected for methodological
+              belong in the Core Platform, and what criteria should govern Report
+              Card and Scorecard evaluation. Panel members are selected for
+              methodological
               expertise and ideological breadth. Their role is analytical and
               editorial, not ideological.
             </p>
@@ -119,15 +121,15 @@ export default function GovernancePage() {
                 <strong className="text-[#1a2a4a]">
                   Supermajority public support
                 </strong>{" "}
-                — a clear majority of Americans, well beyond a slim plurality,
-                support the policy.
+                — at least two-thirds (67%) of Americans support the policy, well
+                beyond a slim majority.
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">
                   Cross-partisan agreement
                 </strong>{" "}
-                — that support holds across party lines, not just within one
-                party.
+                — that two-thirds support holds within both parties, not just in
+                the national total.
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">
@@ -144,6 +146,18 @@ export default function GovernancePage() {
               Platform — however large the majority. American democracy was built
               on two foundational commitments: democratic accountability and
               individual liberty. The Platform honors both.
+            </p>
+            <p>
+              Majorities are not always right — especially on questions of
+              individual rights. History records rights being extended over time —
+              the vote for women and African Americans, marriage across racial
+              lines, marriage between same-sex partners. In each case, a determined
+              minority persuaded the courts to override the majority view of the
+              day, and public opinion eventually followed. That tradition of
+              minority advocacy is essential to American democracy. Our criteria
+              define what belongs on the Platform, not what deserves advocacy.
+              What we publish complements minority advocacy on causes without such
+              consensus; it does not replace it.
             </p>
 
             {/* Section 4 — What We Publish */}
@@ -163,8 +177,8 @@ export default function GovernancePage() {
                 Core Platform
               </li>
               <li>
-                Scoring methodology and the reasoning behind every Scorecard
-                evaluation (once the Scorecard launches)
+                Scoring methodology and the reasoning behind every Report Card and
+                Scorecard evaluation (once they launch)
               </li>
               <li>
                 Funding sources, in accordance with applicable nonprofit reporting
@@ -196,7 +210,7 @@ export default function GovernancePage() {
               <strong className="text-[#1a2a4a]">
                 A note on the inaugural Platform.
               </strong>{" "}
-              The Common Ground Platform publishing August 1, 2026 is selected by
+              The Common Ground Platform, published in August 2026, is selected by
               the founder, working with informal advisors rather than a formal
               Advisory Panel. The Executive Team — currently the founder — holds
               final decision-making authority on Platform selection for both the

@@ -1,0 +1,42 @@
+/* Article typography for the on-site "Finding Common Ground" essay (Version A).
+   Scoped under .cg-essay; uses the site's font + color tokens. */
+
+.cg-essay { max-width: 720px; margin: 0 auto; padding: 48px 24px 72px; }
+.cg-essay .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-civic-red); margin: 0 0 12px; }
+.cg-essay h1 { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.1; font-weight: 800; color: var(--color-navy); letter-spacing: -.02em; margin: 0 0 8px; }
+.cg-essay .byline { font-size: 15px; color: var(--color-text-muted); margin: 0 0 28px; }
+
+/* TL;DR callout */
+.cg-essay .tldr { background: #eef1f5; border-left: 4px solid var(--color-navy); border-radius: 8px; padding: 16px 18px; margin: 0 0 32px; }
+.cg-essay .tldr .tldr-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-navy); font-weight: 700; }
+.cg-essay .tldr p { font-size: 15px; line-height: 1.6; color: #384253; margin: 6px 0 0; }
+
+.cg-essay h2 { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; font-weight: 800; color: var(--color-navy); letter-spacing: -.01em; margin: 40px 0 12px; }
+.cg-essay p { font-size: 1.0625rem; line-height: 1.7; color: #384253; margin: 0 0 18px; }
+.cg-essay a { color: var(--color-civic-red); text-decoration: underline; text-underline-offset: 2px; }
+.cg-essay a:hover { color: #8e1b29; }
+.cg-essay strong { color: var(--color-navy); font-weight: 700; }
+.cg-essay .cite { font-size: .95rem; color: var(--color-text-muted); }
+.cg-essay blockquote + .cite { margin-top: -12px; }
+
+.cg-essay blockquote { margin: 24px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--color-civic-red); font-family: var(--font-display); font-size: 1.2rem; line-height: 1.45; color: var(--color-navy); font-style: italic; }
+
+.cg-essay ul { margin: 0 0 18px; padding-left: 1.4rem; list-style: disc; }
+.cg-essay li { font-size: 1.0625rem; line-height: 1.65; color: #384253; margin: 6px 0; }
+
+.cg-essay .pledge-box { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 22px 24px; margin: 28px 0; }
+.cg-essay .pledge-box p { font-size: 1.0625rem; }
+.cg-essay .pledge-box p:last-child { margin-bottom: 0; }
+
+.cg-essay .essay-figure { margin: 26px 0 28px; }
+.cg-essay .essay-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 10px; background: #fff; }
+.cg-essay .essay-figure figcaption { font-size: .9rem; line-height: 1.5; color: var(--color-text-muted); margin-top: 8px; }
+
+.cg-essay .signoff { margin-top: 28px; }
+.cg-essay .cta { display: inline-flex; align-items: center; min-height: 50px; padding: 0 26px; margin: 8px 0 4px; border-radius: 10px; background: var(--color-civic-red); color: #fff; font-family: var(--font-ui); font-weight: 700; font-size: 1rem; text-decoration: none; touch-action: manipulation; -webkit-tap-highlight-color: rgba(0,0,0,.1); }
+.cg-essay .cta:hover { background: #9a1d2d; color: #fff; }
+
+@media (min-width: 640px) {
+  .cg-essay h1 { font-size: 2.75rem; }
+  .cg-essay h2 { font-size: 1.7rem; }
+}

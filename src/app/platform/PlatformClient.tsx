@@ -115,6 +115,15 @@ export default function PlatformClient() {
               Sources: Program for Public Consultation / Voice of the People (U.
               Maryland); legislative status from Congress. Compiled August 13, 2026.
             </p>
+            <p className="discuss-hook">
+              <a
+                href="https://common-ground-us.discourse.group/c/platform-planks/6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                💬 Discuss the Planks on the forum →
+              </a>
+            </p>
           </div>
           <div className="controls">
             <div className="segmented" role="radiogroup" aria-label="View mode">

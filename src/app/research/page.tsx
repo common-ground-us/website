@@ -80,10 +80,10 @@ export default function ResearchPage() {
                   </a>
                 </strong>
                 , which refined that work to{" "}
-                <strong className="text-[#1a2a4a]">82 policies</strong> on which
+                <strong className="text-[#1a2a4a]">88 policies</strong> on which
                 more than two-thirds of both Republicans and Democrats agree —
-                the policies publicly available on PPC&apos;s site, which Common
-                Ground&apos;s own look-up tool displays.
+                82 of which are publicly available on PPC&apos;s site and can be
+                seen in Common Ground&apos;s own look-up tool.
               </li>
             </ul>
 

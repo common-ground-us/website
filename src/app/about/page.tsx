@@ -18,12 +18,43 @@ export default function AboutPage() {
       <main id="main-content" className="flex-1">
         <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a] mb-8">
-            Common Ground&apos;s Mission: Make Government Accountable to the Will
-            of the People.
+            About Common Ground
           </h1>
 
           <div className="prose prose-lg max-w-none text-[#4a5568] space-y-6">
-            {/* Section 1 — Our goals */}
+            {/* Section 1 — What we are */}
+            <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
+              What we are
+            </h2>
+            <p>
+              Common Ground is nonpartisan civic infrastructure — a public
+              resource that shows where Americans across party lines already agree
+              on federal policy, and gives citizens a way to act on it together.
+            </p>
+            <p>
+              It makes the substantial bipartisan agreement on policy that
+              already exists among American citizens — visible, measurable, and
+              usable. Where Americans agree, the data is plain. Where government
+              delivers, or fails to, the record is plain. Citizens make their own
+              conclusions.
+            </p>
+            <p>
+              Think of it as utility infrastructure, in the way electricity or
+              water are utilities — serious, dependable, no-agenda. Not a
+              movement. Not a party. Not a campaign.
+            </p>
+
+            {/* Section 2 — Mission */}
+            <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
+              Mission
+            </h2>
+            <p>
+              Common Ground&apos;s mission is to make Government Accountable to the
+              Will of the People — by making Americans&apos; agreement on policy
+              visible, and giving citizens a way to act on it together.
+            </p>
+
+            {/* Section 3 — Our goals */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Our goals
             </h2>
@@ -48,27 +79,6 @@ export default function AboutPage() {
                 concert.
               </li>
             </ul>
-
-            {/* Section 2 — What we are */}
-            <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
-              What we are
-            </h2>
-            <p>
-              Common Ground is civic infrastructure that converts individual
-              civic potential into collective agency.
-            </p>
-            <p>
-              It makes the substantial cross-partisan agreement on policy that
-              already exists among American citizens — visible, measurable, and
-              usable. Where Americans agree, the data is plain. Where government
-              delivers, or fails to, the record is plain. Citizens make their own
-              conclusions.
-            </p>
-            <p>
-              Think of it as utility infrastructure, in the way electricity or
-              water are utilities — serious, dependable, no-agenda. Not a
-              movement. Not a party. Not a campaign.
-            </p>
 
             {/* Section 3 — Why we exist */}
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
@@ -106,7 +116,7 @@ export default function AboutPage() {
               </sup>
             </p>
             <p>
-              And yet — across 82 federal policies, Americans across party lines
+              And yet — across 88 federal policies, Americans across party lines
               demonstrably agree. The disconnect is not a failure of the public.
               It is a failure to make public agreement visible and consequential.
             </p>
@@ -128,32 +138,39 @@ export default function AboutPage() {
               data comes from Pew, KFF, Gallup, More in Common, Harvard
               CAPS/Harris, and other peer-reviewed sources.
             </p>
-            <p>Five tools deliver this information to citizens:</p>
+            <p>Our tools deliver this information to citizens:</p>
             <ul>
               <li>
                 <strong className="text-[#1a2a4a]">The Look-Up Tool</strong> lets
                 anyone find research results on any of the policies studied.
               </li>
               <li>
-                <strong className="text-[#1a2a4a]">The Platform</strong> names ten
-                to fifteen policies on which broad bipartisan supermajorities
-                agree — a documented standard, the baseline a representative
-                democracy should reasonably be expected to reflect.
+                <strong className="text-[#1a2a4a]">The Platform</strong> names nine
+                planks of federal policies with bipartisan supermajority support —
+                more than two-thirds in both parties — a documented standard, the
+                baseline a representative democracy should reasonably be expected
+                to reflect.
               </li>
               <li>
-                <strong className="text-[#1a2a4a]">The Pledge</strong> is a public
-                declaration that government should respond to the Will of the
+                <strong className="text-[#1a2a4a]">The Pledge List</strong> is a
+                public declaration that government should respond to the Will of the
                 People — and a growing, visible count of the citizens who stand
                 behind it.
               </li>
               <li>
-                <strong className="text-[#1a2a4a]">The Scorecard</strong> measures
-                how Congress&apos;s votes align with the Platform.
+                <strong className="text-[#1a2a4a]">Congress&apos;s Report Card</strong>{" "}
+                grades how Congress as a whole is progressing on the
+                Platform&apos;s planks.
               </li>
               <li>
                 <strong className="text-[#1a2a4a]">The Gap Analysis</strong>{" "}
                 diagnoses the distance between what Americans want and what
                 government delivers, annually.
+              </li>
+              <li>
+                <strong className="text-[#1a2a4a]">The Scorecard for Legislators</strong>{" "}
+                grades each Senator and Representative on how their record aligns
+                with the Platform.
               </li>
             </ul>
             <p>
@@ -269,7 +286,7 @@ export default function AboutPage() {
               Common Ground gives citizens an opportunity to express their support
               for the fundamental principle that Government should respond to the
               Will of the People. The best way to show this support is by taking
-              the Common Ground Pledge. Further, citizens can become a Champion
+              the Common Ground Pledge. Further, citizens can become a champion
               for this principle by spreading the word to friends, family and
               neighbors.
             </p>

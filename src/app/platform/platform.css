@@ -42,6 +42,10 @@
 .cg-platform .kicker{text-transform:uppercase;letter-spacing:.09em;font-size:11px;font-weight:700;color:var(--muted);margin:0 0 4px}
 .cg-platform .sub{color:var(--ink2);font-size:15px;margin:0;max-width:840px}
 .cg-platform .src{color:var(--muted);font-size:12px;margin-top:5px}
+.cg-platform .discuss-hook{margin-top:9px;font-size:13.5px}
+.cg-platform .discuss-hook a{color:#b22234;font-weight:700;text-decoration:none;touch-action:manipulation}
+.cg-platform .discuss-hook a:hover{text-decoration:underline}
+.cg-platform[data-theme="dark"] .discuss-hook a{color:#f0a0a8}
 .cg-platform .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
 .cg-platform .controls{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .cg-platform .toggle{font-size:12.5px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:20px;padding:6px 13px;cursor:pointer;white-space:nowrap}

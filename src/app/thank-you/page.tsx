@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Header from "@/components/Header";
 import ThankYouAnalytics from "./ThankYouAnalytics";
 import "./thank-you.css";
 
@@ -54,8 +55,10 @@ export default function ThankYouPage() {
   const ext = { target: "_blank", rel: "noopener noreferrer" as const };
 
   return (
-    <div className="cg-ty" id="main-content">
-      <ThankYouAnalytics />
+    <>
+      <Header />
+      <div className="cg-ty" id="main-content">
+        <ThankYouAnalytics />
       <div aria-hidden="true" dangerouslySetInnerHTML={{ __html: SPRITE }} />
 
       <section className="hero">
@@ -204,6 +207,7 @@ export default function ThankYouPage() {
           <span className="foot-dim">&copy;</span> 2026 <strong>Common Ground</strong>
         </p>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }

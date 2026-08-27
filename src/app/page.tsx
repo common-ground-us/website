@@ -356,8 +356,9 @@ function HomeSearch() {
         <section className="border-t border-[#e2e8f0] bg-[#f5f6f8]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 flex flex-col items-start gap-5">
             <p className="text-[#4a5568] leading-relaxed">
-              The look-up tool is just the start. The full Common Ground Platform
-              publishes August&nbsp;2026. The Scorecard follows in October.{" "}
+              The look-up tool is just the start. The Common Ground Platform is
+              now published, and Congress&apos;s Report Card follows in
+              October.{" "}
               <Link
                 href="/roadmap/"
                 className="text-[#1a56c4] underline hover:no-underline"
@@ -397,6 +398,20 @@ function HomeHero() {
           What Americans Want from Their Government
         </h1>
         <HeroCarousel />
+        <div className="mt-4 pt-4 pb-1 border-t border-white/15">
+          <Link
+            href="/finding-common-ground/"
+            className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-medium text-[#e8b8be] hover:text-white transition-colors focus-visible:outline-white"
+          >
+            <span>
+              New here? Start with the essay —{" "}
+              <span className="font-semibold underline underline-offset-2">
+                Finding Common Ground
+              </span>
+            </span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

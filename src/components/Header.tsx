@@ -5,8 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "./icons";
 
+const ESSAY_LINK = {
+  href: "/finding-common-ground/",
+  label: "Finding Common Ground",
+};
+
+// Desktop top row: the seven section links (essay lives on the 2nd row).
 const NAV_LINKS = [
   { href: "/platform/", label: "Platform" },
+  { href: "/about/", label: "About" },
+  { href: "/roadmap/", label: "Roadmap" },
+  { href: "/research/", label: "Research" },
+  { href: "/governance/", label: "Governance" },
+  { href: "/contact/", label: "Contact" },
+  { href: "/about/founder/", label: "Founder's Message" },
+];
+
+// Mobile stacked menu: essay sits directly after Platform.
+const MOBILE_LINKS = [
+  { href: "/platform/", label: "Platform" },
+  ESSAY_LINK,
   { href: "/about/", label: "About" },
   { href: "/roadmap/", label: "Roadmap" },
   { href: "/research/", label: "Research" },
@@ -43,7 +61,11 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden md:block">
+        <nav
+          aria-label="Main navigation"
+          className="hidden md:flex md:flex-col md:items-end gap-1.5"
+        >
+          {/* Row 1 — section links */}
           <ul className="flex flex-wrap items-center justify-end gap-1 sm:gap-2 list-none m-0 p-0">
             {NAV_LINKS.map(({ href, label }) => (
               <li key={href}>
@@ -55,6 +77,17 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+          </ul>
+          {/* Row 2 — the essay + the primary Get Involved CTA */}
+          <ul className="flex items-center justify-end gap-1 sm:gap-2 list-none m-0 p-0">
+            <li>
+              <Link
+                href={ESSAY_LINK.href}
+                className="px-3 py-2 rounded text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-white whitespace-nowrap"
+              >
+                {ESSAY_LINK.label}
+              </Link>
+            </li>
             <li>
               <Link
                 href="/get-involved/"
@@ -98,7 +131,7 @@ export default function Header() {
           className="md:hidden border-t border-white/10"
         >
           <ul className="flex flex-col list-none m-0 p-2">
-            {NAV_LINKS.map(({ href, label }) => (
+            {MOBILE_LINKS.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}

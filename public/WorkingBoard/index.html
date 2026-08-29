@@ -109,6 +109,7 @@ a:hover { text-decoration: underline; }
 .pill.domain-ops       { background: #ececec; color: #4a4a4a; }
 .pill.domain-product   { background: #d5e3d0; color: #3a6a3a; }
 .pill.domain-discussion { background: #f2e1e6; color: #7f3a55; }
+.pill.domain-data-library { background: #d4ece8; color: #2a5f6a; }
 
 .pri {
   display: inline-block;
@@ -552,6 +553,11 @@ const TASKS = [
     added:'2026-08-26', source:'main',
     notes:'Historical Pledges captured via the pre-launch Google Form (Results Sheet) need to be merged into the new Tally-driven sheet so the pledger list is unified. Preserve name, state, date, and any other fields captured in the old form; reconcile any schema differences (field naming, ordering). Likely owned by Website thread. Not launch-blocking, but should happen soon after launch so the pledger count and any published list reflect the full population.',
     depends_on:[] },
+  { id:'t064', title:'Add Voter ID policy to Data Library',
+    domains:['data-library','research'], timeframe:'soon', status:'not_started', priority:'M',
+    added:'2026-08-26', source:'main',
+    notes:'Target: September 2026. Bipartisan supermajority candidate for the Data Library. Public support: Pew Research (Feb 2024) found 81% of Americans favor requiring government-issued photo ID to vote — 69% of Democrats and 95% of Republicans. Other surveys (Gallup, Rainey Center) show Democratic support in the 65–71% range with near-unanimous Republican backing. Comfortably clears the ≥60% overall and ≥50%-among-both-parties eligibility thresholds. Sources: Pew (https://www.pewresearch.org/politics/2024/02/07/bipartisan-support-for-early-in-person-voting-voter-id-election-day-national-holiday/); APM Research Lab (https://www.apmresearchlab.org/motn/election-policy-views); UMD CDCE (https://cdce.umd.edu/feature/new-cdce-survey-shows-millions-lack-id-voter-id-laws-spread-more-states). Also confirm rights-check (third eligibility criterion) — voter ID intersects with access concerns for citizens without ID; UMD CDCE source above documents that population.',
+    depends_on:[] },
   { id:'t059', title:'Video: Perception-Gap symmetric pair (side-by-side scenes)',
     domains:['content'], timeframe:'pending', status:'not_started', priority:'M',
     added:'2026-07-09', source:'main',
@@ -672,6 +678,7 @@ const DOMAINS = {
   ops:        'Ops',
   product:    'Product',
   discussion: 'Discussion',
+  'data-library': 'Data Library',
 };
 
 const TIMEFRAMES = ['today','next','soon','ongoing','pending'];

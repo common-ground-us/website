@@ -308,7 +308,15 @@ export default function AboutPage() {
                 &ldquo;Testing Theories of American Politics: Elites, Interest
                 Groups, and Average Citizens,&rdquo;
               </em>{" "}
-              Perspectives on Politics, Vol. 12 No. 3 (2014).
+              Perspectives on Politics, Vol. 12 No. 3 (2014).{" "}
+              <a
+                href="https://doi.org/10.1017/S1537592714001595"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#1a56c4] underline hover:no-underline"
+              >
+                Link
+              </a>
             </p>
             <p id="fn2">
               <sup>2</sup> Pew Research Center,{" "}

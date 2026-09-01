@@ -66,9 +66,15 @@ export default function FindingCommonGroundPage() {
             policy.&rdquo;
           </blockquote>
           <p className="cite">
-            Gilens, M. &amp; Page, B.I., &ldquo;Testing Theories of American
-            Politics: Elites, Interest Groups, and Average Citizens,&rdquo;
-            Perspectives on Politics, Vol. 12 No. 3, 2014
+            <a
+              href="https://doi.org/10.1017/S1537592714001595"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gilens, M. &amp; Page, B.I., &ldquo;Testing Theories of American
+              Politics: Elites, Interest Groups, and Average Citizens,&rdquo;
+              Perspectives on Politics, Vol. 12 No. 3, 2014
+            </a>
           </p>
           <p>
             This is the problem I want to address. It&rsquo;s the dragon I seek to slay.

@@ -81,6 +81,7 @@ a:hover { text-decoration: underline; }
 .card.waiting_external { border-left: 3px solid #b58a3a; }
 .card-title { font-weight: 600; font-size: 14px; color: #1a1a1a; margin-bottom: 4px; }
 .card-title.done-strike { text-decoration: line-through; }
+.card-id { color: #888; font-weight: 400; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; margin-right: 6px; letter-spacing: 0.02em; }
 .card-meta {
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +110,6 @@ a:hover { text-decoration: underline; }
 .pill.domain-ops       { background: #ececec; color: #4a4a4a; }
 .pill.domain-product   { background: #d5e3d0; color: #3a6a3a; }
 .pill.domain-discussion { background: #f2e1e6; color: #7f3a55; }
-.pill.domain-data-library { background: #d4ece8; color: #2a5f6a; }
 
 .pri {
   display: inline-block;
@@ -300,8 +300,8 @@ const TASKS = [
   { id:'t002', title:'Draft Intellectual Foundation blog post (on-site, links to TOC essay)',
     domains:['content','website'], timeframe:'next', status:'not_started', priority:'H',
     added:'2026-08-19', source:'main',
-    notes:'Short on-site version of the intellectual case (Arendt / Acemoglu / Levin three-part synthesis). Targeted at analytical/academic readers. Links out to the deeper TOC Substack essay (t001).',
-    depends_on:['t001'] },
+    notes:'Short on-site version of the intellectual case. UPDATED 2026-08-29: scope now reflects the four-anchor frame (Arendt / Acemoglu / Levin / Belonging via Baumeister & Leary + Nisbet), per t066 and the TOC Enhancement v2 doc. Structure: four moves (problem → framework → puzzle → answer), five names, one original insight (§7(b) divisiveness-profiteering). Lead with Olson. Draft intro synthesis already available in CommonGround_IntellectualFoundation_IntroSynthesis_v1.md. Companion Questions & Objections page to be scoped separately (absorbs the deferred material: in-group/out-group defense, majoritarianism guardrail, free-rider critique, tribalism concern). Targeted at analytical/academic readers. Links out to the deeper TOC Substack essay (t001). Now depends on t071 (blogging setup) as the publish-surface prerequisite.',
+    depends_on:['t001','t071'] },
   { id:'t003', title:'Fix Perception Gap sentence in KL Email Google Doc + resync',
     domains:['content'], timeframe:'next', status:'done', priority:'M',
     added:'2026-08-19', source:'main', done_date:'2026-08-20',
@@ -333,8 +333,8 @@ const TASKS = [
     notes:'Target: Q4 2026. Stanford dataset access requires an approval process — start it early since approval may take weeks. Once granted, similar harmonization work as t023 applies before integration.',
     depends_on:[] },
   { id:'t028', title:'[LAUNCH] Complete X (Twitter) account setup + first launch post',
-    domains:['social','ops'], timeframe:'today', status:'not_started', priority:'H',
-    added:'2026-08-24', source:'main',
+    domains:['social','ops'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-24', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT. X handle already confirmed: @Common1GroundUS. Complete the setup: profile bio, header image, avatar, pinned post announcing the Platform launch. Coordinates with LinkedIn setup (t007) and Zain\'s Reddit intro (t021) as the three-channel launch amplification.',
     depends_on:[] },
   { id:'t027', title:'Publish plank-rationale document — explain choices made for the inaugural Platform (per Governance transparency commitment)',
@@ -353,8 +353,8 @@ const TASKS = [
     notes:'DONE 2026-08-26 (Website thread confirmed). Quarterly consent checkbox replaced with inform-and-opt-out notice on the form; auto-response paragraph updated with the revised wording; unsubscribe mechanism in place.',
     depends_on:[] },
   { id:'t022', title:'[LAUNCH] Verify launch items via live spot-check (t011, t014, t016)',
-    domains:['website','ops'], timeframe:'today', status:'in_progress', priority:'H',
-    added:'2026-08-23', source:'main',
+    domains:['website','ops'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-23', source:'main', done_date:'2026-08-29',
     notes:'Website thread confirmed all three DONE from their build side; Keith\'s live spot-check happens tomorrow (2026-08-27) as part of the E2E testing. Close this task after that.',
     depends_on:[] },
   { id:'t017', title:'[LAUNCH] Keith reviews all website pages for launch-ready copy',
@@ -368,8 +368,8 @@ const TASKS = [
     notes:'DONE 2026-08-26 (Website thread confirmed). 7-field Pledge form embedded on Get Involved; Tally Pro welcome email configured + test-sent; /thank-you redirect set; all deployed live. Unblocks t012 (E2E verification) — live testing tomorrow.',
     depends_on:[] },
   { id:'t019', title:'[LAUNCH] Set up a Claude thread to monitor common1ground.us@gmail.com inbox',
-    domains:['ops'], timeframe:'next', status:'not_started', priority:'M',
-    added:'2026-08-22', source:'main',
+    domains:['ops'], timeframe:'next', status:'done', priority:'M',
+    added:'2026-08-22', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT enabling task. Once t039 is done (Dreamhost forwarding to Gmail set up), spin up a Claude thread with Gmail MCP connected to common1ground.us@gmail.com to triage inbox, surface priority items to Keith, and handle routine responses. Depends on t039. Priority M (nice-to-have for launch, not blocking).',
     depends_on:['t039'] },
   { id:'t016', title:'[LAUNCH] Website thread: correct 2 text items on /finding-common-ground page to match definitive version',
@@ -393,8 +393,8 @@ const TASKS = [
     notes:'Both docs updated to v2 with Champion tier removed cleanly. ThankYouPage_DesignBrief_v2 goes to Claude Design (mockups). GetInvolved_Redesign_Spec_v2 goes to Website thread (flow architecture) + Keith (Tally form build). Also updated Moorthy → Website thread labels throughout.',
     depends_on:[] },
   { id:'t012', title:'[LAUNCH] End-to-end verify Tally auto-responder — GO/NO-GO for launch',
-    domains:['pledge','website'], timeframe:'today', status:'in_progress', priority:'H',
-    added:'2026-08-21', source:'main',
+    domains:['pledge','website'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-21', source:'main', done_date:'2026-08-29',
     notes:'Build complete + live (Website thread deployed 2026-08-26). Live submission test happens TOMORROW (2026-08-27) with Keith + a couple of testers. Verify: auto-response arrives reliably, [First name] merge works, essay content + chart render, links work, unsubscribe link works, deliverability across Gmail/Outlook/iCloud.',
     depends_on:[] },
   { id:'t006', title:'Substack for reach — discussion Tuesday 8/25',
@@ -423,8 +423,8 @@ const TASKS = [
     added:'2026-08-17', source:'main', notes:'Prep for Substack-reach discussion (t006).',
     depends_on:[] },
   { id:'t007', title:'[LAUNCH] Complete LinkedIn Company Page setup + publish first (pinned) post',
-    domains:['social','ops'], timeframe:'today', status:'not_started', priority:'H',
-    added:'2026-08-18', source:'main',
+    domains:['social','ops'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-18', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT (target 8/23). Complete the Company Page setup per LinkedIn playbook: About/Description text, cover image, admin structure, remaining setup decisions (some already answered — page slug is common-ground-us, vanity URL confirmed). Then publish the first pinned post (Post at top of Company Page + Keith\'s personal profile) announcing the Platform launch. Pinned post draft template lives in LinkedIn playbook.',
     depends_on:[] },
   { id:'t008', title:'Ansolabehere & Schaffner (S&A) cold email — draft after Kull replies',
@@ -445,16 +445,16 @@ const TASKS = [
 
   // ---- SOON ----
   { id:'t020', title:'[LAUNCH] Platform launches — deployed to production 2026-08-26',
-    domains:['platform','website'], timeframe:'today', status:'in_progress', priority:'H',
-    added:'2026-08-17', source:'main',
+    domains:['platform','website'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-17', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT anchor task. **DEPLOYED to production 2026-08-26.** Live end-to-end testing tomorrow (Keith + testers). Flip to done once tomorrow\'s live testing passes and LinkedIn (t007) / X (t028) posts go live. Zain\'s Reddit intro (t021) coordinates.',
     depends_on:[] },
   { id:'t021', title:'[LAUNCH] Zain — Reddit handoff prep + first intro post ~ Sun 8/23 (Platform launch promo)',
-    domains:['social'], timeframe:'today', status:'not_started', priority:'H',
-    added:'2026-08-14', source:'main',
+    domains:['social'], timeframe:'today', status:'done', priority:'H',
+    added:'2026-08-14', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT (target 8/23). Playbook exists (CommonGround_Reddit_AccountPlaybook_v1.md). Zain onboard. Sunday 8/23 target for first substantive intro post promoting the Platform launch. Coordinates with Keith\'s LinkedIn launch post (t007) as the two-channel launch amplification.',
     depends_on:[] },
-  { id:'t022', title:'Zaki (Jamil) — Hope for Cynics angle, email + drafting',
+  { id:'t070', title:'Zaki (Jamil) — Hope for Cynics angle, email + drafting',
     domains:['outreach','content'], timeframe:'soon', status:'not_started', priority:'M',
     added:'2026-07-09', source:'main',
     notes:'Scheduled discussion previously flagged for "Thursday next week." Angle: Hope for Cynics framing complements CG mission.',
@@ -489,8 +489,8 @@ const TASKS = [
     added:'2026-07-09', source:'main', notes:'Set up when inbox load justifies.',
     depends_on:[] },
   { id:'t039', title:'[LAUNCH] Dreamhost email: enable +tag proxies on keith@common-ground.us + auto-forward to Gmail (so Claude can manage inbox)',
-    domains:['ops'], timeframe:'next', status:'not_started', priority:'H',
-    added:'2026-08-22', source:'main',
+    domains:['ops'], timeframe:'next', status:'done', priority:'H',
+    added:'2026-08-22', source:'main', done_date:'2026-08-29',
     notes:'LAUNCH SPRINT (target 8/23). Goal: (a) support plus-addressing like keith+partners@common-ground.us so replies from specific outreach channels/people are self-tagging in the inbox; (b) auto-forward all keith@ mail (including +tag variants) to common1ground.us@gmail.com **so a Claude thread can monitor/triage the inbox**. Dreamhost specifics per Keith\'s Gemini research: plus-addressing works natively on FULLY-HOSTED mailboxes; a Dreamhost address cannot be BOTH fully-hosted AND forward-only in the panel; workaround = keep keith@ as fully-hosted (retains +tag) and set up the Gmail forwarding via internal webmail filter/rule. Recommended path: fully-hosted + webmail forward rule to Gmail (preserves +tag; Gmail is where Keith reads AND where Claude can monitor via Gmail MCP). Optional enhancement: "Send Mail As" in Gmail (SMTP) so replies from Gmail go out as keith@common-ground.us. Same setup pattern also applies to linkedin@common-ground.us if that address is created per LinkedIn playbook. Gemini source: https://www.google.com/search?q=I%27m+using+dreamhost+for+my+website+domain.',
     depends_on:[] },
   { id:'t038', title:'Set vanity URL on LinkedIn Company Page',
@@ -554,9 +554,39 @@ const TASKS = [
     notes:'Historical Pledges captured via the pre-launch Google Form (Results Sheet) need to be merged into the new Tally-driven sheet so the pledger list is unified. Preserve name, state, date, and any other fields captured in the old form; reconcile any schema differences (field naming, ordering). Likely owned by Website thread. Not launch-blocking, but should happen soon after launch so the pledger count and any published list reflect the full population.',
     depends_on:[] },
   { id:'t064', title:'Add Voter ID policy to Data Library',
-    domains:['data-library','research'], timeframe:'soon', status:'not_started', priority:'M',
+    domains:['research'], timeframe:'soon', status:'not_started', priority:'M',
     added:'2026-08-26', source:'main',
     notes:'Target: September 2026. Bipartisan supermajority candidate for the Data Library. Public support: Pew Research (Feb 2024) found 81% of Americans favor requiring government-issued photo ID to vote — 69% of Democrats and 95% of Republicans. Other surveys (Gallup, Rainey Center) show Democratic support in the 65–71% range with near-unanimous Republican backing. Comfortably clears the ≥60% overall and ≥50%-among-both-parties eligibility thresholds. Sources: Pew (https://www.pewresearch.org/politics/2024/02/07/bipartisan-support-for-early-in-person-voting-voter-id-election-day-national-holiday/); APM Research Lab (https://www.apmresearchlab.org/motn/election-policy-views); UMD CDCE (https://cdce.umd.edu/feature/new-cdce-survey-shows-millions-lack-id-voter-id-laws-spread-more-states). Also confirm rights-check (third eligibility criterion) — voter ID intersects with access concerns for citizens without ID; UMD CDCE source above documents that population.',
+    depends_on:[] },
+  { id:'t065', title:'Read Nisbet, *The Quest for Community* (1953) — pre-req for Intellectual Foundation v2',
+    domains:['research'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-29', source:'main',
+    notes:'Prerequisite for adding Belonging as fourth intellectual foundation (see t066). Nisbet is the conservative-classic anchor for the Belonging leg — 70-year-old thesis that arrives at the same place as the 2023 Surgeon General loneliness data. Central claim: when intermediate associations decay, the human need for community does not disappear — it gets captured by the state and by mass movements. Supplies the "dark version" of the belonging argument (unmet belonging does not stay unmet; something always collects it) and gives the belonging leg genuine cross-partisan pedigree. Per BelongingFoundation_Handoff_v1 §6: "should be read before the Intellectual Foundation doc is drafted."',
+    depends_on:[] },
+  { id:'t066', title:'Update TOC_Enhancement_Acemoglu_Levin doc to v2 — add Belonging as fourth intellectual foundation',
+    domains:['research','content'], timeframe:'soon', status:'not_started', priority:'M',
+    added:'2026-08-29', source:'main',
+    notes:'Decision 2026-08-29: adopt Belonging as fourth anchor per BelongingFoundation_Handoff_v1 (2026-08-28). Structural framing (Keith\'s reframe, refined in-thread): three legs (Arendt/Acemoglu/Levin) describe the ARCHITECTURE of democratic life; belonging is the FUNDAMENTAL HUMAN NEED that runs through it — supplying both (a) the ENERGY that motivates individual action (resolving Olson\'s collective-action puzzle) and (b) the BINDING AGENT that holds community together once formed. Well-functioning communities bind around a shared procedural commitment; broken ones bind around grievance. Two conditions on adoption (agreed 2026-08-29): (i) LEAD WITH OLSON — belonging enters as the answer to a real puzzle, not as "and also, people like community"; (ii) READ NISBET FIRST (t065). Draft introductory synthesis paragraph developed in-thread 2026-08-29 — ready to lift when writing v2. Retire "three-legged stool" metaphor in favor of "the intellectual foundation" or "architecture + current." Downstream effects: (i) revised synthesis line, (ii) updated bibliography per handoff §6 (adds Baumeister & Leary, Nisbet, Brewer, Gaertner & Dovidio, Ostrom, Fehr & Gächter), (iii) four-part structure for planned "Intellectual Foundation of Common Ground" blog post, (iv) Civic Heart v14 belonging bullet in Section 1 (held pending; drafted in session capture thread A), (v) Levin outreach strengthened (A Time to Build is substantially a belonging argument).',
+    depends_on:['t065'] },
+  { id:'t068', title:'Outreach to Yuval Levin — advisory-board consideration, opening with Nisbet',
+    domains:['outreach'], timeframe:'pending', status:'not_started', priority:'M',
+    added:'2026-08-29', source:'main',
+    notes:'Levin is the most reachable of the intellectual anchors (runs National Affairs, publishes prolifically, appears on podcasts, less siege-mentality than a Nobel laureate). A Time to Build is substantially a belonging argument about formative institutions — the Belonging leg gives CG a direct intellectual conversation to open with him. Levin has written explicitly about Nisbet\'s continuing relevance. Opening move: reference the Nisbet integration ("we\'re integrating Nisbet\'s Quest for Community into our intellectual foundation, and your engagement with him in A Time to Build brought your work to top of mind"). This makes Levin a substantially stronger outreach target than under the original three-thinker frame. Purpose: intellectual conversation, potential advisory-board consideration, potential endorsement. Depends on: t066 (v2 published) so there\'s a document to reference; ideally t065 (fuller Nisbet read) so citations land with real fluency, though the working synthesis (CommonGround_NisbetForCG_Synthesis_v1.md) is enough for a first outreach. AEI has established channels for engaging outside work. This task carves out Levin specifically from the broader t057 umbrella (post-election-window outreach to Levin/Cass/Fukuyama/Goldberg/MIT Stone Center/UVA) — the Nisbet-strengthened Levin approach warrants its own tracking.',
+    depends_on:['t066'] },
+  { id:'t071', title:'Set up blogging capability on Common-Ground.US',
+    domains:['website'], timeframe:'today', status:'not_started', priority:'H',
+    added:'2026-08-29', source:'main',
+    notes:'Upstream requirement for the Intellectual Foundation blog post (t002, which now needs to reflect the expanded four-anchor frame per t066/TOC Enhancement v2). Not launch-blocking (launch is done) but blocks the Intellectual Foundation publish path. Website thread owns implementation. Decisions needed: (a) platform/mechanism — WordPress, static-site blog subdirectory, Ghost, Substack embed — depends on current site stack; (b) URL path (/blog/, /essays/, /writing/); (c) design consistency with rest of site; (d) categories/tags taxonomy; (e) RSS setup; (f) commenting on/off (recommend off initially — moderation cost); (g) SEO metadata / OpenGraph tags; (h) author bylines (Keith only, or expandable). Also worth deciding upfront: relationship to future LinkedIn Newsletter (t030) and any Substack strategy (t001) — which is the primary publish surface, which are mirrors, and how canonical-URL / cross-linking works.',
+    depends_on:[] },
+  { id:'t069', title:'Publish LinkedIn follow-up post — Hamilton/Nisbet tie-in',
+    domains:['content','social'], timeframe:'today', status:'not_started', priority:'M',
+    added:'2026-08-29', source:'main',
+    notes:'Target: this week (post-launch, following the "83% + sad fact" launch post). Draft ready in Outputs: CommonGround_LinkedInPost_HamiltonNisbet_v1.md. ~410 words, personal-reflection register. Pairs Hamilton\'s early-1790s warning about demagogues ("ride the storm and direct the whirlwind") with Nisbet\'s Quest for Community diagnosis of the belonging vacuum that makes demagogues succeed. Serves as the personal-reflection-first post Keith originally wanted for post #1 (deferred there in favor of the 83% + sad fact hook). Nonpartisan throughout — Hamilton is founding-era universal; Nisbet is conservative-coded but the argument works across the spectrum. Soft link at close to /finding-common-ground/. Pre-publish TODO: verify Hamilton exact source citation. Depends on: t007 (LinkedIn Company Page setup — need the account operational first).',
+    depends_on:['t007'] },
+  { id:'t067', title:'Capture divisiveness-profiteering insight in Message Library — CG-original bipartisan finding',
+    domains:['content'], timeframe:'next', status:'not_started', priority:'M',
+    added:'2026-08-29', source:'main',
+    notes:'Original CG contribution surfaced 2026-08-28 in BelongingFoundation_Handoff §7(b). The observation: both populist left and populist right already believe they are being set against each other by people who profit from it — but every available vocabulary is team-coded ("dog whistle" / "the billionaire class" read left; "the uniparty" / "globalists" read right). Same analysis, opposite villains. CG\'s own data proves the underlying instinct is bipartisan: 76% support banning congressional stock trading (78% R, 75% D) — anti-profiteering as a supermajority with near-zero partisan gap. "Nobody has offered this insight to people without a team attached to it. CG can." Handoff doc flags this as possibly the most original contribution available to the Intellectual Foundation piece. Capture in Message Library as canonical CG-original material regardless of the fate of the four-anchor decision. Related: Fehr & Gächter / Ostrom on altruistic punishment (§7a) — the free-rider instinct as evidence of civic-mindedness, not meanness. Countervailing evidence to hold honestly: Gilens (1999) Why Americans Hate Welfare — instinct is authentic; targeting was manufactured.',
     depends_on:[] },
   { id:'t059', title:'Video: Perception-Gap symmetric pair (side-by-side scenes)',
     domains:['content'], timeframe:'pending', status:'not_started', priority:'M',
@@ -678,7 +708,6 @@ const DOMAINS = {
   ops:        'Ops',
   product:    'Product',
   discussion: 'Discussion',
-  'data-library': 'Data Library',
 };
 
 const TIMEFRAMES = ['today','next','soon','ongoing','pending'];
@@ -718,7 +747,11 @@ function taskCard(t, opts={}) {
 
   const title = document.createElement('div');
   title.className = 'card-title' + (isDone(t) ? ' done-strike' : '');
-  title.textContent = t.title;
+  const idSpan = document.createElement('span');
+  idSpan.className = 'card-id';
+  idSpan.textContent = t.id;
+  title.appendChild(idSpan);
+  title.appendChild(document.createTextNode(' ' + t.title));
   card.appendChild(title);
 
   if (opts.reason) {

@@ -70,7 +70,7 @@ export default function PrivacyPage() {
             </h2>
             <p>
               We use information you submit through those forms only to respond
-              to you, send the quarterly action prompts that come with the Pledge
+              to you, send the quarterly action prompts that come with the Declaration
               (you can opt out anytime), and follow up on questions or
               suggestions. We do not use it for advertising and we do not sell or
               rent it to anyone.

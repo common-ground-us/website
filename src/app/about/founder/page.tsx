@@ -42,7 +42,7 @@ export default function FounderPage() {
             </p>
             {/* Section 2 — The Wall */}
             <p>
-              My friends want me to do more, and their causes are almost always
+              My friends want me to do more, to join their causes, and their causes are almost always
               good ones. But so often, getting involved feels less like joining a
               conversation and more like being asked to pick a side in an endless
               fight. Partisanship itself isn&apos;t the problem — disagreement is
@@ -61,7 +61,7 @@ export default function FounderPage() {
               are.
             </p>
             <p>
-              That moment — small, ordinary — stayed with me. It made me wonder
+              That moment stayed with me. It made me wonder
               how often I was reading my fellow citizens the way the partisan media
               wanted me to read them. How often I was missing the actual person in
               front of me.
@@ -92,7 +92,7 @@ export default function FounderPage() {
               and usable.
             </p>
             <p>
-              I did not want to build a movement. I wanted to build infrastructure.
+              I did not want to build a movement. I wanted to build a public utility.
               Like electricity or water — something that just works, that anyone
               can use, that has no agenda but the public&apos;s.
             </p>
@@ -119,7 +119,7 @@ export default function FounderPage() {
               href="/get-involved/"
               className="inline-flex items-center justify-center px-6 py-3 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
             >
-              Stand to be counted → Get Involved
+              Stand to be counted
             </Link>
           </div>
 

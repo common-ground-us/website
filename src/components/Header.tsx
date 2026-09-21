@@ -93,7 +93,7 @@ export default function Header() {
                 href="/get-involved/"
                 className="ml-1 px-3 py-2 rounded-md text-sm font-semibold bg-[#b22234] text-white hover:bg-[#9a1d2d] transition-colors focus-visible:outline-white whitespace-nowrap"
               >
-                Get Involved
+                Stand Up for Democracy
               </Link>
             </li>
           </ul>
@@ -105,7 +105,7 @@ export default function Header() {
             className="px-3 py-2 rounded-md text-sm font-semibold bg-[#b22234] text-white hover:bg-[#9a1d2d] transition-colors focus-visible:outline-white whitespace-nowrap"
             onClick={() => setMenuOpen(false)}
           >
-            Get Involved
+            Stand Up for Democracy
           </Link>
           <button
             type="button"

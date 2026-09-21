@@ -3,13 +3,13 @@ import Footer from "@/components/Footer";
 import PledgeEmbed from "@/components/PledgeEmbed";
 
 export const metadata = {
-  title: { absolute: "Take the Pledge | Common Ground" },
+  title: { absolute: "Stand Up and Be Counted | Common Ground" },
   description:
-    "Add your name to the Common Ground Pledge — a public statement that government should act on what large majorities across both parties already agree on.",
+    "Sign the Common Ground Declaration — a public statement that government should act on what large majorities across both parties already agree on.",
   alternates: { canonical: "/get-involved/" },
   openGraph: {
     type: "website",
-    title: "Take the Pledge — Common-Ground.US",
+    title: "Stand Up and Be Counted — Common-Ground.US",
     description:
       "A public statement that a healthier balance between what unites and divides us is worth working toward. 30 seconds.",
     images: [{ url: "/og-image.png", width: 1200, height: 627 }],
@@ -24,7 +24,7 @@ export default function GetInvolvedPage() {
       <main id="main-content" className="flex-1">
         <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <h1 className="text-3xl sm:text-4xl font-display font-bold text-[#1a2a4a] mb-4">
-            Get Involved
+            Stand Up and Be Counted
           </h1>
 
           <p className="text-lg sm:text-xl leading-relaxed text-[#384253] mb-6">
@@ -37,13 +37,13 @@ export default function GetInvolvedPage() {
             Across party lines, Americans agree on far more than is commonly
             thought: dozens of specific federal policies with two-thirds support
             in both parties. But agreement that stays private changes nothing. The
-            Pledge is how that agreement becomes visible — and how citizens who
+            Declaration is how that agreement becomes visible — and how citizens who
             share it find one another.
           </p>
 
           <details className="group border border-[#e2e8f0] rounded-xl mb-6 bg-white">
             <summary className="cursor-pointer list-none px-5 py-4 font-display font-semibold text-[#1a2a4a] flex items-center justify-between">
-              Why the Pledge matters
+              Why the Declaration matters
               <span className="text-[#718096] transition-transform group-open:rotate-180">▾</span>
             </summary>
             <div className="px-5 pb-5 pt-0 text-[#4a5568] leading-relaxed space-y-4 border-t border-[#e2e8f0]">
@@ -54,7 +54,7 @@ export default function GetInvolvedPage() {
                 an organized constituency changes everything.
               </p>
               <p>
-                The Pledge turns private agreement into a public, visible
+                The Declaration turns private agreement into a public, visible
                 constituency — connecting like-minded citizens so we can act in
                 concert. It displays only your name and state, and unlike most
                 political fights, there&rsquo;s no opposing side. Who can argue that
@@ -72,13 +72,13 @@ export default function GetInvolvedPage() {
             </div>
           </details>
 
-          {/* ── The Pledge form (inline Tally embed → redirects to /thank-you) ── */}
+          {/* ── The Declaration form (inline Tally embed → redirects to /thank-you) ── */}
           <section className="border border-[#e2e8f0] rounded-xl bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a] mb-2">
-              Take the Pledge
+              Sign the Declaration
             </h2>
             <p className="text-[#4a5568] leading-relaxed mb-5">
-              It takes about 30 seconds. We ask only for what the Pledge List
+              It takes about 30 seconds. We ask only for what the Declaration List
               needs — your name and state — plus an email and ZIP so we can send
               you a quarterly, ready-to-send message for your representatives.
             </p>
@@ -86,7 +86,7 @@ export default function GetInvolvedPage() {
             <PledgeEmbed />
 
             <p className="text-sm text-[#718096] mt-4">
-              Privacy: your name and state are listed publicly on the Pledge List;
+              Privacy: your name and state are listed publicly on the Declaration List;
               your email and ZIP are not.{" "}
               <a
                 href="/privacy/"

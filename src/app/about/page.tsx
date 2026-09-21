@@ -73,8 +73,8 @@ export default function AboutPage() {
                 representing in the best possible way what we agree on.
               </li>
               <li>
-                <strong className="text-[#1a2a4a]">The Pledge</strong> is a public
-                declaration that connects like-minded citizens so we can act in
+                <strong className="text-[#1a2a4a]">The Declaration</strong> is a public
+                statement that connects like-minded citizens so we can act in
                 concert.
               </li>
             </ul>
@@ -151,8 +151,8 @@ export default function AboutPage() {
                 to reflect.
               </li>
               <li>
-                <strong className="text-[#1a2a4a]">The Pledge List</strong> is a
-                public declaration that government should respond to the Will of the
+                <strong className="text-[#1a2a4a]">The Declaration List</strong> is a
+                public statement that government should respond to the Will of the
                 People — and a growing, visible count of the citizens who stand
                 behind it.
               </li>
@@ -284,8 +284,8 @@ export default function AboutPage() {
             <p>
               Common Ground gives citizens an opportunity to express their support
               for the fundamental principle that Government should respond to the
-              Will of the People. The best way to show this support is by taking
-              the Common Ground Pledge. Further, citizens can become a champion
+              Will of the People. The best way to show this support is by signing
+              the Common Ground Declaration. Further, citizens can become a champion
               for this principle by spreading the word to friends, family and
               neighbors.
             </p>
@@ -295,7 +295,7 @@ export default function AboutPage() {
                 href="/get-involved/"
                 className="text-[#1a56c4] underline hover:no-underline"
               >
-                → Get Involved
+                → Stand Up and Be Counted
               </Link>
             </p>
           </div>

@@ -21,9 +21,9 @@ const milestones = [
     body: "9 Planks covering federal policies that meet three criteria: supermajority public support, cross-partisan agreement, and respect for individual constitutional rights as protected by the Bill of Rights. The democratic floor — the baseline that a representative democracy should reasonably be expected to reflect.",
   },
   {
-    title: "The Pledge List",
+    title: "The Declaration List",
     status: "Launching October 2026",
-    body: "A public declaration that government should respond to the Will of the People — and a growing, visible count of the citizens who stand behind it. The Pledge connects like-minded citizens across party lines so we can act in concert.",
+    body: "A public statement that government should respond to the Will of the People — and a growing, visible count of the citizens who stand behind it. The Declaration connects like-minded citizens across party lines so we can act in concert.",
   },
   {
     title: "Congress's Report Card",

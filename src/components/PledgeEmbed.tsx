@@ -110,7 +110,7 @@ export default function PledgeEmbed() {
         loading="lazy"
         width="100%"
         height={480}
-        title="Take the Common Ground Pledge"
+        title="Sign the Common Ground Declaration"
         style={{ border: 0, margin: 0 }}
       />
       <noscript>
@@ -118,7 +118,7 @@ export default function PledgeEmbed() {
           href={`https://tally.so/r/${TALLY_FORM_ID}`}
           style={{ color: "#b22234", textDecoration: "underline" }}
         >
-          Open the Pledge form →
+          Open the Declaration form →
         </a>
       </noscript>
     </div>

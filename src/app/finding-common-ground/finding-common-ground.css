@@ -12,6 +12,7 @@
 .cg-essay .tldr p { font-size: 15px; line-height: 1.6; color: #384253; margin: 6px 0 0; }
 
 .cg-essay h2 { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; font-weight: 800; color: var(--color-navy); letter-spacing: -.01em; margin: 40px 0 12px; }
+.cg-essay h3 { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.25; font-weight: 700; color: var(--color-navy); margin: 30px 0 10px; }
 .cg-essay p { font-size: 1.0625rem; line-height: 1.7; color: #384253; margin: 0 0 18px; }
 .cg-essay a { color: var(--color-civic-red); text-decoration: underline; text-underline-offset: 2px; }
 .cg-essay a:hover { color: #8e1b29; }

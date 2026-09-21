@@ -6,12 +6,12 @@ import "./thank-you.css";
 
 export const metadata: Metadata = {
   title: "Thank You",
-  description: "Your Common Ground pledge is in — you've been counted.",
+  description: "You've signed the Common Ground Declaration — you've been counted.",
   alternates: { canonical: "/thank-you/" },
   robots: { index: false, follow: false }, // post-submit page
   openGraph: {
     type: "website",
-    title: "I just took the Common-Ground.US pledge",
+    title: "I just signed the Common Ground Declaration",
     description: "Americans agree on more than we think. Join me in making that visible.",
     images: [{ url: "/og/og-confirmation.png", width: 1200, height: 627 }],
   },
@@ -84,7 +84,7 @@ export default function ThankYouPage() {
               This is an obvious principle in a democracy, and it&rsquo;s a
               tragedy that it&rsquo;s not being followed. The only way We the
               People can assert our constitutionally-given power is to{" "}
-              <em>Act in Concert</em> — and your pledge is an essential step in that direction.
+              <em>Act in Concert</em> — and your signature is an essential step in that direction.
             </p>
             <p className="sign">
               Keith Lietzke &middot; <span>Founder, Common Ground</span>
@@ -92,7 +92,7 @@ export default function ThankYouPage() {
           </div>
           {FLAGS.pledgeList && (
             <p className="quiet quiet-static">
-              Inaugural Pledge List to be published in October
+              Inaugural Declaration List to be published in October
             </p>
           )}
         </div>

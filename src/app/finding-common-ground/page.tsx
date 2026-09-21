@@ -19,7 +19,8 @@ export const metadata: Metadata = {
 };
 
 // Every CG link inside this forwardable page carries ?src=forward so onward
-// arrivals route to the Version B auto-responder (per Tally Handoff v2, Task 0).
+// arrivals can be routed by the entry-path token (per Tally Handoff v2 / the
+// planned free-tier sender).
 const PLEDGE = "/get-involved/?src=forward";
 
 export default function FindingCommonGroundPage() {
@@ -45,18 +46,16 @@ export default function FindingCommonGroundPage() {
           </div>
 
           <p>
-            I&rsquo;ve been working on something I believe could fundamentally
-            improve how Democracy works in our country. I know that sounds
-            audacious – and so it is.
+            There&rsquo;s a feeling a lot of us have been carrying — that our
+            government isn&rsquo;t reflecting what most Americans actually want.
           </p>
           <p>
-            Today, our government is failing to reflect the Will of the People.
-            That&rsquo;s not just my opinion, or something you just feel –
-            it&rsquo;s a recognized fact in political science.
+            It turns out that feeling is well-founded. It&rsquo;s a documented fact
+            in political science.
           </p>
           <p>
-            Professors at Princeton &amp; Northwestern analyzed 1,779 policy
-            issues over two decades. Their finding: when ordinary citizens&rsquo;
+            Professors at Princeton &amp; Northwestern analyzed 1,779 policy issues
+            over two decades. Their finding: when ordinary citizens&rsquo;
             preferences diverge from those of economic elites and organized
             interest groups,
           </p>
@@ -77,10 +76,11 @@ export default function FindingCommonGroundPage() {
             </a>
           </p>
           <p>
-            This is the problem I want to address. It&rsquo;s the dragon I seek to slay.
+            This is the problem I&rsquo;ve been sitting with. And I don&rsquo;t
+            think I&rsquo;m alone in it.
           </p>
 
-          <h2>My ambitious mission: Making Government Accountable to the Will of the People</h2>
+          <h2>The mission: Making Government Accountable to the Will of the People</h2>
           <p>It&rsquo;s easy to wonder if we&rsquo;re simply too divided for democracy to work.</p>
           <p>
             But when we step past the cultural silos and focus on actual policies,
@@ -105,11 +105,18 @@ export default function FindingCommonGroundPage() {
             prices like other countries do – establish a code of ethics for the
             Supreme Court … The list is long.
           </p>
+
+          <h3>The Perception Gap</h3>
           <p>
-            <strong>The Perception Gap:</strong> Democrats assume a minority of
-            Republicans favor stronger gun safety regulations — actually
-            two-thirds do. Republicans assume a majority of Democrats want open
-            borders — actually only a third do.
+            Democrats assume a minority of Republicans favor stronger gun safety
+            regulations — actually two-thirds do. Republicans assume a majority of
+            Democrats want open borders — actually only a third do.
+          </p>
+          <p>
+            Which means: the person you thought you&rsquo;d never agree with is
+            probably closer to your ground than either of you has been told. The
+            other side you&rsquo;ve been warned about is, in significant measure, a
+            lot like you.
           </p>
           <p>
             Of course, there are important flashpoints of disagreement that are
@@ -146,11 +153,13 @@ export default function FindingCommonGroundPage() {
             gives the People ultimate power to create, alter, or dissolve the government.
           </p>
           <p>
-            But as well-respected political theorist Hannah Arendt observed:
+            But as highly-respected political theorist Hannah Arendt observed:
           </p>
           <blockquote>
-            Political power in a democracy belongs to the people, but it can only
-            be exercised to the extent that they <em>act in concert.</em>
+            &ldquo;Power corresponds to the human ability not just to act but to act
+            in concert. Power is never the property of an individual; it belongs to
+            a group and remains in existence only so long as the group keeps
+            together.&rdquo;
           </blockquote>
 
           <h2>Our Common Ground</h2>
@@ -167,11 +176,11 @@ export default function FindingCommonGroundPage() {
             The{" "}
             <a href="/platform/?src=forward">Common Ground Platform</a> covers 9
             planks, each with bipartisan-supermajority policies – that if enacted
-            would move our government in a very positive direction. Planks covering Government Performance, Too Much Money in
-            Politics and Healthcare, to name just a few. The Platform will evolve
-            over time, but the criteria will remain the same: the policy must have
-            supermajority (⅔) support in both parties – and it must respect our
-            individual rights.
+            would move our government in a very positive direction. Planks covering
+            Government Performance, Too Much Money in Politics and Healthcare, to
+            name just a few. The Platform will evolve over time, but the criteria
+            will remain the same: the policy must have supermajority (⅔) support in
+            both parties – and it must respect our individual rights.
           </p>
 
           <h2>Acting in Concert</h2>
@@ -189,29 +198,28 @@ export default function FindingCommonGroundPage() {
               can all point to, representing what we agree on.
             </li>
             <li>
-              <strong>The Pledge:</strong> A public declaration that connects
+              <strong>The Declaration:</strong> A public statement that connects
               like-minded citizens so we can act in concert.
             </li>
           </ul>
           <p>
             Citizens can express their alignment with the foundation of our
             democracy – A Government That&rsquo;s Accountable to the Will of the
-            People – by taking a Pledge of Support for the principle and for the
-            Platform that results from the Common Ground criteria.
+            People – by signing the Common Ground Declaration in support of the
+            principle and the Platform that results from the Common Ground criteria.
           </p>
           <p>
-            <strong>Why A Pledge?</strong> The public declaration of support is
-            essential: without mutual awareness of each other, there can be no
-            acting in concert. The Pledge only displays your name and state, unlike
+            <strong>Why sign the Declaration?</strong> The public act of standing up
+            is essential: without mutual awareness of each other, there can be no
+            acting in concert. The Declaration only displays your name and state, unlike
             standard petitions that expose your full street address. Better yet,
             unlike typical political battles, there is no opposing side – who can
             argue that two-thirds bipartisan consensus isn&rsquo;t worth pursuing?
           </p>
           <p>
-            <strong>What Am I Asking of You?</strong> I&rsquo;m not asking you to
-            blindly take the Pledge. My request is simpler: take a few minutes to
-            look it over. If it aligns with your principles, I&rsquo;d love for you
-            to pledge.
+            <strong>What am I asking of you?</strong> I&rsquo;m not asking you to
+            blindly sign the Declaration. My request is simpler: take a few minutes to
+            look it over. If it aligns with your principles, stand up and be counted.
           </p>
           <p>
             If it doesn&rsquo;t resonate, I&rsquo;d be very grateful if you reached
@@ -219,32 +227,45 @@ export default function FindingCommonGroundPage() {
             your perspective will help me build something better.
           </p>
 
-          <h2>The Common Ground Pledge</h2>
+          <h2>The Common Ground Declaration</h2>
           <div className="pledge-box">
             <p>
               I support the Common Ground principle: that when supermajorities
               across party lines agree on policies that respect individual
-              constitutional rights, government should act on those policies.
+              constitutional rights, Government should act on those policies.
             </p>
             <p>
               The Common Ground Platform — 9 planks meeting those criteria
               today — is the principle in action; the Platform will evolve
               as agreement shifts and as planks become law. When each Platform
-              version publishes, I will ask my Representative and Senators to act on
-              it, or to explain why not.
+              version is published, I will ask my Representative and Senators to act on
+              it, or to explain why their view is different.
             </p>
             <p>I know not every plank will be my preference. I value action on documented common ground.</p>
             <p>
-              This Pledge complements — it does not preclude — advocacy for causes
+              This Declaration complements — it does not preclude — advocacy for causes
               without such consensus. Many essential expansions of civic and
               constitutional protection came through minority advocacy against
               majority opinion. That work remains vital.
             </p>
           </div>
 
+          <p>
+            The founders called this — government at the consent of the governed —
+            the American experiment. It&rsquo;s still an experiment. Two hundred and
+            fifty years in, it survives when Americans keep implementing it,
+            generation after generation. Not by heroic acts, but by the ordinary
+            decision to stand publicly on what we actually share, and to let
+            ourselves be seen doing it.
+          </p>
+          <p>
+            That&rsquo;s the offer. Not to join a movement. To be counted for what
+            you already believe.
+          </p>
+
           <div className="signoff">
             <p>If any of this resonates, you can show your support here:</p>
-            <a className="cta" href={PLEDGE}>Take the Pledge</a>
+            <a className="cta" href={PLEDGE}>Stand Up and Be Counted</a>
             <p style={{ marginTop: 18 }}>
               Either way, I&rsquo;d value your reactions — supportive, skeptical,
               or somewhere in between. And if you know friends or family thinking
@@ -253,7 +274,7 @@ export default function FindingCommonGroundPage() {
             <p>
               Heartfelt thanks,
               <br />
-              <strong>Keith</strong>
+              <strong>Keith Lietzke</strong>
             </p>
           </div>
         </article>

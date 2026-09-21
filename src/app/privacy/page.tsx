@@ -42,7 +42,7 @@ export default function PrivacyPage() {
                 href="/get-involved/"
                 className="text-[#1a56c4] underline hover:no-underline"
               >
-                Get Involved
+                Stand Up for Democracy
               </Link>{" "}
               and{" "}
               <Link

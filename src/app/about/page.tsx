@@ -34,7 +34,7 @@ export default function AboutPage() {
             <p>
               It makes the substantial bipartisan agreement on policy that
               already exists among American citizens — visible, measurable, and
-              usable. Where Americans agree, the data is plain. Where government
+              usable. Where Americans agree, the data are plain. Where government
               delivers, or fails to, the record is plain. Citizens make their own
               conclusions.
             </p>

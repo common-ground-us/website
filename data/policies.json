@@ -4709,10 +4709,10 @@
     "id": "do-not-make-it-a-serious-crime-for-doctors-to-perform-an-abortion-before-fetal-v",
     "issueArea": "ABORTION & BIRTH CONTROL",
     "policyTitle": "Do NOT make it a serious crime for doctors to perform an abortion before fetal viability",
-    "natSupport": 50,
-    "repSupport": 26,
-    "demSupport": 69,
-    "gap": 43,
+    "natSupport": 84,
+    "repSupport": 74,
+    "demSupport": 91,
+    "gap": 17,
     "bothAbove67": false,
     "hasDeliberative": true,
     "hasProscons": true,
@@ -4724,12 +4724,36 @@
         "date": "February 2026",
         "subLabel": "",
         "questionText": "There is a debate about whether it should be a serious crime for a doctor to provide an abortion at different stages of pregnancy. Please select which option you favor the most:",
-        "natPercent": 50,
-        "repPercent": 26,
-        "demPercent": 69,
-        "gap": 43,
-        "metric": "other",
-        "metricNote": ""
+        "natPercent": 84,
+        "repPercent": 74,
+        "demPercent": 91,
+        "gap": 17,
+        "metric": "combined",
+        "metricNote": "Combined share who would not criminalize abortion before fetal viability (options 2 + 3).",
+        "options": [
+          {
+            "label": "Not a crime at any point",
+            "natPercent": 50,
+            "repPercent": 26,
+            "demPercent": 69,
+            "inCombined": true
+          },
+          {
+            "label": "A crime only after viability (~22–24 weeks)",
+            "natPercent": 34,
+            "repPercent": 48,
+            "demPercent": 22,
+            "inCombined": true
+          },
+          {
+            "label": "A crime at any point in pregnancy",
+            "natPercent": 16,
+            "repPercent": 26,
+            "demPercent": 9,
+            "inCombined": false
+          }
+        ],
+        "optionsNote": "Respondents chose the one option they favor most among three. Combined, those who would allow abortion at least until viability — including those who would not make it a crime at all — are 84% of Americans: 74% of Republicans and 91% of Democrats."
       },
       {
         "surveyType": "Deliberative Survey",
@@ -4737,12 +4761,43 @@
         "date": "July 2024",
         "subLabel": "",
         "questionText": "Now that you have considered the various options, we would like you to make your final recommendations on whether abortion should be a serious crime and if so under what circumstances. If you do choose to make abortion a crime, you will then be given the chance to choose whether the law should punish the doctor and/or the woman; and whether there should be exceptions to that law… which of the following do you favor the most:",
-        "natPercent": 66,
-        "repPercent": 50,
-        "demPercent": 81,
-        "gap": 31,
-        "metric": "other",
-        "metricNote": ""
+        "natPercent": 77,
+        "repPercent": 61,
+        "demPercent": 90,
+        "gap": 29,
+        "metric": "combined",
+        "metricNote": "Combined share who would not criminalize abortion before viability; the 15-week ban is excluded.",
+        "options": [
+          {
+            "label": "Not a crime at any point",
+            "natPercent": 66,
+            "repPercent": 50,
+            "demPercent": 81,
+            "inCombined": true
+          },
+          {
+            "label": "A crime only after viability (~22–24 weeks)",
+            "natPercent": 11,
+            "repPercent": 11,
+            "demPercent": 9,
+            "inCombined": true
+          },
+          {
+            "label": "A crime after 15 weeks (pre-viability ban)",
+            "natPercent": 12,
+            "repPercent": 19,
+            "demPercent": 5,
+            "inCombined": false
+          },
+          {
+            "label": "A crime at any point in pregnancy",
+            "natPercent": 11,
+            "repPercent": 19,
+            "demPercent": 5,
+            "inCombined": false
+          }
+        ],
+        "optionsNote": "Respondents chose the one option they favor most among four, including a 15-week ban. Combined, those who would not criminalize abortion before viability (“not a crime” or “a crime only after viability”) are 77% of Americans: 61% of Republicans and 90% of Democrats. A 15-week ban criminalizes some pre-viability abortion, so it is excluded from the combined figure."
       }
     ],
     "externalPolls": [

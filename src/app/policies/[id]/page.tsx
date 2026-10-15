@@ -250,13 +250,51 @@ export default async function PolicyPage({ params }: Props) {
                     </tbody>
                   </table>
                 </div>
-                {/* Show question text for each survey */}
+                {/* Show question text + option spectrum for each survey */}
                 <div className="mt-4 space-y-3">
                   {policy.surveys.map((s, i) => (
-                    s.questionText && (
+                    (s.questionText || (s.options && s.options.length > 0)) && (
                       <div key={i} className="bg-[#f8fafc] rounded-lg p-3 border border-[#e2e8f0]">
                         <p className="text-xs font-medium text-[#718096] mb-1">{s.org} — {s.date}</p>
-                        <p className="text-sm text-[#1a2a4a] leading-relaxed">{s.questionText}</p>
+                        {s.questionText && (
+                          <p className="text-sm text-[#1a2a4a] leading-relaxed">{s.questionText}</p>
+                        )}
+                        {s.options && s.options.length > 0 && (
+                          <div className="mt-3 border-t border-[#e2e8f0] pt-3">
+                            <p className="text-xs font-medium text-[#718096] mb-2">
+                              Full spectrum (respondents chose the one option they favor most):
+                            </p>
+                            <table className="w-full text-xs border-collapse">
+                              <thead>
+                                <tr className="text-left text-[#718096]">
+                                  <th className="py-1 pr-3 font-medium">Option</th>
+                                  <th className="py-1 pr-2 font-medium text-right">Nat</th>
+                                  <th className="py-1 pr-2 font-medium text-right">Rep</th>
+                                  <th className="py-1 font-medium text-right">Dem</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {s.options.map((o, oi) => (
+                                  <tr
+                                    key={oi}
+                                    className={`border-t border-[#f1f5f9] ${o.inCombined ? "font-semibold text-[#1a2a4a]" : "text-[#4a5568]"}`}
+                                  >
+                                    <td className="py-1 pr-3">
+                                      {o.inCombined && <span aria-hidden="true" className="text-[#059669]">✓ </span>}
+                                      {o.label}
+                                    </td>
+                                    <td className="py-1 pr-2 text-right tabular-nums">{o.natPercent != null ? `${o.natPercent}%` : "–"}</td>
+                                    <td className="py-1 pr-2 text-right tabular-nums text-[#e91d1d]">{o.repPercent != null ? `${o.repPercent}%` : "–"}</td>
+                                    <td className="py-1 text-right tabular-nums text-[#1a56c4]">{o.demPercent != null ? `${o.demPercent}%` : "–"}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            {s.optionsNote && (
+                              <p className="mt-2 text-xs text-[#4a5568] leading-relaxed italic">{s.optionsNote}</p>
+                            )}
+                          </div>
+                        )}
                       </div>
                     )
                   ))}

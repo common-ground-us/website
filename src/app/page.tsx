@@ -400,13 +400,13 @@ function HomeHero() {
         <HeroCarousel />
         <div className="mt-4 pt-4 pb-1 border-t border-white/15">
           <Link
-            href="/finding-common-ground/"
+            href="/revealing-common-ground/"
             className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-medium text-[#e8b8be] hover:text-white transition-colors focus-visible:outline-white"
           >
             <span>
               New here? Start with the essay —{" "}
               <span className="font-semibold underline underline-offset-2">
-                Finding Common Ground
+                Revealing Common Ground
               </span>
             </span>
             <span aria-hidden="true">→</span>

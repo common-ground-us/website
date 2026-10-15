@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import "./finding-common-ground.css";
+import "./revealing-common-ground.css";
 
 export const metadata: Metadata = {
-  title: "Finding Common Ground",
+  title: "Revealing Common Ground",
   description:
     "Ordinary Americans have near-zero influence on federal policy when their views diverge from elites — yet across party lines we agree on far more than our politics suggests. Why Common Ground exists.",
-  alternates: { canonical: "/finding-common-ground/" },
+  alternates: { canonical: "/revealing-common-ground/" },
   openGraph: {
     type: "article",
-    title: "Finding Common Ground",
+    title: "Revealing Common Ground",
     description:
       "Across party lines, Americans agree on dozens of federal policies Congress doesn't act on. Common-Ground.US exists to make that agreement visible — and to act on it.",
     images: [{ url: "/og-image.png", width: 1200, height: 627 }],
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
 // planned free-tier sender).
 const PLEDGE = "/get-involved/?src=forward";
 
-export default function FindingCommonGroundPage() {
+export default function RevealingCommonGroundPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main id="main-content" className="flex-1">
         <article className="cg-essay">
           <p className="kicker">A note from the founder</p>
-          <h1>Finding Common Ground</h1>
+          <h1>Revealing Common Ground</h1>
           <p className="byline">By Keith Lietzke, Founder</p>
 
           <div className="tldr">

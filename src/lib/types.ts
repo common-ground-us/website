@@ -1,5 +1,13 @@
 // Types matching CGOAP_PolicyDatabase_v2.xlsx (5-sheet structure)
 
+export interface SurveyOption {
+  label: string;
+  natPercent: number | null;
+  repPercent: number | null;
+  demPercent: number | null;
+  inCombined?: boolean;
+}
+
 export interface SurveyResult {
   surveyType: string;
   org: string;
@@ -12,6 +20,8 @@ export interface SurveyResult {
   gap: number | null;
   metric: string;
   metricNote: string;
+  options?: SurveyOption[];
+  optionsNote?: string;
 }
 
 export interface ExternalPoll {

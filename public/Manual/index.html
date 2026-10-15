@@ -46,7 +46,7 @@
 <header class="top">
   <div class="inner">
     <h1>Common Ground — Operator Manual</h1>
-    <p>Your runbook for the website, working board, Tally, forum &amp; social. Private &amp; unlisted. Last updated Aug&nbsp;29, 2026.</p>
+    <p>Your runbook for the website, working board, Tally, forum &amp; social. Private &amp; unlisted. Last updated Oct&nbsp;7, 2026.</p>
   </div>
 </header>
 <div class="wrap">
@@ -59,7 +59,7 @@
       <li><a href="#big">How the pieces fit together</a></li>
       <li><a href="#website">The website</a></li>
       <li><a href="#board">The working board (private page)</a></li>
-      <li><a href="#tally">Tally — forms &amp; the pledge email</a></li>
+      <li><a href="#tally">Tally — forms &amp; the welcome email</a></li>
       <li><a href="#forum">The forum (Discourse)</a></li>
       <li><a href="#social">Social — LinkedIn &amp; X</a></li>
       <li><a href="#analytics">Analytics</a></li>
@@ -72,8 +72,8 @@
   <h2 id="big">1. How the pieces fit together</h2>
   <p>Five systems, loosely joined:</p>
   <ul>
-    <li><strong>The website</strong> (common-ground.us) — the public home for the Platform, essay, pledge, and look-up tool. Lives in a GitHub repo; Cloudflare publishes it automatically.</li>
-    <li><strong>Tally</strong> — hosts the actual forms embedded on the site (the Pledge + the three Contact forms) and sends the pledge welcome email.</li>
+    <li><strong>The website</strong> (common-ground.us) — the public home for the Platform, essay, Declaration, and look-up tool. Lives in a GitHub repo; Cloudflare publishes it automatically.</li>
+    <li><strong>Tally</strong> — hosts the actual forms embedded on the site (the Declaration + the three Contact forms) and sends the welcome email.</li>
     <li><strong>The forum</strong> (Discourse) — where discussion happens; linked from the site's Discuss button.</li>
     <li><strong>Social</strong> — LinkedIn (Company Page + your personal profile) and X (@Common1GroundUS).</li>
     <li><strong>The working board</strong> — the private project tracker, mirrored to a page on the site so you can check it from your phone.</li>
@@ -118,16 +118,16 @@
   </div>
 
   <!-- 4 -->
-  <h2 id="tally">4. Tally — forms &amp; the pledge email</h2>
+  <h2 id="tally">4. Tally — forms &amp; the welcome email</h2>
   <p>The forms on the site are Tally forms, embedded so visitors never leave common-ground.us.</p>
   <table class="kv">
-    <tr><td>Pledge form</td><td>ID <code>ZjArge</code> — embedded on <strong>Get Involved</strong>. On submit, the page sends the pledger to <code>/thank-you</code>.</td></tr>
+    <tr><td>Declaration form</td><td>ID <code>ZjArge</code> — embedded on <strong>Get Involved</strong>. On submit, the page sends the signer to <code>/thank-you</code>.</td></tr>
     <tr><td>Contact — General</td><td>ID <code>QKqlXX</code></td></tr>
     <tr><td>Contact — Press/Media</td><td>ID <code>Npx1gO</code></td></tr>
     <tr><td>Contact — Partners</td><td>ID <code>q4q1pg</code></td></tr>
   </table>
 
-  <h3>The pledge welcome email</h3>
+  <h3>The welcome email</h3>
   <ul>
     <li>Sent by Tally, requires <strong>Tally Pro ($29/mo)</strong> — free Tally can't send respondent email at all.</li>
     <li>Comes "from Keith Lietzke" via <code>notifications@tally.so</code>, reply-to <code>keith@common-ground.us</code>. The trust chart is a <em>link</em>, not an inline image (Tally can't embed images).</li>
@@ -138,7 +138,7 @@
   <ul>
     <li>Everyday changes (wording, fields, the email, the completion message): the <a href="https://tally.so/">Tally dashboard</a>.</li>
     <li>Two helper scripts read your Tally key from the local <code>.env.local</code> so nothing secret is exposed: <span class="bat">SHOW_TALLY_FORMS.bat</span> (lists your forms + IDs) and <span class="bat">INSPECT_TALLY_FORMS.bat</span> (dumps a form's structure for Claude to review).</li>
-    <li><strong>Clearing test pledges</strong> before you go wide: open the Pledge form's submissions in Tally and delete the test rows. (Ask Claude if you'd like a script to bulk-clean them.)</li>
+    <li><strong>Clearing test submissions</strong> before you go wide: open the Declaration form's submissions in Tally and delete the test rows. (Ask Claude if you'd like a script to bulk-clean them.)</li>
   </ul>
   <div class="note">The Contact forms confirm with Tally's own "Thanks" screen shown right on the Contact page — the site menu stays around it, so it's not a dead end. That's intended.</div>
 
@@ -166,11 +166,11 @@
     <li>New accounts get low reach and occasional "post unavailable" filtering — normal. Verifying a phone/email (free, in Settings) helps; the paid checkmark isn't needed.</li>
   </ul>
   <h3>The Thank-You "Boost" buttons</h3>
-  <p>After someone pledges, the Thank-You page invites them to reshare your launch posts. Those buttons point at specific LinkedIn and X posts. When you want them pointed at a <em>new</em> post, send Claude the new post URLs and it re-wires them (a quick site push).</p>
+  <p>After someone signs, the Thank-You page invites them to reshare your launch posts. Those buttons point at specific LinkedIn and X posts. When you want them pointed at a <em>new</em> post, send Claude the new post URLs and it re-wires them (a quick site push).</p>
 
   <!-- 7 -->
   <h2 id="analytics">7. Analytics</h2>
-  <p>GA4 + Google Tag Manager are wired into the site through Cloudflare (set up by Moorthy). Traffic and pledge conversions flow into GA4 automatically. Full read access / reporting is pending Moorthy's handoff — until then, ask Claude what's known and it'll help interpret what you can see.</p>
+  <p>GA4 + Google Tag Manager are wired into the site through Cloudflare (set up by Moorthy). Traffic and sign conversions flow into GA4 automatically. Full read access / reporting is pending Moorthy's handoff — until then, ask Claude what's known and it'll help interpret what you can see.</p>
 
   <!-- 8 -->
   <h2 id="secrets">8. Secrets &amp; safety rules</h2>
@@ -197,7 +197,7 @@
   <h3>Key links</h3>
   <table class="kv">
     <tr><td>Live site</td><td><a href="https://www.common-ground.us/">common-ground.us</a></td></tr>
-    <tr><td>Essay</td><td><a href="https://www.common-ground.us/finding-common-ground/">/finding-common-ground/</a></td></tr>
+    <tr><td>Essay</td><td><a href="https://www.common-ground.us/revealing-common-ground/">/revealing-common-ground/</a></td></tr>
     <tr><td>Working board</td><td><a href="https://www.common-ground.us/WorkingBoard/">/WorkingBoard/</a></td></tr>
     <tr><td>This manual</td><td><a href="https://www.common-ground.us/Manual/">/Manual/</a></td></tr>
     <tr><td>Tally</td><td><a href="https://tally.so/">tally.so</a></td></tr>

@@ -116,10 +116,10 @@
 .cg-platform .cmodal.open{display:flex}
 .cg-platform .cmback{position:absolute;inset:0;background:rgba(20,16,12,.55)}
 .cg-platform .cmbox{position:relative;background:var(--panel);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.35);width:min(940px,96vw);height:min(88vh,900px);overflow:hidden;display:flex;flex-direction:column}
-.cg-platform .rmodal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+.cg-platform .rmodal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .cg-platform .rmodal.open{display:flex}
-.cg-platform .rmback{position:absolute;inset:0;background:rgba(20,16,12,.45)}
-.cg-platform .rmsticky{position:relative;max-width:490px;width:100%;background:#fdf3c4;color:#3a3320;border:1px solid #e6d688;border-radius:6px;box-shadow:0 16px 44px rgba(0,0,0,.30);padding:24px 26px 20px;transform:rotate(-1deg);font-size:14.5px;line-height:1.55}
+.cg-platform .rmback{position:absolute;inset:0;background:rgba(20,16,12,.45);cursor:pointer}
+.cg-platform .rmsticky{position:relative;max-width:490px;width:100%;background:#fdf3c4;color:#3a3320;border:1px solid #e6d688;border-radius:6px;box-shadow:0 16px 44px rgba(0,0,0,.30);padding:24px 26px 20px;transform:rotate(-1deg);font-size:14.5px;line-height:1.55;max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .cg-platform[data-theme="dark"] .rmsticky{background:#4a4223;color:#f0e9cf;border-color:#6b5f2e}
 .cg-platform .rmsticky h2{font-family:Georgia,serif;font-size:20px;margin:0 0 10px}
 .cg-platform .rmsticky ul{margin:10px 0 4px;padding-left:20px}

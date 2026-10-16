@@ -6,8 +6,8 @@ import Image from "next/image";
 import { Menu, X } from "./icons";
 
 const ESSAY_LINK = {
-  href: "/revealing-common-ground/",
-  label: "Revealing Common Ground",
+  href: "/recognizing-common-ground/",
+  label: "Recognizing Common Ground",
 };
 
 // Desktop top row: the seven section links (essay lives on the 2nd row).

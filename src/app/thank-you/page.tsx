@@ -116,7 +116,7 @@ export default function ThankYouPage() {
               </p>
               <p className="prefer-link">
                 Prefer a link?{" "}
-                <a href="/revealing-common-ground/?src=forward">
+                <a href="/recognizing-common-ground/?src=forward">
                   Share the essay &rarr;
                 </a>
               </p>

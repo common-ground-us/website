@@ -19,7 +19,7 @@ const staticPaths = [
   "research/",
   "roadmap/",
   "get-involved/",
-  "revealing-common-ground/",
+  "recognizing-common-ground/",
   "contact/",
   "privacy/",
   "terms/",

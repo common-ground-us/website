@@ -125,10 +125,10 @@ export default function FounderPage() {
 
           <div className="mt-4">
             <Link
-              href="/revealing-common-ground/"
+              href="/recognizing-common-ground/"
               className="text-[#b22234] underline underline-offset-2 hover:no-underline"
             >
-              Read the fuller case → Revealing Common Ground
+              Read the fuller case → Recognizing Common Ground
             </Link>
           </div>
 

@@ -22,10 +22,13 @@
 /stand-up      /get-involved/  301
 /stand-up/     /get-involved/  301
 
-# --- Essay renamed: Finding Common Ground -> Revealing Common Ground ---
-# Emails already in distribution link the old path; 301 them to the new URL.
-/finding-common-ground   /revealing-common-ground/  301
-/finding-common-ground/  /revealing-common-ground/  301
+# --- Essay renamed -> Recognizing Common Ground ---
+# Two prior paths exist in the wild: /finding- (original, in distributed emails)
+# and /revealing- (briefly live). 301 both straight to the new URL (no chaining).
+/finding-common-ground     /recognizing-common-ground/  301
+/finding-common-ground/    /recognizing-common-ground/  301
+/revealing-common-ground   /recognizing-common-ground/  301
+/revealing-common-ground/  /recognizing-common-ground/  301
 
 # --- Vanity UTM links for no-clickable-link platforms (spec 4.1) ---
 # Short paths that 301 to home with the campaign UTM stamped automatically.

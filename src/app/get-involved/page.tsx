@@ -63,10 +63,10 @@ export default function GetInvolvedPage() {
               <p>
                 More information{" "}
                 <a
-                  href="/revealing-common-ground/"
+                  href="/recognizing-common-ground/"
                   className="text-[#b22234] underline underline-offset-2 hover:text-[#8e1b29]"
                 >
-                  &ldquo;Revealing Common Ground&rdquo; →
+                  &ldquo;Recognizing Common Ground&rdquo; →
                 </a>
               </p>
             </div>

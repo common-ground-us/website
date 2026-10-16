@@ -29,10 +29,10 @@ export default function NotFound() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
             <Link
-              href="/revealing-common-ground/"
+              href="/recognizing-common-ground/"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-[#1a2a4a] text-white font-semibold rounded-lg hover:bg-[#2a3f6e] transition-colors"
             >
-              Read &ldquo;Revealing Common Ground&rdquo;
+              Read &ldquo;Recognizing Common Ground&rdquo;
             </Link>
             <Link
               href="/get-involved/"

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 /* ── Element flags — off = not rendered ─────────────────────────────── */
 const FLAGS = {
-  pledgeList: true, // static note (no link) — "published in October"
+  pledgeList: true, // static note (no link) — "published this year"
   forward: true,
   shareLinkedin: true, // BOOST — live CG LinkedIn launch post (URLS.boostLinkedin)
   shareX: true, // BOOST — live CG X launch thread (URLS.boostX)
@@ -92,7 +92,7 @@ export default function ThankYouPage() {
           </div>
           {FLAGS.pledgeList && (
             <p className="quiet quiet-static">
-              Inaugural Declaration List to be published in October
+              Inaugural Declaration List to be published this year
             </p>
           )}
         </div>

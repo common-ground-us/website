@@ -22,12 +22,12 @@ const milestones = [
   },
   {
     title: "The Declaration List",
-    status: "Launching October 2026",
+    status: "Launching this year",
     body: "A public statement that government should respond to the Will of the People — and a growing, visible count of the citizens who stand behind it. The Declaration connects like-minded citizens across party lines so we can act in concert.",
   },
   {
     title: "Congress's Report Card",
-    status: "Coming October 2026",
+    status: "Coming this year",
     body: "A plain-language grade for how Congress as a whole is progressing on the Common Ground Planks — where it's delivering, and where it isn't. Facts for voters, grounded in shared data rather than partisan talking points.",
   },
   {

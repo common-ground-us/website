@@ -36,7 +36,7 @@ export default function GetInvolvedPage() {
           <p className="text-[#4a5568] leading-relaxed mb-4">
             Across party lines, Americans agree on far more than is commonly
             thought: dozens of specific federal policies with two-thirds support
-            in both parties. But agreement that stays private changes nothing. The
+            in both parties. But hidden agreement has no power. The
             Declaration is how that agreement becomes visible — and how citizens who
             share it find one another.
           </p>
@@ -77,6 +77,9 @@ export default function GetInvolvedPage() {
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a] mb-2">
               Sign the Declaration
             </h2>
+            <p className="font-display font-semibold text-lg text-[#1a2a4a] mb-3">
+              Agreement that stays private changes nothing.
+            </p>
             <p className="text-[#4a5568] leading-relaxed mb-5">
               It takes about 30 seconds. We ask only for what the Declaration List
               needs — your name and state — plus an email and ZIP so we can send

@@ -357,8 +357,8 @@ function HomeSearch() {
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 flex flex-col items-start gap-5">
             <p className="text-[#4a5568] leading-relaxed">
               The look-up tool is just the start. The Common Ground Platform is
-              now published, and Congress&apos;s Report Card follows in
-              October.{" "}
+              now published, and Congress&apos;s Report Card follows
+              this year.{" "}
               <Link
                 href="/roadmap/"
                 className="text-[#1a56c4] underline hover:no-underline"

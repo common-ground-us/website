@@ -176,6 +176,15 @@ export default function PlatformClient() {
         <div className="foot" id="foot" dangerouslySetInnerHTML={{ __html: FOOT_HTML }} />
         <div id="snapshot" dangerouslySetInnerHTML={{ __html: SNAPSHOT_HTML }} />
 
+        <div className="standcta">
+          <p className="standcta-lead">
+            Agreement that stays private changes nothing.
+          </p>
+          <a className="standcta-btn" href="/get-involved/">
+            Stand Up and Be Counted <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
         <div
           id="chartModal"
           className={"cmodal" + (chart ? " open" : "")}
@@ -231,7 +240,7 @@ export default function PlatformClient() {
                 the <b>Platform</b> — the policies and how we frame them. The{" "}
                 <b>Policy Status</b> column (where each policy stands) is early and
                 partly illustrative; that build-out continues, with publishing
-                expected in October.
+                expected this year.
               </li>
             </ul>
             <div className="rmfoot">

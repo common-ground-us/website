@@ -7,7 +7,7 @@ export const metadata = {
     absolute: "Contact | Common Ground — What Americans Want from Their Government",
   },
   description:
-    "Contact Common Ground — nonpartisan civic infrastructure making visible what Americans want from their government. Press, partnership, general inquiries.",
+    "Contact Common Ground — a nonpartisan civic resource making visible what Americans want from their government. Press, partnership, general inquiries.",
   alternates: { canonical: "/contact/" },
 };
 

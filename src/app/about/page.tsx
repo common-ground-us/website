@@ -7,7 +7,7 @@ export const metadata = {
     absolute: "About | Common Ground — What Americans Want from Their Government",
   },
   description:
-    "Common Ground is nonpartisan civic infrastructure curating peer-reviewed research on what Americans want from their government. About the initiative.",
+    "Common Ground is a nonpartisan civic resource curating peer-reviewed research on what Americans want from their government. About the initiative.",
   alternates: { canonical: "/about/" },
 };
 
@@ -27,8 +27,8 @@ export default function AboutPage() {
               What we are
             </h2>
             <p>
-              Common Ground is nonpartisan civic infrastructure — a public
-              resource that shows where Americans across party lines already agree
+              Common Ground is a nonpartisan civic resource — a public
+              tool that shows where Americans across party lines already agree
               on federal policy, and gives citizens a way to act on it together.
             </p>
             <p>

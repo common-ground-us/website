@@ -31,6 +31,7 @@ export default function RecognizingCommonGroundPage() {
         <article className="cg-essay">
           <p className="kicker">A note from the founder</p>
           <h1>Recognizing Common Ground</h1>
+          <p className="deck">The Agreement Hiding in Plain Sight</p>
           <p className="byline">By Keith Lietzke, Founder</p>
 
           <div className="tldr">
@@ -76,6 +77,10 @@ export default function RecognizingCommonGroundPage() {
             </a>
           </p>
           <p>
+            Note that this study pre-dates Citizens United, so it&rsquo;s not a new
+            problem.
+          </p>
+          <p>
             This is the structural failure of our democratic system. I don&rsquo;t
             think I&rsquo;m alone in asking if we can do something about it.
           </p>
@@ -90,7 +95,7 @@ export default function RecognizingCommonGroundPage() {
             <strong>But the empirical data completely invalidates that narrative.</strong>
           </p>
           <p>
-            When we step past the cultural silos – both manufactured and real – and
+            When we step past the cultural silos and
             focus on actual, concrete federal policies, there is widespread
             agreement. It is just being systematically drowned out and splintered.
           </p>
@@ -111,8 +116,8 @@ export default function RecognizingCommonGroundPage() {
             </a>{" "}
             documents{" "}
             <strong>
-              88 distinct federal policies with over two-thirds supermajority
-              support among <em>both</em> Republican and Democrat voters
+              88 distinct federal policies with more than two-thirds support
+              among <em>both</em> Republicans and Democrats
             </strong>
             . Yet, virtually none of them are moving through Congress.
           </p>
@@ -125,9 +130,19 @@ export default function RecognizingCommonGroundPage() {
 
           <h3>The Perception Gap</h3>
           <p>
-            Democrats assume a minority of Republicans favor stronger gun safety
-            regulations — actually two-thirds do. Republicans assume a majority of
-            Democrats want open borders — actually only a third do.
+            Democrats assume most Republicans don&rsquo;t want more done to keep
+            guns from dangerous people — in fact, nearly two-thirds do.
+            Republicans assume most Democrats don&rsquo;t support the right to bear
+            arms — in fact, about two-thirds do.
+          </p>
+          <p className="cite">
+            <a
+              href="https://www.moreincommon.com/media/0fmblxb3/the-perception-gap.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              More in Common, <em>The Perception Gap</em>, 2019
+            </a>
           </p>
           <p>
             This means the person you thought you&rsquo;d never agree with is
@@ -162,8 +177,8 @@ export default function RecognizingCommonGroundPage() {
               loading="lazy"
             />
             <figcaption>
-              Public trust in government has fallen from about 75% in 1958 to
-              roughly 17% today. (Pew Research Center)
+              Public trust in government has fallen from nearly three in four
+              Americans in 1958 to roughly 17% in 2025. (Pew Research Center)
             </figcaption>
           </figure>
           <p>
@@ -194,7 +209,7 @@ export default function RecognizingCommonGroundPage() {
             simple for anyone to explore the extensive policies backed by
             bipartisan-supermajority support. We don&rsquo;t author the research —
             that&rsquo;s done by leading academic institutions and top polling
-            specialists like Pew Research, Gallup and KFF.
+            specialists like Pew Research, Gallup and KFF (formerly Kaiser Family Foundation).
           </p>
           <p>
             The <a href="/platform/?src=forward">Common Ground Platform</a> is the
@@ -303,6 +318,8 @@ export default function RecognizingCommonGroundPage() {
               Heartfelt thanks,
               <br />
               <strong>Keith Lietzke</strong>
+              <br />
+              Founder, Common-Ground.US
             </p>
           </div>
         </article>

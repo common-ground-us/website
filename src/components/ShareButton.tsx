@@ -11,6 +11,9 @@ import { usePathname } from "next/navigation";
  * is unchanged.)
  */
 const FORUM_URL = "https://common-ground-us.discourse.group/";
+// Discourse forum paused (too little traffic for the free tier). Hide the
+// Discuss control site-wide until a new forum app is chosen (2026-10-26).
+const DISCUSS_ENABLED = false;
 
 function ShareIcon({ className }: { className?: string }) {
   return (
@@ -150,16 +153,18 @@ export default function ShareButton() {
         </div>
       )}
 
-      {/* Discuss */}
-      <button
-        onClick={() => setOpen((p) => (p === "discuss" ? null : "discuss"))}
-        aria-label="Discuss on the Common Ground forum"
-        aria-expanded={open === "discuss"}
-        title="Discuss"
-        className={`${fab} bg-[#b22234] hover:bg-[#9a1d2d] focus-visible:outline-[#b22234] touch-manipulation`}
-      >
-        <ChatIcon className="w-5 h-5" />
-      </button>
+      {/* Discuss — hidden while the forum is paused (DISCUSS_ENABLED) */}
+      {DISCUSS_ENABLED && (
+        <button
+          onClick={() => setOpen((p) => (p === "discuss" ? null : "discuss"))}
+          aria-label="Discuss on the Common Ground forum"
+          aria-expanded={open === "discuss"}
+          title="Discuss"
+          className={`${fab} bg-[#b22234] hover:bg-[#9a1d2d] focus-visible:outline-[#b22234] touch-manipulation`}
+        >
+          <ChatIcon className="w-5 h-5" />
+        </button>
+      )}
 
       {/* Share (suppressed on /thank-you) */}
       {!onThankYou && (

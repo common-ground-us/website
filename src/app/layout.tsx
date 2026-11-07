@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Mulish, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { Suspense } from "react";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
@@ -10,22 +10,32 @@ import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
-const mulish = Mulish({
+// Self-hosted (next/font/local) so the production build never depends on a
+// build-time fetch to Google Fonts — a Google Fonts hiccup used to fail the
+// Cloudflare build and block the deploy. These are Latin-subset variable
+// woff2 files (wght axis preserved); font files live in ./fonts.
+const mulish = localFont({
+  src: "./fonts/Mulish.woff2",
   variable: "--font-mulish",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: "400 800",
+  style: "normal",
+  display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "./fonts/Inter.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400 600",
+  style: "normal",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
+  src: "./fonts/JetBrainsMono.woff2",
   variable: "--font-jetbrains",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400 500",
+  style: "normal",
+  display: "swap",
 });
 
 const HOME_DESCRIPTION =

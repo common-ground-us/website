@@ -16,7 +16,7 @@ const SLIDES: Slide[] = [
   },
   {
     headline: "We are not as divided as it feels.",
-    body: "Democrats believe only 30% of Republicans support universal background checks. The real number: 75%.",
+    body: "Democrats think fewer than half of Republicans want more done to keep guns from dangerous people. In fact, nearly two in three do. Republicans think fewer than half of Democrats support the right to bear arms. In fact, two in three do.",
   },
   {
     headline: "The answer is in front of us.",

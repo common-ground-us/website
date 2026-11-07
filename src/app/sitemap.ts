@@ -16,6 +16,7 @@ const staticPaths = [
   "about/founder/",
   "governance/",
   "governance/full/",
+  "governance/platform-rationale/",
   "research/",
   "roadmap/",
   "get-involved/",

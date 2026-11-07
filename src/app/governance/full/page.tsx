@@ -223,7 +223,7 @@ export default function GovernanceFullPage() {
             <p>
               All qualifying policies — whether or not they appear in the Core
               Platform — are published in the Supporting Findings database, with
-              documented rationale for inclusion or exclusion. Citizens can examine
+              <Link href="/governance/platform-rationale/" className="text-[#1a56c4] underline hover:no-underline">documented rationale for inclusion or exclusion</Link>. Citizens can examine
               the full candidate pool, not just the final selection.
             </p>
             <p>

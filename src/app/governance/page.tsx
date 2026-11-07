@@ -113,8 +113,8 @@ export default function GovernancePage() {
               How the Platform is built
             </h2>
             <p>
-              The Common Ground Platform selects policies that meet three
-              criteria:
+              A policy qualifies for the Common Ground Platform only if it meets
+              all three of these criteria:
             </p>
             <ol>
               <li>
@@ -135,17 +135,23 @@ export default function GovernancePage() {
                 <strong className="text-[#1a2a4a]">
                   Respect for individual constitutional rights
                 </strong>{" "}
-                — the policy operates within the limits the Bill of Rights places
-                on government action.
+                — the policy stays within the limits the Bill of Rights places on
+                government action. This third criterion is the deliberate check on
+                the first two: rights protected by the Constitution are not subject
+                to majority vote, however large the majority.
               </li>
             </ol>
             <p>
-              The third criterion is not a caveat. It is a constitutional
-              constraint. A policy with overwhelming public support that would
-              abridge a right protected by the Bill of Rights has no place on the
-              Platform — however large the majority. American democracy was built
-              on two foundational commitments: democratic accountability and
-              individual liberty. The Platform honors both.
+              Meeting all three makes a policy eligible. From the pool of policies
+              that qualify, the clearest and most important are grouped into the
+              Core Platform&rsquo;s nine planks — and every qualifying policy,
+              whether or not it appears on a plank, is published with the reasoning
+              for its inclusion or exclusion.
+            </p>
+            <p>
+              American democracy was built on two foundational commitments:
+              democratic accountability and individual liberty — and the Platform
+              honors both.
             </p>
             <p>
               Majorities are not always right — especially on questions of
@@ -173,8 +179,13 @@ export default function GovernancePage() {
                 The source list and rationale for inclusion of each data source
               </li>
               <li>
-                Rationale for each plank&apos;s inclusion or exclusion from the
-                Core Platform
+                <Link
+                  href="/governance/platform-rationale/"
+                  className="text-[#1a56c4] underline hover:no-underline"
+                >
+                  Rationale for each plank&apos;s inclusion or exclusion from the
+                  Core Platform
+                </Link>
               </li>
               <li>
                 Scoring methodology and the reasoning behind every Report Card and

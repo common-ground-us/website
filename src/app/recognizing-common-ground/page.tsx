@@ -92,7 +92,7 @@ export default function RecognizingCommonGroundPage() {
             divided.
           </p>
           <p>
-            <strong>But the empirical data completely invalidates that narrative.</strong>
+            <strong>But the empirical data strongly contradicts that narrative.</strong>
           </p>
           <p>
             When we step past the cultural silos and
@@ -119,7 +119,7 @@ export default function RecognizingCommonGroundPage() {
               88 distinct federal policies with more than two-thirds support
               among <em>both</em> Republicans and Democrats
             </strong>
-            . Yet, virtually none of them are moving through Congress.
+            . Yet, almost none of them are moving through Congress.
           </p>
           <p>
             For example, universal background checks for gun purchases – banning
@@ -294,7 +294,7 @@ export default function RecognizingCommonGroundPage() {
           </div>
 
           <p>
-            The founders called this — this kind of government at the consent of the
+            The founders called this — this kind of government by the consent of the
             governed — the American experiment. It&rsquo;s still an experiment. Two
             hundred and fifty years in, it survives when Americans keep implementing
             it. Generation after generation. Not by heroic acts, but by the ordinary

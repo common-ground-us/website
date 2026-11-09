@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "./icons";
+import AppBackBar from "./AppBackBar";
 
 const ESSAY_LINK = {
   href: "/recognizing-common-ground/",
@@ -123,6 +124,8 @@ export default function Header() {
           </button>
         </div>
       </div>
+
+      <AppBackBar />
 
       {menuOpen && (
         <nav

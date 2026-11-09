@@ -35,7 +35,7 @@ export default function RecognizingCommonGroundPage() {
           <p className="byline">By Keith Lietzke, Founder</p>
 
           <div className="tldr">
-            <span className="tldr-tag">TL;DR</span>
+            <span className="tldr-tag">Quick Synopsis</span>
             <p>
               A landmark Princeton &amp; Northwestern analysis found that ordinary
               Americans have &ldquo;near-zero&rdquo; influence on federal policy

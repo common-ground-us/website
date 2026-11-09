@@ -8,9 +8,9 @@
 .cg-essay .byline { font-size: 15px; color: var(--color-text-muted); margin: 0 0 28px; }
 
 /* TL;DR callout */
-.cg-essay .tldr { background: #eef1f5; border-left: 4px solid var(--color-navy); border-radius: 8px; padding: 16px 18px; margin: 0 0 32px; }
-.cg-essay .tldr .tldr-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-navy); font-weight: 700; }
-.cg-essay .tldr p { font-size: 15px; line-height: 1.6; color: #384253; margin: 6px 0 0; }
+.cg-essay .tldr { background: #fdf6d9; border: 1px solid #efe3ad; border-radius: 10px; padding: 16px 18px; margin: 0 0 32px; }
+.cg-essay .tldr .tldr-tag { display: inline-block; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #7a5c12; font-weight: 700; margin: 0 0 3px; }
+.cg-essay .tldr p { font-size: 15px; line-height: 1.6; color: #384253; margin: 0; }
 
 .cg-essay h2 { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; font-weight: 800; color: var(--color-navy); letter-spacing: -.01em; margin: 40px 0 12px; }
 .cg-essay h3 { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.25; font-weight: 700; color: var(--color-navy); margin: 30px 0 10px; }

@@ -43,6 +43,39 @@
 # --- Legacy vanity link (kept as-is) ---
 /yt      https://www.common-ground.us/?utm_source=cg_official&utm_medium=youtube&utm_campaign=launch2026  301
 
+# --- Trusted Messenger personal short links (Link Tracking: campaign=messengers) ---
+# Each messenger has a code = first name + last initial. The BARE code -> the essay
+# (the link we most want shared); /home -> home; /sign -> the Declaration.
+# utm_source is ALWAYS lowercase so one person never splits into two in reports.
+# Cloudflare _redirects matching is CASE-SENSITIVE (verified live: /PLEDGE 404s), so
+# each code is listed in its shared form AND all-lowercase — covering clicked links
+# (case preserved) and typed links (usually lowercase). To add a messenger, copy one
+# 6-line block and swap the code + lowercase tag.
+# Rick Solomon  (RickS / ricks)
+/RickS/home   https://www.common-ground.us/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/RickS/sign   https://www.common-ground.us/get-involved/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/RickS        https://www.common-ground.us/recognizing-common-ground/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+/ricks/home   https://www.common-ground.us/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/ricks/sign   https://www.common-ground.us/get-involved/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/ricks        https://www.common-ground.us/recognizing-common-ground/?utm_source=ricks&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+
+# Mark Sorensen  (MarkS / marks)
+/MarkS/home   https://www.common-ground.us/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/MarkS/sign   https://www.common-ground.us/get-involved/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/MarkS        https://www.common-ground.us/recognizing-common-ground/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+/marks/home   https://www.common-ground.us/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/marks/sign   https://www.common-ground.us/get-involved/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/marks        https://www.common-ground.us/recognizing-common-ground/?utm_source=marks&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+# Mark Sorensen's earlier LONG link used utm_source=mark_sorensen — group it with 'marks' in reports.
+
+# Chris Mays  (ChrisM / chrism)
+/ChrisM/home   https://www.common-ground.us/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/ChrisM/sign   https://www.common-ground.us/get-involved/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/ChrisM        https://www.common-ground.us/recognizing-common-ground/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+/chrism/home   https://www.common-ground.us/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=home   301
+/chrism/sign   https://www.common-ground.us/get-involved/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=sign   301
+/chrism        https://www.common-ground.us/recognizing-common-ground/?utm_source=chrism&utm_medium=messenger&utm_campaign=messengers&utm_content=essay   301
+
 # NOTE: the old Netlify SPA catch-all (/* -> /index.html 200) is intentionally
 # dropped. This is a static export with a real HTML file per route, so the
 # catch-all is unnecessary and would mask genuine 404s.

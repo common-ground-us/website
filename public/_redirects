@@ -43,6 +43,11 @@
 # --- Legacy vanity link (kept as-is) ---
 /yt      https://www.common-ground.us/?utm_source=cg_official&utm_medium=youtube&utm_campaign=launch2026  301
 
+# --- Explainer video end-CTA (Link Tracking: campaign=explainer_video) ---
+# Shown at the end of the 4-min explainer video (reusable wherever the video
+# appears). Goes to the Declaration — the end-of-video action. Lowercase.
+/explainer   https://www.common-ground.us/get-involved/?utm_source=explainer_video&utm_medium=video&utm_campaign=explainer_video&utm_content=end_cta   301
+
 # --- Trusted Messenger personal short links (Link Tracking: campaign=messengers) ---
 # Each messenger has a code = first name + last initial. The BARE code -> the essay
 # (the link we most want shared); /home -> home; /sign -> the Declaration.

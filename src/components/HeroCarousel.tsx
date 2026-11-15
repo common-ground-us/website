@@ -12,7 +12,7 @@ type Slide = { headline: string; body: string };
 const SLIDES: Slide[] = [
   {
     headline: "What do Americans actually agree on?",
-    body: "Eighty-two federal policies. Supermajority support across party lines. Search and see.",
+    body: "Search the policies where supermajorities of Republicans and Democrats agree.",
   },
   {
     headline: "We are not as divided as it feels.",

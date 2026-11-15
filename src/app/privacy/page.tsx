@@ -75,6 +75,12 @@ export default function PrivacyPage() {
               suggestions. We do not use it for advertising and we do not sell or
               rent it to anyone.
             </p>
+            <p>
+              If the Declaration form asks how you found Common Ground, answering
+              is optional. We use that answer only to understand how people
+              discover Common Ground and to thank those who helped spread the
+              word, and we never show it publicly.
+            </p>
 
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
               Data Retention &amp; Your Choices

@@ -68,36 +68,51 @@ export default function PledgeEmbed() {
     }
 
     // Redirect the TOP window to /thank-you when the embedded form is submitted.
-    // Tally posts a message from its iframe on submit; the payload is a JSON
-    // string like {"event":"Tally.FormSubmitted","payload":{...}}. We accept it
-    // only from a tally.so origin and only for OUR form id.
+    // Tally posts a message from its iframe on submit; historically the payload
+    // is a JSON string like {"event":"Tally.FormSubmitted","payload":{...}}.
+    // We accept it only from a tally.so origin, and match the submit event
+    // leniently so a change in Tally's payload shape can't silently strand the
+    // signer (which is what broke the post-submit redirect in Nov 2026).
     let redirected = false;
+    const goThankYou = () => {
+      if (redirected) return;
+      redirected = true;
+      window.location.href = THANK_YOU_URL;
+    };
     const onMessage = (e: MessageEvent) => {
       if (redirected) return;
       if (typeof e.origin === "string" && !e.origin.includes("tally.so")) return;
+      // Log the raw message so a single test submission reveals Tally's exact
+      // event/payload shape if this ever needs re-diagnosing.
+      try {
+        console.info("[PledgeEmbed] tally message:", e.data);
+      } catch {}
       let type = "";
       let formId = "";
       try {
         if (typeof e.data === "string") {
           const parsed = JSON.parse(e.data);
           type = parsed?.event ?? "";
-          formId = parsed?.payload?.formId ?? "";
+          formId = parsed?.payload?.formId ?? parsed?.formId ?? "";
         } else if (e.data && typeof e.data === "object") {
-          const d = e.data as { event?: string; payload?: { formId?: string } };
+          const d = e.data as {
+            event?: string;
+            payload?: { formId?: string };
+            formId?: string;
+          };
           type = d.event ?? "";
-          formId = d.payload?.formId ?? "";
+          formId = d.payload?.formId ?? d.formId ?? "";
         }
       } catch {
-        // Not JSON we recognize; fall through to the string check below.
-        if (typeof e.data === "string" && e.data.includes("Tally.FormSubmitted")) {
-          type = "Tally.FormSubmitted";
-        }
+        // Not JSON — fall through to the raw-string check below.
       }
-      if (type !== "Tally.FormSubmitted") return;
+      const raw = typeof e.data === "string" ? e.data : "";
+      const isSubmit =
+        type === "Tally.FormSubmitted" || raw.includes("Tally.FormSubmitted");
+      if (!isSubmit) return;
       // If a formId is present, make sure it's ours; if absent, trust the origin.
       if (formId && formId !== TALLY_FORM_ID) return;
-      redirected = true;
-      window.location.href = THANK_YOU_URL;
+      goThankYou();
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
@@ -113,6 +128,27 @@ export default function PledgeEmbed() {
         title="Sign the Common Ground Declaration"
         style={{ border: 0, margin: 0 }}
       />
+      {/* Human fallback: if the auto-redirect to /thank-you ever fails (Tally
+          changing its postMessage, or a redirect-on-completion setting trying
+          to navigate the iframe into our X-Frame-Options: DENY wall), a signer
+          can still reach their next steps instead of being stranded. */}
+      <p
+        style={{
+          marginTop: 12,
+          fontSize: 13,
+          lineHeight: 1.5,
+          color: "#718096",
+        }}
+      >
+        After you submit, you&apos;ll be taken to your next steps automatically.
+        Already submitted and still seeing the form?{" "}
+        <a
+          href={THANK_YOU_URL}
+          style={{ color: "#b22234", textDecoration: "underline" }}
+        >
+          Continue here &rarr;
+        </a>
+      </p>
       <noscript>
         <a
           href={`https://tally.so/r/${TALLY_FORM_ID}`}

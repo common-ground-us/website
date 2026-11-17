@@ -36,6 +36,13 @@
   --breakpoint-lg: 1200px;
 }
 
+/* ─── Home page A/B test (home_story_first): A = carousel control, B = story-first.
+   data-hpvar is set on <html> pre-paint in layout.tsx; default (no attribute, or
+   "A") shows the control, so no-JS and pre-script renders fall back to A. ─── */
+.hp-variant-b { display: none; }
+html[data-hpvar="B"] .hp-variant-a { display: none; }
+html[data-hpvar="B"] .hp-variant-b { display: block; }
+
 /* ─── Base Styles ─── */
 @layer base {
   body {

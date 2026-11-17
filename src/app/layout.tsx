@@ -105,6 +105,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        {/* Home A/B test (home_story_first): assign A/B 50/50 on the first
+            homepage visit, keep it sticky via a 1-year cookie, and set
+            data-hpvar on <html> before paint so the chosen hero shows with no
+            flicker (CSS in globals.css). Control (A) is the default. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{var m=document.cookie.match(/(?:^|; )cg_hpvar=([AB])/);var v=m&&m[1];var p=location.pathname;var home=p==="/"||p==="/index.html";if(!v&&home){v=Math.random()<0.5?"A":"B";document.cookie="cg_hpvar="+v+";path=/;max-age=31536000;samesite=lax"}if(v){document.documentElement.setAttribute("data-hpvar",v)}}catch(e){}})();',
+          }}
+        />
         {GTM_ID && (
           <Script id="gtm-init" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}

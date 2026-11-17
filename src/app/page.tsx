@@ -397,20 +397,45 @@ function HomeHero() {
         <h1 className="font-display text-[15px] sm:text-[17px] leading-snug font-semibold text-[#c7cfdc] mt-0.5">
           What Americans Want from Their Government
         </h1>
-        <HeroCarousel />
-        <div className="mt-4 pt-4 pb-1 border-t border-white/15">
-          <Link
-            href="/recognizing-common-ground/"
-            className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-medium text-[#e8b8be] hover:text-white transition-colors focus-visible:outline-white"
-          >
-            <span>
-              New here? Start with the essay —{" "}
-              <span className="font-semibold underline underline-offset-2">
-                Recognizing Common Ground
+        {/* Home A/B test (home_story_first). Both variants render into the
+            static HTML; CSS (globals.css) shows one based on data-hpvar on
+            <html>, set pre-paint in layout.tsx. Default/no-JS shows A. */}
+        <div className="hp-variant-a">
+          <HeroCarousel />
+          <div className="mt-4 pt-4 pb-1 border-t border-white/15">
+            <Link
+              href="/recognizing-common-ground/"
+              className="inline-flex items-center gap-2 text-sm sm:text-[15px] font-medium text-[#e8b8be] hover:text-white transition-colors focus-visible:outline-white"
+            >
+              <span>
+                New here? Start with the essay —{" "}
+                <span className="font-semibold underline underline-offset-2">
+                  Recognizing Common Ground
+                </span>
               </span>
-            </span>
-            <span aria-hidden="true">→</span>
-          </Link>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+        <div className="hp-variant-b">
+          <div className="mt-4 sm:mt-5 pb-2 text-center max-w-[680px] mx-auto">
+            <p className="font-display text-[20px] sm:text-[28px] leading-[1.16] tracking-[-0.5px] font-extrabold text-white [text-wrap:balance]">
+              Americans agree on far more than they realize: 88 federal policies
+              with two-thirds support from Republicans and Democrats alike. So
+              why isn&apos;t any of it law?
+            </p>
+            <div className="mt-5">
+              <Link
+                href="/recognizing-common-ground/"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#e8b8be] text-[#1a2a4a] font-semibold rounded-lg hover:bg-white transition-colors focus-visible:outline-white"
+              >
+                Read the story <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <p className="font-sans text-[12px] sm:text-[13px] text-[#8e98a8] mt-4">
+              Program for Public Consultation, University of Maryland, 2026
+            </p>
+          </div>
         </div>
       </div>
     </section>

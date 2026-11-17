@@ -29,12 +29,17 @@ export function AnalyticsRouteTracker() {
   useEffect(() => {
     const query = searchParams.toString();
     const page_path = query ? `${pathname}?${query}` : pathname;
+    // Home A/B test variant (set by the sticky cg_hpvar cookie), attached to
+    // every page_view so story-reach — the essay page_view — can be broken down
+    // by arm (A vs B) in GA4 via a single `variant` custom dimension.
+    const variant = (document.cookie.match(/(?:^|; )cg_hpvar=([AB])/) || [])[1];
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "page_view",
       page_path,
       page_location: window.location.href,
       page_title: document.title,
+      ...(variant ? { variant } : {}),
     });
   }, [pathname, searchParams]);
 

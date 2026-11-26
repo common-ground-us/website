@@ -90,12 +90,31 @@ export default function GetInvolvedPage() {
 
             <p className="text-sm text-[#718096] mt-4">
               Privacy: your name and state are listed publicly on the Declaration List;
-              your email and ZIP are not.{" "}
+              your email and ZIP are not. You can opt out at any time.{" "}
               <a
                 href="/privacy/"
                 className="underline underline-offset-2 hover:text-[#4a5568]"
               >
                 Read our privacy policy
+              </a>
+              .
+            </p>
+            <p className="text-sm text-[#718096] mt-4 pt-4 border-t border-[#edf2f7]">
+              Changed your mind? Email{" "}
+              <a
+                href="mailto:service@common-ground.us?subject=opt-out"
+                className="underline underline-offset-2 hover:text-[#4a5568]"
+              >
+                service@common-ground.us
+              </a>{" "}
+              with &ldquo;opt-out&rdquo; and we&rsquo;ll remove you from the
+              Declaration List. To stop the quarterly emails but keep your name on
+              the List, send{" "}
+              <a
+                href="mailto:service@common-ground.us?subject=unsubscribe"
+                className="underline underline-offset-2 hover:text-[#4a5568]"
+              >
+                &ldquo;unsubscribe&rdquo;
               </a>
               .
             </p>

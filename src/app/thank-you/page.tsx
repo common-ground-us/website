@@ -95,6 +95,14 @@ export default function ThankYouPage() {
               Inaugural Declaration List to be published this year
             </p>
           )}
+          <p className="optout">
+            Signing isn&rsquo;t a one-way door. If Common Ground ever goes
+            somewhere you can&rsquo;t support, email{" "}
+            <a href="mailto:service@common-ground.us?subject=opt-out">
+              service@common-ground.us
+            </a>{" "}
+            with &ldquo;opt-out&rdquo; and we&rsquo;ll remove you.
+          </p>
         </div>
       </section>
 

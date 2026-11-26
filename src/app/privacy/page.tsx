@@ -88,7 +88,14 @@ export default function PrivacyPage() {
             <p>
               We keep form submissions only as long as needed for the purpose you
               contacted us about. If you&apos;d like us to delete information you
-              previously submitted, contact us and we will remove it.
+              previously submitted, email{" "}
+              <a
+                href="mailto:service@common-ground.us?subject=opt-out"
+                className="text-[#1a56c4] underline hover:no-underline"
+              >
+                service@common-ground.us
+              </a>{" "}
+              with &ldquo;opt-out&rdquo; and we will remove it.
             </p>
 
             <h2 className="text-2xl font-display font-bold text-[#1a2a4a]">
